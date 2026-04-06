@@ -26,14 +26,9 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy nginx/custom'){
             steps {
-                // Зупинити старий контейнер (якщо є)
-                sh "docker stop ${APP_NAME} || true"
-                sh "docker rm ${APP_NAME} || true"
-
-                // Запуск нового контейнера
-                sh "docker run -d --name ${APP_NAME} -p ${HOST_PORT}:80 ${IMAGE_NAME}"
+                sh "docker run -d -p 80:80 nginx/custom:latest"
             }
         }
     }
