@@ -1,34 +1,28 @@
 pipeline {
     agent any
 
-    environment {
-        APP_NAME = "my-nginx"
-        IMAGE_NAME = "nginx/custom:latest"
-        HOST_PORT = "8080" // можна змінити на будь-який вільний порт
-    }
-
     stages {
         stage('Start') {
             steps {
-                echo "Lab_1: ${IMAGE_NAME}"
+                echo 'Lab_1: nginx/custom'
             }
         }
 
-        stage('Build') {
+        stage('Build nginx/custom') {
             steps {
-                sh "docker build -t ${IMAGE_NAME} ."
+                sh 'docker build -t nginx/custom:latest .'
             }
         }
 
-        stage('Test') {
+        stage('Test nginx/custom') {
             steps {
-                echo 'Tests passed successfully'
+                echo 'Pass'
             }
         }
 
-        stage('Deploy nginx/custom'){
+        stage('Deploy nginx/custom') {
             steps {
-                sh "docker run -d -p 80:80 nginx/custom:latest"
+                sh 'docker run -d -p 80:80 nginx/custom:latest'
             }
         }
     }
