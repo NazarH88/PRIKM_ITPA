@@ -4,32 +4,30 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                echo 'Lab_1: nginx/custom'
+                echo 'Lab_2: started by GitHub'
             }
         }
 
-        stage('Build nginx/custom') {
+        stage('Image build') {
             steps {
-                echo 'Building Docker image...'
-                sh 'docker build -t nginx/custom:latest .'
+                sh "docker build -t prikm:latest ."
+                sh "docker tag prikm nazarh88/prikm:latest"
+                sh "docker tag prikm nazarh88/prikm:$BUILD_NUMBER"
             }
         }
 
-        stage('Test nginx/custom') {
+        stage('Push to registry') {
             steps {
-                echo 'Running tests...'
-                echo 'Pass'
+                withDockerRegistry([credentialsId: "dockerhub_token", url: ""]) {
+                    sh "docker push nazarh88/prikm:latest"
+                    sh "docker push nazarh88/prikm:$BUILD_NUMBER"
+                }
             }
         }
 
-        stage('Deploy nginx/custom') {
+        stage('Deploy image') {
             steps {
-                echo 'Deploying Docker container...'
-                // Зупиняємо старий контейнер, якщо він є
-                sh 'docker stop my-nginx || true'
-                sh 'docker rm my-nginx || true'
-                // Деплой нового контейнера
-                sh 'docker run -d -p 80:80 --name my-nginx nginx/custom:latest || true'
+                sh "docker run -d -p 80:80 nazarh88/prikm"
             }
         }
     }
