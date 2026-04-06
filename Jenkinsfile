@@ -22,7 +22,9 @@ pipeline {
 
         stage('Deploy nginx/custom') {
             steps {
-                sh 'docker run -d -p 80:80 nginx/custom:latest'
+                sh 'docker stop my-nginx || true'
+                sh 'docker rm my-nginx || true'
+                sh 'docker run -d --name my-nginx -p 8080:80 nginx/custom:latest'
             }
         }
     }
