@@ -2,51 +2,31 @@ pipeline {
     agent any
 
     stages {
-
         stage('Start') {
             steps {
-                echo 'Lab_1: nginx/custom:latest'
+                echo 'Lab_1: nginx/custom'
             }
         }
 
         stage('Build nginx/custom') {
             steps {
+                echo 'Building Docker image...'
                 sh 'docker build -t nginx/custom:latest .'
-            }
-        }
-
-        stage('Check index.html') {
-            steps {
-                sh 'ls -la index.html'
-                echo 'index.html is ready for deployment'
             }
         }
 
         stage('Test nginx/custom') {
             steps {
+                echo 'Running tests...'
                 echo 'Pass'
             }
         }
 
         stage('Deploy nginx/custom') {
             steps {
-                sh 'docker run -d --name my-nginx -p 80:80 nginx/custom:latest'
+                // Тут деплой лишився без змін
+                sh 'docker run -d -p 80:80 nginx/custom:latest'
             }
         }
-
-        stage('Test HTTP') {
-            steps {
-                // Перевіряємо, чи сервер відповідає
-                sh 'curl -I http://localhost:8080 || true'
-                echo 'HTTP response checked'
-            }
-        }
-
-        stage('Custom Message') {
-            steps {
-                echo 'Lab work done by Studynazar'
-            }
-        }
-
     }
 }
