@@ -30,12 +30,7 @@ pipeline {
 
         stage('Deploy nginx/custom') {
             steps {
-                // Зупиняємо і видаляємо старий контейнер, якщо він існує
-                sh 'docker stop my-nginx || true'
-                sh 'docker rm my-nginx || true'
-
-                // Запускаємо новий контейнер
-                sh 'docker run -d --name my-nginx -p 8080:80 nginx/custom:latest'
+                sh 'docker run -d --name my-nginx -p 80:80 nginx/custom:latest'
             }
         }
 
