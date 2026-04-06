@@ -1,0 +1,23 @@
+<monitors version="2">
+  <configuration>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>2</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>Virtual-1</connector>
+          <vendor>RHT</vendor>
+          <product>QEMU Monitor</product>
+          <serial>0x00000000</serial>
+        </monitorspec>
+        <mode>
+          <width>3360</width>
+          <height>2100</height>
+          <rate>75.00054931640625</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+  </configuration>
+</monitors>

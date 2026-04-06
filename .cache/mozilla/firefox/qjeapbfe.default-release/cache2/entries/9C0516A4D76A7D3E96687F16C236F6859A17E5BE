@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Blog &#8211; Webtide</title>
+	<atom:link href="https://webtide.com/blog/feed/" rel="self" type="application/rss+xml" />
+	<link>https://webtide.com</link>
+	<description>Jetty and CometD Experts</description>
+	<lastBuildDate>Thu, 08 Jan 2026 12:50:58 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.9.4</generator>
+
+<image>
+	<url>https://webtide.com/wp-content/uploads/2021/06/cropped-Favicon-32x32.png</url>
+	<title>Blog &#8211; Webtide</title>
+	<link>https://webtide.com</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>End of Life: Changes to Eclipse Jetty and CometD</title>
+		<link>https://webtide.com/end-of-life-changes-to-eclipse-jetty-and-cometd/</link>
+					<comments>https://webtide.com/end-of-life-changes-to-eclipse-jetty-and-cometd/#respond</comments>
+		
+		<dc:creator><![CDATA[Jesse McConnell]]></dc:creator>
+		<pubDate>Thu, 06 Nov 2025 15:36:17 +0000</pubDate>
+				<category><![CDATA[CometD]]></category>
+		<category><![CDATA[Jakarta]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Status]]></category>
+		<category><![CDATA[Webtide]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=5633</guid>
+
+					<description><![CDATA[Webtide (https://webtide.com) is the company behind the open-source Jetty and CometD projects. Since 2006, Webtide has fully funded the Jetty and CometD projects through services and support, including migration assistance, production support, developer assistance, and CVE resolution.&#160; First, the change. ...]]></description>
+										<content:encoded><![CDATA[
+<p>Webtide (https://webtide.com) is the company behind the open-source Jetty and CometD projects. Since 2006, Webtide has fully funded the Jetty and CometD projects through services and support, including migration assistance, production support, developer assistance, and CVE resolution.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading">First, the change.</h2>
+
+
+
+<p>Starting January 1, 2026, Webtide will no longer publish releases for Jetty 9, Jetty 10, and Jetty 11, as well as CometD 5, 6, and 7 to Maven Central or other public repositories.&nbsp;</p>
+
+
+
+<p>Take a look at the <a href="https://github.com/jetty/jetty.project/issues/13918">primary announcement</a> if you&#8217;re interested.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading">So, the motivation.</h2>
+
+
+
+<p>Why we are in this situation now harks back to the beginnings of Webtide. Briefly, Greg Wilkins founded the Jetty project in 1995 as part of a contest created by Sun Microsystems for a new language called Java. For a decade, he and Jan Bartel carefully stewarded the project as part of their consulting company Mort Bay Consulting. Around the Jetty 6 timeframe, in 2006, Webtide was founded as an LLC to evolve the project further commercially. Still, at its core, the goal was to support the incredible community that had developed over the years. When I joined in 2007, we began working to join the Eclipse Foundation. We took steps to formalize our development processes, aiming to add more commercial predictability to the open-source project. Joining the Eclipse Foundation also meant adhering to their rigorous IP policy for both the Jetty codebase and its dependencies, an essential step in improving corporate uptake.</p>
+
+
+
+<p>This was also the time for the project to handle the end-of-life process for Jetty 6, while establishing Jetty 7 and Jetty 8. This was the opportunity that Webtide needed to support the project&#8217;s development by offering commercial services and support for EOL Jetty 6, while focusing on supporting and funding the future of Jetty 7 and Jetty 8.&nbsp;</p>
+
+
+
+<p>It was the crux; after careful consideration, we decided that all commercial support releases would be open-source for the benefit of all. While not a traditional business decision, it aligned with our values and dedication to the community, which was rewarded as the community continued to grow its usage of Jetty.</p>
+
+
+
+<p>This worked wonderfully for almost 20 years. </p>
+
+
+
+<h2 class="wp-block-heading">Something shifted…</h2>
+
+
+
+<p>We started to notice a shift in the community a few years ago. For almost 20 years, the companies we spoke with valued how our support could help them become more successful, with many ultimately becoming customers who truly understood the benefits of supporting open-source. Every single one of them saw the value in releasing EOL releases freely. When I became CEO a decade ago and Webtide became 100% developer-owned and operated, we were able to continue operating in this commercial environment with ease, to such an extent that the future of Webtide and the Jetty project is assured for many years to come. </p>
+
+
+
+<p>So what changed? The tone of many&nbsp;companies we spoke to. Increasingly, while explaining the model that served Webtide well for so many years, where I used to hear ‘That makes so much sense, this works great!’, I now hear “So it&#8217;s just free? Great, I need to check a box.&#8221; Followed up with the galling question &#8220;Could you put this policy of yours in writing on your company letterhead?”.</p>
+
+
+
+<h2 class="wp-block-heading">And today?</h2>
+
+
+
+<p>Twenty years ago, things were different; Maven 2 dominance was emerging, and Maven Central was gaining ubiquity. Managing transitive dependencies was novel in many circles. Managing CVEs in a corporate setting was in its infancy, particularly with Java developer software stacks.&nbsp;</p>
+
+
+
+<p>Now, build tooling is diverse, Maven Central is a global central repository system, and corporations should have their own caching repository servers, <a href="https://openssf.org/blog/2025/09/23/open-infrastructure-is-not-free-a-joint-statement-on-sustainable-stewardship/">or they really should</a>! Even JavaEE was rebranded as Jakarta at the Eclipse Foundation. So much change, but the one I’ll highlight is the emergence of business units focused on corporate software policies, complete with BOM files containing ever more metadata and checkboxes to click, managing CVE risks associated with software developed internally. Developers, the primary people Webtide has interacted with over the years, are increasingly far removed from software maintenance activities.&nbsp;</p>
+
+
+
+<p>Now our approach to endlessly updating EOL releases seems remarkably outdated. Look at Jetty 9, which we have been releasing since 2013. It turns out our approach of making things as easy as possible for the community, for software that should have officially gone EOL years ago, was a benefit to many, but also enabled far more to grow complacent. Instead of scheduling migrations and updating to more recent versions, we inadvertently provided an environment that allowed companies to deploy onto software well over a decade old, when newer, more performant options were readily available. Then, when security postures started changing and businesses began looking deeper into their dependencies, they realized they were using outdated software, three or more major versions behind. Then, to our shock, many are perfectly fine with that so long as it is free and someone tells them it is ok.&nbsp;</p>
+
+
+
+<p>If we have learned one thing within this time, it is that the EOL policy needs to be so much clearer, using established industry terminology. Looking back, we have been guilty of inventing terminology and inadvertently exacerbating the situation.</p>
+
+
+
+<p>What is heartening is seeing other organizations work to address EOL as well; notably, MITRE has been developing changes to the CVE system to support EOL concepts fully. If you have ever seen the text &#8220;<a href="https://github.com/advisories?query=Unsupported+When+Assigned">Unsupported When Assigned</a>&#8221; in a CVE, then you have encountered the early efforts for EOL in a CVE.</p>
+
+
+
+<p>You have to applaud the efforts of businesses to prioritize security and sane open-source policies.</p>
+
+
+
+<p>However, this is also a call to open-source projects like Jetty, as we are operating in a different world. Everyone understands that &#8216;End-of-Life&#8217; does not mean &#8216;End-of-Use&#8217;. Clearly, the system for many companies has changed from a Developer Support perspective to a Security Support perspective. EOL Software support is purchased differently now. There are companies, like&nbsp;Sonar (formerly Tidelift), that exist to manage security metadata about open-source software, enabling companies to manage their software risk more effectively.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading">EOL Jetty and CometD by Webtide</h2>
+
+
+
+<p>To address this industry evolution, Webtide has launched a partnership program that enables businesses relying on EOL Jetty and CometD versions to obtain CVE resolutions officially and predictably.&nbsp;</p>
+
+
+
+<p>Webtide continues to resolve CVEs and issues for EOL Jetty and CometD in support of our commercial customers. However, the resulting binaries are now distributed directly to our commercial support customers and through our partnership network. No longer are we calling software EOL but deploying to Maven Central with a nod and a wink.</p>
+
+
+
+<p>Our partners are established leaders in the open-source EOL landscape, creating products that directly address the problems the security and business industries are facing.&nbsp;</p>
+
+
+
+<p>This synergy works perfectly with Webtide, as we are the company that offers services and support on Jetty and CometD. Migrations, developer assistance, production support, and performance are the things that directly influence the ongoing development of the open-source projects we steward. We can continue to focus on our strengths, and our partners can focus on theirs.</p>
+
+
+
+<h2 class="wp-block-heading">At last, the partners!</h2>
+
+
+
+<p>We are pleased to announce two partnerships. With these partners, you will be able to build a secure EOL solution for your software stack, not just for your usage of Jetty or CometD. Best yet, if you are interested in Webtide’s Lifecycle Support, you can use these partner versions in conjunction with our support!</p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="300" height="69" src="https://webtide.com/wp-content/uploads/2025/11/image.png" alt="" class="wp-image-5634"/></figure>
+
+
+
+<p>TuxCare secures the open-source software the world builds on. Today, we protect over 1.2 million workloads – keeping them secure, compliant, and unstoppable at scale. From operating systems to development libraries and production applications, we power your open-source stack with enterprise-grade security and support, including endless lifecycle extensions for out-of-support software versions, rebootless patching for every major Linux distribution, enterprise-optimized support for community Linux, and our Linux-first vulnerability scanner that cuts through the noise.</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://tuxcare.com/endless-lifecycle-support/jetty-eol-support/">ELS for Jetty</a></li>
+
+
+
+<li><a href="https://tuxcare.com/endless-lifecycle-support/cometd-eol-support/">ELS for CometD</a></li>
+</ul>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="300" height="71" src="https://webtide.com/wp-content/uploads/2025/11/image-1.png" alt="" class="wp-image-5635"/></figure>
+
+
+
+<p>HeroDevs provides secure, long-term maintenance for open-source frameworks that have reached End-of-Life. Through our Never-Ending Support (NES) initiative, we deliver continuous CVE remediation and compliance-grade updates, allowing your team to migrate at your own pace. Our engineers monitor upstream changes, backport verified fixes, and publish fully tested binaries for seamless drop-in replacement. With NES for Jetty and NES for CometD, you can stay secure, stable, and compliant—without refactoring or rushing a migration.</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.herodevs.com/support/nes-for-jetty">NES for Jetty</a></li>
+
+
+
+<li><a href="https://www.herodevs.com/support/nes-for-cometd">NES for CometD</a></li>
+</ul>
+
+
+
+<p>If your business is interested in our partner program, please direct inquiries to <a href="mailto:partnership@webtide.com">partnership@webtide.com</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Wrapping it up.</h2>
+
+
+
+<p>One important thing to note is that Webtide will continue to support the Jetty Project with a standard open-source release process, ensuring that older versions are released to provide the community with ample time to update to newer versions through a transition period. When Jetty 13 is released, Jetty 12.1 will continue to receive updates for a period, just as Jetty 12.0 does currently. If that is six months or a year, it remains to be seen. Once we finalize this release strategy with timelines, we will make sure the community is well-informed.</p>
+
+
+
+<p>Fundamentally, the change coming is that the End of Life versions for Jetty and CometD will no longer be an empty EOL notice and quiet deployments to Maven Central. It will mean EOL and provide established industry solutions to address those who need additional support.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://webtide.com/end-of-life-changes-to-eclipse-jetty-and-cometd/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Google App Engine Performance Improvements</title>
+		<link>https://webtide.com/google-app-engine-performance-improvements/</link>
+		
+		<dc:creator><![CDATA[Lachlan Roberts]]></dc:creator>
+		<pubDate>Fri, 19 Jul 2024 04:52:32 +0000</pubDate>
+				<category><![CDATA[HTTP]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Jetty12]]></category>
+		<category><![CDATA[performance]]></category>
+		<category><![CDATA[Servlets]]></category>
+		<category><![CDATA[App Engine]]></category>
+		<category><![CDATA[google]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=5259</guid>
+
+					<description><![CDATA[Over the past few years, Webtide has been working closely with Google to improve the usage of Jetty in the App Engine Java Standard Runtime. We have updated the GAE Java21 Runtime to use Jetty 12 with support for both ...]]></description>
+										<content:encoded><![CDATA[
+<p>Over the past few years, Webtide has been working closely with Google to improve the usage of Jetty in the <a href="https://github.com/GoogleCloudPlatform/appengine-java-standard" data-type="link" data-id="https://github.com/GoogleCloudPlatform/appengine-java-standard">App Engine Java Standard Runtime</a>. We have updated the GAE Java21 Runtime to use Jetty 12 with support for both EE8 and EE10 environments. In addition, a new <code>HttpConnector</code> mode has been added to increase the performance of all Java Runtimes, this is expected to result in significant cost savings from less memory and CPU usage.</p>
+
+
+
+<h2 class="wp-block-heading">Bypassing RPC Layer with HttpConnector Mode</h2>
+
+
+
+<p>Recently, we implemented a new mode for the Java Runtimes which bypasses the legacy gRPC layer which was previously needed to support the GEN1 runtimes. This legacy code path allowed support of the GEN1 and GEN2 Runtimes simultaneously, but had significant overhead; it used two separate Jetty Servers, one for parsing HTTP requests and converting to RPC, and another using a custom Jetty <code>Connector</code> to allow RPC requests to be processed by Jetty. It also required the full request and response content to be buffered which further increased memory usage.</p>
+
+
+
+<p>The new <code>HttpConnector</code> mode completely bypasses this RPC layer, thereby avoiding the overhead of buffering full request and response contents. Additionally, it removes the necessity of starting a separate Jetty Server, further reducing overheads and streamlining the request-handling process.</p>
+
+
+
+<h2 class="wp-block-heading">Benchmarks</h2>
+
+
+
+<p>Benchmarks conducted on the new <code>HttpConnector</code> mode have demonstrated significant performance improvements. Detailed results and documentation of these benchmarks can be found <a href="https://github.com/GoogleCloudPlatform/appengine-java-standard/blob/main/httpconnector.md" data-type="link" data-id="https://github.com/GoogleCloudPlatform/appengine-java-standard/blob/main/httpconnector.md">here</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img fetchpriority="high" decoding="async" width="1024" height="575" src="https://webtide.com/wp-content/uploads/2024/07/benchmark-results-1024x575.png" alt="" class="wp-image-5261" srcset="https://webtide.com/wp-content/uploads/2024/07/benchmark-results-1024x575.png 1024w, https://webtide.com/wp-content/uploads/2024/07/benchmark-results-300x169.png 300w, https://webtide.com/wp-content/uploads/2024/07/benchmark-results-768x432.png 768w, https://webtide.com/wp-content/uploads/2024/07/benchmark-results.png 1374w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2 class="wp-block-heading">Usage</h2>
+
+
+
+<p>To take advantage of the new <code>HttpConnector</code> mode, developers can set the <code>appengine.use.HttpConnector</code> system property in their <code>appengine-web.xml</code> file. </p>
+
+
+
+<pre class="wp-block-code"><code>&lt;system-properties&gt;
+    &lt;property name="appengine.use.httpconnector" value="true"/&gt;
+&lt;/system-properties&gt;</code></pre>
+
+
+
+<p>By adopting this configuration, developers can leverage the enhanced performance and efficiency offered by the new <code>HttpConnector</code> mode. This is available for all Java Runtimes from Java8 to Java21.</p>
+
+
+
+<p>This mode is currently an optional configuration but future plans are to make this the default for all applications.</p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Back to the Future with Cross-Context Dispatch</title>
+		<link>https://webtide.com/back-to-the-future-with-cross-context-dispatch/</link>
+					<comments>https://webtide.com/back-to-the-future-with-cross-context-dispatch/#respond</comments>
+		
+		<dc:creator><![CDATA[gregw]]></dc:creator>
+		<pubDate>Thu, 16 May 2024 01:31:21 +0000</pubDate>
+				<category><![CDATA[General]]></category>
+		<category><![CDATA[HTTP]]></category>
+		<category><![CDATA[http/2]]></category>
+		<category><![CDATA[http/3]]></category>
+		<category><![CDATA[Jakarta]]></category>
+		<category><![CDATA[Jetty12]]></category>
+		<category><![CDATA[Servlets]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=5190</guid>
+
+					<description><![CDATA[Cross-Context Dispatch reintroduced to Jetty-12 With the release of Jetty 12.0.8, we&#8217;re excited to announce the (re)implementation of a somewhat maligned and deprecated feature: Cross-Context Dispatch. This feature, while having been part of the Servlet specification for many years, has ...]]></description>
+										<content:encoded><![CDATA[
+<h1 class="wp-block-heading">Cross-Context Dispatch reintroduced to Jetty-12</h1>
+
+
+
+<p>With the release of Jetty 12.0.8, we&#8217;re excited to announce the (re)implementation of a somewhat maligned and deprecated feature: Cross-Context Dispatch. This feature, while having been part of the Servlet specification for many years, has seen varied levels of use and support. Its re-introduction in Jetty 12.0.8, however, marks a significant step forward in our commitment to supporting the diverse needs of our users, especially those with complex legacy and modern web applications.</p>
+
+
+
+<h2 class="wp-block-heading">Understanding Cross-Context Dispatch</h2>
+
+
+
+<p>Cross-Context Dispatch allows a web application to forward requests to or include responses from another web application within the same Jetty server. Although it has been available as part of the Servlet specification for an extended period, it was deemed optional with Servlet 6.0 of EE10, reflecting its status as a somewhat niche feature.</p>
+
+
+
+<p>Initially, Jetty 12 moved away from supporting Cross-Context Dispatch, driven by a desire to simplify the server architecture amidst substantial changes, including support for multiple environments (EE8, EE9, and EE10). These updates mean Jetty can now deploy web applications using either the <code>javax</code> namespace (EE8) or the <code>jakarta</code> namespace (EE9 and EE10), all using the latest optimized jetty core implementations of HTTP: v1, v2 or v3.</p>
+
+
+
+<h2 class="wp-block-heading">Reintroducing Cross-Context Dispatch</h2>
+
+
+
+<p>The decision to reintegrate Cross-Context Dispatch in Jetty 12.0.8 was influenced significantly by the needs of our commercial clients, some who still leveraging this feature in their legacy applications. Our commitment to supporting our clients&#8217; requirements, including the need to maintain and extend legacy systems, remains a top priority. </p>
+
+
+
+<p>One of the standout features of the newly implemented Cross-Context Dispatch is its ability to bridge applications across different environments. This means a web application based on the <code>javax</code> namespace (EE8) can now dispatch requests to, or include responses from, a web application based on the <code>jakarta</code> namespace (EE9 or EE10). This functionality opens up new pathways for integrating legacy applications with newer, modern systems.</p>
+
+
+
+<h2 class="wp-block-heading">Looking Ahead</h2>
+
+
+
+<p>The reintroduction of Cross-Context Dispatch in Jetty 12.0.8 is more than just a nod to legacy systems; it can be used as a bridge to the future of Java web development. By allowing for seamless interactions between applications across different Servlet environments, Jetty-12 opens the possibility of incremental migration away from legacy web applications. </p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://webtide.com/back-to-the-future-with-cross-context-dispatch/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>If Virtual Threads are the solution, what is the problem?</title>
+		<link>https://webtide.com/if-virtual-threads-are-the-solution-what-is-the-problem/</link>
+		
+		<dc:creator><![CDATA[gregw]]></dc:creator>
+		<pubDate>Wed, 18 Oct 2023 21:22:18 +0000</pubDate>
+				<category><![CDATA[General]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Loom]]></category>
+		<category><![CDATA[OpenJDK]]></category>
+		<category><![CDATA[performance]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[Virtual Threads]]></category>
+		<category><![CDATA[Asynchronous]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jetty]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4990</guid>
+
+					<description><![CDATA[Java&#8217;s Virtual Threads (aka Project Loom or JEP 444) have arrived as a full platform feature in Java 21, which has generated considerable interest and many projects (including Eclipse Jetty) are adding support. I have previously been somewhat skeptical about ...]]></description>
+										<content:encoded><![CDATA[
+<p>Java&#8217;s Virtual Threads (aka Project Loom or <a href="https://openjdk.org/jeps/444">JEP 444</a>) have arrived as a full platform feature in <a href="https://openjdk.org/projects/jdk/21/">Java 21</a>, which has generated considerable interest and many projects (including <a href="https://github.com/Jetty/Jetty.project">Eclipse Jetty</a>) are adding <a href="https://webtide.com/Jetty-12-virtual-threads-support/">support</a>. </p>
+
+
+
+<p>I have previously been <a href="https://webtide.com/do-looms-claims-stack-up-part-1">somewhat skeptical</a> about how significant any advantages Virtual Threads actually have over Platform Threads (aka Native Threads). I&#8217;ve also pointed out that <a href="https://webtide.com/do-looms-claims-stack-up-part-2/">cheap Threads can do expensive things</a>, so that using Virtual Threads may not be a universal panacea for concurrent programming.</p>
+
+
+
+<p>However, even with those doubts, it is clear that Virtual Threads do have advantages in memory utilization and speed of startup.   In this blog we look at what kinds of applications may benefit from those advantages.  </p>
+
+
+
+<p>In short  we investigate what scalability problems are Virtual Threads the solution for.</p>
+
+
+
+<h3 class="wp-block-heading">Axioms</h3>
+
+
+
+<p>Firstly let&#8217;s agree on what is accepted about Virtual Thread usage:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Writing asynchronous code is extraordinary difficult. &#8220;Yeah I know&#8221; you say… yeah but no, it is harder than that! Avoiding the need to write application logic in asynchronous style is key to improving the quality and stability of an application. This blog is not generally advocating you write your applications in an asynchronous style.</li>
+
+
+
+<li>Virtual Threads are very cheap to create. From a performance perspective there is no reason to pool already started Virtual Threads and such pools are considered an anti pattern. If a Virtual Thread is needed, then just create a new one.</li>
+
+
+
+<li>Virtual Threads use less memory. This is accepted, but with some significant caveats. Specifically the memory saving is achieved because Virtual Threads only allocate stack memory as needed, whilst Platform Threads provision stack size based on a worst case maximal usage.  This is not exactly an apples vs oranges comparison.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">If some are good, are more even better?</h2>
+
+
+
+<p>Consider a blocking style application is running on a traditional application server that is not scaling sufficiently. On inspection you see that all the Threads in the pool (default size 200) are allocated and that there are no Threads available to do more work!</p>
+
+
+
+<p>Would making more Threads available be the solution to this scalability problem? Perhaps 2000 Platform Threads will help? Still slow? Let&#8217;s try 10,000 Platform Threads! Running out of memory? Then perhaps unlimited Virtual Threads will solve the scalability problems? </p>
+
+
+
+<p>What if on further inspection it is found that the pool Threads are mostly blocked waiting for a JDBC Database connection from the JDBC Connection Pool (default size 8) and that as a result the Thread pool is exhausted. </p>
+
+
+
+<p>If every request needs the database, then any additional Threads will all just block on the same JDBC pool, thus more Threads will not make a more Scalable solution.   </p>
+
+
+
+<p>Alternatively, if only some requests need to use the database, then having more Threads would allow request that do not need the database to proceed to completion.  However, a fraction of requests would still end up blocked on the JBDC pool.  Thus any limited Platform Thread pool could still become exhausted.  </p>
+
+
+
+<p>With unlimited Virtual Threads there is no effective limit on the number of Threads, so non database requests could always continue, but the queue of Threads waiting on JBDC would also be unlimited as would the total of any resources held by those Threads whilst waiting.  Thus the application would only scale for some types of request, whilst giving JDBC dependent requests the same poor Quality of Service as before.</p>
+
+
+
+<h3 class="wp-block-heading">Finite Resources</h3>
+
+
+
+<p>If an application&#8217;s scalability is constrained by access to a finite resource, then it is unlikely that &#8220;more Threads&#8221; is the solution to any scalability problems. Just like you can&#8217;t solve traffic by adding cars to a congested road, adding Threads to an already busy server may make things worse.</p>
+
+
+
+<p>Some common examples of finite resources that applications can encounter are:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>CPU</strong>: If the server CPU is near 100% utilization, then the existing number of Threads are sufficient to keep it fully loaded. More and/or faster CPUs are needed before any increase in Threads could be beneficial.</li>
+
+
+
+<li><strong>Database</strong>: Many database technologies cannot handle many concurrent requests, so parallelism is restricted. If the bottleneck is the database, then it needs to be re-engineered rather than laid siege to by more concurrent Threads.</li>
+
+
+
+<li><strong>Local Network</strong>: An application may block reading or writing data because it has reached the limit on the local network. In such cases, more Threads will not increase throughput, but they might improve latency if some threads can progress reading new requests and have responses ready to write once network becomes less congested. However there is a cost in waiting (see below).</li>
+
+
+
+<li><strong>Locks</strong>: Parallel applications often use some form of lock or mutual exclusion to serialize access to common data structures.   Contention on those locks can limit parallelism and require redesign rather than just more Threads.</li>
+
+
+
+<li><strong>Caches</strong>: CPU, memory, file system and object caches are key tools in speeding up execution. However, if too many different tasks are executed concurrently, the capacity of these caches to hold relevant data may be exceeded and execution with a cold cache can be <a href="https://webtide.com/avoiding-parallel-slowdown-in-jetty-9/">very slow</a>.  Sometimes it is better to do less things concurrently and serialize the excess so that caches can be more effective that trying to do everything at once.</li>
+</ul>
+
+
+
+<p>If an application&#8217;s lack of scalability is due to Threads waiting for finite resources, then any additional Threads (Platform or Virtual) are unlikely to help and may make your application less stable. At best, careful redesign is needed before Thread counts can be increased in any advantageous way.</p>
+
+
+
+<h3 class="wp-block-heading">Infinite (OK Scalable) Resources</h3>
+
+
+
+<p>Not all resources are finite and some can be considered infinite, at least for some purposes. But let&#8217;s call them &#8220;Scalable&#8221; rather than infinite. Examples of scalable resources that an application may block on include:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Database</strong>: Not all databases are created equal and some types of database have scalability in excess of the request rates experienced by a server. However, such scalability often comes at a latency cost as the database may be remote and/or distributed, thus applications may block waiting for the database, even if it has capacity to handle more requests in parallel.</li>
+
+
+
+<li><strong>Micro services</strong>: A scalable database is really just a specific example of a micro service that may be provided by a remote and/or distributed system that has effectively infinite capacity at the cost of some latency. Applications can often find themselves waiting on one or more such services.</li>
+
+
+
+<li><strong>Remote Networks</strong>: Local data center networks are often very VERY fast and in many situations they can outstrip even the combined capacity of many client systems. An application sending/receiving larger content may  may block writing/reading them due to a slow client, but still have enough local network capacity to communicate with many other clients in parallel.</li>
+
+
+
+<li><strong>Local Filesystems</strong>: Typically file systems are faster than networks, but slower than CPU. They also may have significant latency vs throughput tradeoffs (less so now that drives seldom need to spin physical disks). Thus Threads may block on local IO even though there is additional capacity available.</li>
+</ul>
+
+
+
+<p>Applications that lack scalability due to Threads waiting for such scalable resources may benefit from more Threads. Whilst some Threads are waiting for the a database, micro service,  slow client network or  file system, it is likely that other Threads can progress even if they need to access the same types of resources.</p>
+
+
+
+<p>Platform Threads pools can easily be increased to many 1000&#8217;s or more before typical servers will have memory issues. If scalability is needed beyond that, then Virtual Threads can offer practically unlimited additional Thread, but see the caveats below.</p>
+
+
+
+<p>Furthermore, the fast starting Virtual Threads can be of significant benefit in situations where small jobs with long latency can be carried out in parallel. Consider an application that processes request using data from several micro services, each with some access latency. If these are done serially, then the total request latency is the summation of all. Sometimes asynchronous code is used to execute micro service request in parallel, but spinning up a couple of Virtual Threads in this situation is simpler, less error prone and applicable to more APIs.</p>
+
+
+
+<h3 class="wp-block-heading">Too Much of a Good Thing?</h3>
+
+
+
+<p>There is also some concern with low latency scalable resources that seldom block with Virtual Threads. Since Virtual Threads are not preempted, there can be starvation and/or fairness problems if they are not blocked by slow resources. This is probably a good problem to have, but will need some management on extreme scales for some applications.</p>
+
+
+
+<h3 class="wp-block-heading">The Cost of Waiting</h3>
+
+
+
+<p>We have identified that there are indeed scalable resources on which an application may wait with many Threads. However, there is <a href="https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch">no such thing as a free lunch</a> and waiting Threads may have a significant cost, even if they are Virtual. Specifically how/where an application waits can greatly affect resource usage.</p>
+
+
+
+<p>Consider a traditional application server with a limited Thread pool that is running near capacity, but with additional demand. While the 200 odd Threads are busy handling 200 concurrent request, there are additional request waiting to be handled. However, in an asynchronous server like Jetty, those additional requests can be cheaply parked and may be represented just be a single set bit in a selector or perhaps a tiny entry in a queue that holds only a reference to a connection that is ready to be read.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="737" height="306" src="https://webtide.com/wp-content/uploads/2023/10/Native-Threads.png" alt="" class="wp-image-5010" srcset="https://webtide.com/wp-content/uploads/2023/10/Native-Threads.png 737w, https://webtide.com/wp-content/uploads/2023/10/Native-Threads-300x125.png 300w" sizes="(max-width: 737px) 100vw, 737px" /></figure>
+
+
+
+<p></p>
+
+
+
+<p>Now consider if requests were serviced by Virtual Threads instead of waiting for a pooled Platform Thread to become available. Pending requests would be allowed to proceed to some blocking point in the application. Waiting like this within the application can have additional expenses including:</p>
+
+
+
+<ul class="wp-block-list">
+<li>An input buffer will be allocated to read the request and any content it has.</li>
+
+
+
+<li>A read is performed into the input buffer, thus removing network back pressure so a client is enabled to send more request/data even if the server is unable to handle them.</li>
+
+
+
+<li>An object representation of the request will be built, containing at least the meta data and frequently some application data if there is an XML or JSON payload</li>
+
+
+
+<li>Sessions may be activated and brought into memory from caches or passivation stores.</li>
+
+
+
+<li>The allocated Thread runs deep inside the application code, potentially reaching near maximal stack depth.</li>
+
+
+
+<li>Application objects created on the heap are held in memory with references from the stack.</li>
+
+
+
+<li>An output buffer may be allocated, along with additional character conversion resources.</li>
+</ul>
+
+
+
+<p>When request handling blocks within the application, all these additional resources may be allocated and held during that wait.  Worse still, because of the lack of back pressure, a client may send more request/data resulting in more Threads and associated resources being allocated and also being held whilst the application waits for some resource.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="737" height="337" src="https://webtide.com/wp-content/uploads/2023/10/Virtual-Threads-1.png" alt="" class="wp-image-5011" srcset="https://webtide.com/wp-content/uploads/2023/10/Virtual-Threads-1.png 737w, https://webtide.com/wp-content/uploads/2023/10/Virtual-Threads-1-300x137.png 300w" sizes="(max-width: 737px) 100vw, 737px" /></figure>
+
+
+
+<p></p>
+
+
+
+<h3 class="wp-block-heading">Provisioning for the Worst Case</h3>
+
+
+
+<p>We have seen that there are indeed applications that may benefit from having additional Threads available to service requests. But we have also seen that such additional Threads may incur additional costs beyond just the stack size. Waiting/Blocking within an application will typically be done with a deep stack and other resources allocated. Whilst Virtual Threads might be effectively infinite, it is unlikely that these other required resources are equally scalable.  </p>
+
+
+
+<p>When an application experiences a worst case peak in load, then ultimately some resource will run out.  To provide good Quality of Service, it is vital that such resource exhaustion is handled gracefully, allowing some request handling to continue rather than suffering catastrophic failure.</p>
+
+
+
+<p>With traditional Platform Thread based pools, stack memory is already provisioned for worst case stacks for all Threads and the thread pool sized limit is also an indirect limit on the number of concurrent resources used. Threads have sufficient resources available to complete there handling whilst any excess requests suffer latency whilst waiting cheaply for an available Thread. Furthermore, the back pressure resulting from not reading all offered requests can prevent additional load from sent by the clients. Thread limits are imperfect resource limits, but at least they are some kind of limit that can provide some graceful degradation under load.</p>
+
+
+
+<p>Alternatively, an application using Virtual Threads that has no explicit resource management will be likely to exhaust some of the resources used by those Threads. This can result in an <code>OutOfMemoryException</code> or similar, as the unlimited Virtual Threads each allocate deep stacks and other resources needed for request handling.  The cost of average memory savings may be insufficient provisioning for the worst case resulting in catastrophic failure rather than graceful degradation. An analogy is that building more roads can actually make traffic worse if the added cars overwhelm other infrastructure.</p>
+
+
+
+<p>Many applications are written without explicit resource limitations/management. Instead they rely on the imperfect Thread pool for at least some minimal protection. If that is removed, then some form of explicit resource limitation/management is likely to be needed in its place. Stable servers need to be provisioned for the worst case, not the average one.</p>
+
+
+
+<h3 class="wp-block-heading">Conclusion</h3>
+
+
+
+<p>There are applications that can scale better if more Threads are available, but it is not all applications (at least not without significant redesign).  Consideration needs to be given to what will limit the worst case load for a server/application if it is not to be Threads. Specifically, the costs of waiting within the application may be such that scalability is likely to have a limit that will not be enforced by practically infinite Virtual Threads.</p>
+
+
+
+<p>It may be that resources have limitations well within the capacity of large but limited Platform Thread pools, which are perfectly capable of scaling to many thousands of threads.   So experiments with scaling a Platform Thread pool should first be used to see what limits do apply to an application.</p>
+
+
+
+<p>If no upper limit is found before Platform Threads exhaust kernel memory, then Virtual Threads will allow scaling beyond that limit until some other limit is found. Thus the ultimate resource limit will need to be explicitly managed if catastrophic failure is to be avoided (but, to be fair, applications using Thread pools should also do some explicit resource limit management rather than rely just on the course limits of a Thread pool).</p>
+
+
+
+<h3 class="wp-block-heading">Recommendation</h3>
+
+
+
+<p>If Virtual Threads are not the general solution to scalability then what is? There is no one-size-fits-all solution, but I believe many applications that are limited by blocking on the network would benefit from being deployed in a server like Eclipse Jetty, that can do much of the handling for them asynchronously. Let <a href="https://github.com/jetty/jetty.project/blob/jetty-12.0.2/jetty-ee10/jetty-ee10-servlet/src/main/java/org/eclipse/jetty/ee10/servlet/EagerFormHandler.java">Jetty read your requests asynchronously</a> and prepare the content as parsed JSON, XML, or form data. Only then allocate a Thread (Virtual or Platform) with a large output buffer so the application can be written in blocking style, but will not block on either reading the request or writing the response. Finally, once the response is prepared, then let Jetty flush it to the network asynchronously.  Jetty has always somewhat supported this model (e.g. by delaying dispatch to a Servlet until the first packet of data arrives), but with <a href="https://github.com/jetty/jetty.project/blob/jetty-12.0.2/jetty-core/jetty-server/src/main/java/org/eclipse/jetty/server/FormFields.java#L94">Jetty-12 we are adding more mechanisms</a> to asynchronously prepare requests and flush responses, whilst leaving the application written in blocking style. More to come on this in future blogs!</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Security Audit with Trail of Bits</title>
+		<link>https://webtide.com/security-audit-with-trail-of-bits/</link>
+		
+		<dc:creator><![CDATA[Jesse McConnell]]></dc:creator>
+		<pubDate>Wed, 18 Oct 2023 15:00:27 +0000</pubDate>
+				<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Jetty12]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[eclipse]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jetty]]></category>
+		<category><![CDATA[security]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=5015</guid>
+
+					<description><![CDATA[Several months ago, the Eclipse Foundation approached the Eclipse Jetty project with the offer of a security audit. The effort was being supported through a collaboration with the Open Source Technology Improvement Fund (OSTIF), with the actual funding coming from ...]]></description>
+										<content:encoded><![CDATA[
+<p>Several months ago, the Eclipse Foundation approached the Eclipse Jetty project with the offer of a security audit. The effort was being supported through a collaboration with the<a href="https://ostif.org/"> Open Source Technology Improvement Fund</a> (OSTIF), with the actual funding coming from the<a href="https://openssf.org/community/alpha-omega/"> Alpha-Omega</a> Project.</p>
+
+
+
+<p>Upon reflection, this collaboration could not have come at a better time for the Jetty open-source project. Completing this security audit before the first release of Jetty 12 was serendipitous. While the collaboration results with Trail of Bits are just now being published, the work has primarily been completed for a couple of months.&nbsp;</p>
+
+
+
+<p>When we started this audit effort, Jetty 12 was quickly shaping up to be one of the most exciting releases we have ever worked on in the history of Jetty. Support for protocols like HTTP/3 further refined the internals of Jetty to be a modern, scalable network component. Coupling that with a refactoring of the internals to remove strict dependency on Servlet Request and Response objects, the core of Jetty became a more general server component with scalable and performant applications being able to be developed directly in Jetty without the strict requirement for Servlets. This ultimately allowed us to add a new Environment concept that supports multiple versions of the Servlet API on the same Jetty server simultaneously; mixing javax.servlet and jakarta.servlet on the same server allows for many exciting options for our users.</p>
+
+
+
+<p>However, these changes and exciting new features mean that quite a bit has changed, and when many moving parts are evolving, there is always a risk of unwanted behaviors.</p>
+
+
+
+<p>Our committers had low expectations of what this engagement would lead to, as our previous experience with various code analysis tooling often resulted in too many false positives.&nbsp; Part of the prep work to start this review required us to draw an appropriate-sized box around the Jetty project code where we felt a review was most warranted. It should come as no surprise that much of this code is some of the more nuanced and complex with Jetty. So, throwing caution to the wind, we prepared and submitted the paperwork.</p>
+
+
+
+<p>We could not have been more pleased with how the engagement proceeded from here.<a href="https://www.trailofbits.com/"> Trail of Bits</a> was chosen as the company to perform the review, and it met and exceeded our expectations by far. Sitting down with their engineers, it was apparent they were excited to be working on an open-source project of Jetty’s maturity, and when their work was completed, they demonstrated a much more complete understanding of the reviewed code than the Jetty team expected.</p>
+
+
+
+<p>Ultimately, we could not have been happier with how this effort was executed. The Eclipse Jetty project members are very thankful to the Eclipse Foundation, OSTIF, and Trail of Bits for making this collaboration a resounding success!</p>
+
+
+
+<p></p>
+
+
+
+<p>Other References</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://github.com/trailofbits/publications/blob/master/reviews/2023-03-eclipse-jetty-securityreview.pdf">Trail of Bits Report</a></li>
+
+
+
+<li><a href="https://blogs.eclipse.org/post/mika%C3%ABl-barbero/eclipse-jetty-security-audit-has-been-completed">Eclipse Blog</a> </li>
+
+
+
+<li><a href="https://ostif.org/ostif-has-completed-an-audit-of-jetty/" data-type="link" data-id="https://ostif.org/ostif-has-completed-an-audit-of-jetty/">OSTIF Blog</a></li>
+</ul>
+
+
+
+<p></p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>New Jetty 12 Maven Coordinates</title>
+		<link>https://webtide.com/new-jetty-12-maven-coordinates/</link>
+		
+		<dc:creator><![CDATA[Joakim Erdfelt]]></dc:creator>
+		<pubDate>Wed, 20 Sep 2023 21:42:07 +0000</pubDate>
+				<category><![CDATA[General]]></category>
+		<category><![CDATA[Jakarta]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Jetty12]]></category>
+		<category><![CDATA[Maven]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[jakartaee]]></category>
+		<category><![CDATA[jetty]]></category>
+		<category><![CDATA[jetty12]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4933</guid>
+
+					<description><![CDATA[Now that Jetty 12.0.1 is released to Maven Central, we&#8217;ve started to get a few questions about where some artifacts are, or when we intend to release them (as folks cannot find them). Things have change with Jetty, starting with ...]]></description>
+										<content:encoded><![CDATA[
+<p>Now that Jetty 12.0.1 is released to Maven Central, we&#8217;ve started to get a few questions about where some artifacts are, or when we intend to release them (as folks cannot find them).</p>
+
+
+
+<p>Things have change with Jetty, starting with the 12.0.0 release.</p>
+
+
+
+<p>First, is that our historical versioning of <code>&lt;servlet_support&gt;.&lt;major&gt;.&lt;minor&gt;</code> is no longer being used.</p>
+
+
+
+<p>With Jetty 12, we are now using a more traditional <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> versioning scheme for the first time.</p>
+
+
+
+<p>Also new in Jetty 12 is that the Servlet layer has been separated away from the Jetty Core layer.</p>
+
+
+
+<p>The Servlet layer has been moved to the new <em>Environments</em> concept introduced with Jetty 12.</p>
+
+
+
+<figure class="wp-block-table"><table><tbody><tr><td><strong>Environment</strong></td><td><strong>Jakarta EE</strong></td><td><strong>Servlet</strong></td><td><strong>Jakarta Namespace</strong></td><td><strong>Jetty GroupID</strong></td></tr><tr><td>ee8</td><td>EE8</td><td>4</td><td><code>javax.servlet</code></td><td><code>org.eclipse.jetty.ee8</code></td></tr><tr><td>ee9</td><td>EE9</td><td>5</td><td><code>jakarta.servlet</code></td><td><code>org.eclipse.jetty.ee9</code></td></tr><tr><td>ee10</td><td>EE10</td><td>6</td><td><code>jakarta.servlet</code></td><td><code>org.eclipse.jetty.ee10</code></td></tr></tbody></table><figcaption class="wp-element-caption">Jetty Environments</figcaption></figure>
+
+
+
+<p>This means the old Servlet specific artifacts have been moved to environment specific locations both in terms of Java namespace and also their Maven Coordinates.</p>
+
+
+
+<p>Example:</p>
+
+
+
+<p>Jetty 11 &#8211; Using Servlet 5<br>Maven Coord: <code>org.eclipse.jetty:jetty-servlet</code> <br>Java Class: <code>org.eclipse.jetty.servlet.ServletContextHandler</code></p>
+
+
+
+<p>Jetty 12 &#8211; Using Servlet 6<br>Maven Coord: <code>org.eclipse.jetty.ee10:jetty-ee10-servlet</code> <br>Java Class: <code>org.eclipse.jetty.ee10.servlet.ServletContextHandler</code></p>
+
+
+
+<p>We have <a href="https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#pg-migration-11-to-12">a migration document which lists all of the migrated locations from Jetty 11 to Jetty 12</a>.</p>
+
+
+
+<p>This new versioning and environment features built into Jetty means that new major versions of Jetty are not as common as they have been in the past.</p>
+
+
+
+<p></p>
+
+
+
+<p><br><br><br></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Jetty 12 performance figures</title>
+		<link>https://webtide.com/jetty-12-performance-figures/</link>
+		
+		<dc:creator><![CDATA[Ludovic Orban]]></dc:creator>
+		<pubDate>Tue, 05 Sep 2023 07:35:33 +0000</pubDate>
+				<category><![CDATA[Jetty12]]></category>
+		<category><![CDATA[performance]]></category>
+		<category><![CDATA[benchmark]]></category>
+		<category><![CDATA[jetty12]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4900</guid>
+
+					<description><![CDATA[TL;DR This is a quick blog to share the performance figures of Jetty 12 and to compare them to Jetty 11, updated for the release of 12.0.2. The outcome of our benchmarks is that Jetty 12 with EE10 Servlet-6.0 is ...]]></description>
+										<content:encoded><![CDATA[
+<h2 class="wp-block-heading">TL;DR</h2>
+
+
+
+<p>This is a quick blog to share the performance figures of Jetty 12 and to compare them to Jetty 11, updated for the release of 12.0.2. The outcome of our benchmarks is that Jetty 12 with EE10 Servlet-6.0 is 5% percent faster than Jetty 11 EE9 Servlet-5.0.   The Jetty-12 Core API is 22% faster. </p>
+
+
+
+<p>These percentages are calculated from the P99 integrals, which is the total latency excluding the 1%  slowest requests from each of the 180 sample periods. The max latency for the 1% slowest requests in each sample shows a modest improvement for Jetty-12 servlets and a significant improvement for core.</p>
+
+
+
+<h2 class="wp-block-heading">Introduction</h2>
+
+
+
+<p>We use one server (powered by a 16 cores <a data-bcup-haslogintext="no" href="https://ark.intel.com/content/www/us/en/ark/products/126697/intel-core-i97960x-xseries-processor-22m-cache-up-to-4-20-ghz.html">Intel Core i9-7960X</a>) connected with a 10GbE link to a dedicated switch, upon which four clients are connected with a single 1GbE link each. The server runs a single instance of the <a data-bcup-haslogintext="no" href="https://github.com/eclipse/jetty.project">Jetty Server</a> running with the default of 200 threads and a 32 GB heap managed by ZGC, and the clients each run a single instance of the <a data-bcup-haslogintext="no" href="https://github.com/jetty-project/jetty-load-generator">Jetty Load Generator</a> running with an 8 GB heap also managed by ZGC. This is all automated, and the source of this benchmark <a data-bcup-haslogintext="no" href="https://github.com/jetty-project/jetty-perf">is public too</a>.</p>
+
+
+
+<p>Each client applies a load of 60,000 requests per second for a total of 240,000 requests per second that the server handles alone. We make sure there is no saturation anywhere: CPU consumption, network links, RAM, JVM heap, HTTP response status are monitored to ensure this is the case. We also make sure no errors are reported in HTTP response statuses or on the network interface.</p>
+
+
+
+<p>We collect all processing times of the Jetty Server (i.e.: the time it takes from reading the 1st byte of the request from the socket to writing the last byte of the response to the socket) in histograms from which we then graph the minimum, P99, and maximum latencies, and calculate <a data-bcup-haslogintext="no" href="https://en.wikipedia.org/wiki/Integral">integrals</a> (i.e.: the sum of all measurements) for latter two.</p>
+
+
+
+<h2 class="wp-block-heading">Jetty 12</h2>
+
+
+
+<p>In the following three benchmarks, the CPU consumption of the server machine stayed around 40%.</p>
+
+
+
+<p>Below are plots of the maximum (graph in yellow), minimum to P99 (graph in red) processing times for Jetty 12:</p>
+
+
+
+<p><strong>ee10</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928.png"><img loading="lazy" decoding="async" width="1024" height="744" src="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-1024x744.png" alt="" class="wp-image-4954" srcset="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-1024x744.png 1024w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-300x218.png 300w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-768x558.png 768w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-1536x1115.png 1536w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-ee10-20230928-2048x1487.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure>
+
+
+
+<p>The yellow graph shows a single early peak at 4500 µs, and then most peaks at less than 1000µs and an average sample peak of 434µs.</p>
+
+
+
+<p>The red graph shows a minimum processing time of 7 µs, a P99 processing time of 34.8 µs. </p>
+
+
+
+<p><strong>core</strong></p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928.png"><img loading="lazy" decoding="async" width="1024" height="773" src="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-1024x773.png" alt="" class="wp-image-4953" srcset="https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-1024x773.png 1024w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-300x227.png 300w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-768x580.png 768w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-1536x1160.png 1536w, https://webtide.com/wp-content/uploads/2023/09/Jetty-12-core-20230928-2048x1547.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure>
+
+
+
+<p>The yellow graph shows a few peaks at a  2000 µs with the average sample peak being 335µs.</p>
+
+
+
+<p>The red graph shows a minimum processing time of 6 µs, a P99 processing time of 30.0 µs. </p>
+
+
+
+<h2 class="wp-block-heading">Comparing to Jetty 11</h2>
+
+
+
+<p>Comparing apples to apples required us to slightly modify our benchmark to:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Use the exact same servlet on Jetty 11 as well as Jetty 12 ee9 and ee10</li>
+
+
+
+<li>Write a Jetty 12 core handler that is a fair equivalent to the above servlet</li>
+
+
+
+<li>Align the handler chains</li>
+
+
+
+<li><a data-bcup-haslogintext="no" href="https://eclipse.dev/jetty/javadoc/jetty-12/org/eclipse/jetty/server/Request.html#getBeginNanoTime()">Introduce a more precise latency measurement</a> in <a data-bcup-haslogintext="no" href="https://github.com/eclipse/jetty.project/issues/8885">Jetty 12</a></li>
+
+
+
+<li><a data-bcup-haslogintext="no" href="https://github.com/eclipse/jetty.project/issues/9928">Backport that API</a> to Jetty 11</li>
+
+
+
+<li>Modify the Jetty 11 and 12 benchmarks to use that new API</li>
+</ul>
+
+
+
+<p>In the following benchmark, the CPU consumption of the server machine stayed around 40%, like with Jetty 12.</p>
+
+
+
+<p>Below are the same plots of the maximum (graph in yellow), minimum to P99 (graph in red) processing times for Jetty 11:</p>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928.png"><img loading="lazy" decoding="async" width="1024" height="744" src="https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-1024x744.png" alt="" class="wp-image-4955" srcset="https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-1024x744.png 1024w, https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-300x218.png 300w, https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-768x558.png 768w, https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-1536x1116.png 1536w, https://webtide.com/wp-content/uploads/2023/09/Jetty-11-20230928-2048x1488.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure>
+
+
+
+<p>The yellow graph shows a few peaks at a 4000µs with an average sample peak of 487µs.</p>
+
+
+
+<p>The red graph shows a minimum processing time of 8 µs, a P99 processing time of 36.6 µs. </p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Jetty Project and TCK</title>
+		<link>https://webtide.com/jetty-project-and-tck/</link>
+		
+		<dc:creator><![CDATA[Olivier Lamy]]></dc:creator>
+		<pubDate>Fri, 28 Jul 2023 00:08:56 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4656</guid>
+
+					<description><![CDATA[The Jetty project has a long history of participating in the standardization of EExx (previously JEE) specifications such as Servlet and Websocket. Jakarta renaming After the donation of TCK source code by Oracle to Eclipse Foundation, the EE group has ...]]></description>
+										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="4656" class="elementor elementor-4656">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-38beef4f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="38beef4f" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1d92f581" data-id="1d92f581" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-37f7772d elementor-widget elementor-widget-text-editor" data-id="37f7772d" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p></p>
+<p>The Jetty project has a long history of participating in the standardization of EExx (previously JEE) specifications such as Servlet and Websocket.</p>
+<p></p>
+<p></p>
+<h2 class="wp-block-heading">Jakarta renaming</h2>
+<p></p>
+<p></p>
+<p>After the donation of TCK source code by Oracle to Eclipse Foundation, the EE group has decided to change the historical Java package names from javax.servlet or javax.websocket (etc..) to jakarta.servlet or jakarta.websocket (etc..). As we wanted to be able to validate our EE9 implementation, we have participated in the big change by contributing two Pull Requests doing the migration (Servlet/Websocket TCK <a href="https://github.com/jakartaee/platform-tck/pull/257">https://github.com/jakartaee/platform-tck/pull/257</a>) and (JSP, JSF, JAX* <a href="https://github.com/jakartaee/platform-tck/pull/276">https://github.com/jakartaee/platform-tck/pull/276</a>). Those Pull Requests have been a lot of work and testing as 1746 and 857 files of old/legacy code have been modified.</p>
+<p></p>
+<p></p>
+<h2 class="wp-block-heading">Refactoring of Servlet TCK</h2>
+<p></p>
+<p></p>
+<p>The original TCK (still the current main branch as of the date of writing) is based on a technology called JavaTest Harness (more details here). The problem with this technology is the slowness of test execution and the difficulties to debug what is happening.</p>
+<p></p>
+<p></p>
+<p>After some discussion,&nbsp; a decision was made to rewrite All TCKs using <a href="https://junit.org/junit5/" data-type="URL" data-id="https://junit.org/junit5/">Junit5</a> (or <a href="https://testng.org/" data-type="URL" data-id="https://testng.org/">TestNG</a>) and use <a href="https://arquillian.org/" data-type="URL" data-id="https://arquillian.org/">Arquillian</a>.</p>
+<p></p>
+<p></p>
+<p>Starting with those requirements, it has been a long journey to refactor the Servlet TCK.</p>
+<p></p>
+<p></p>
+<p>Originally, the Servlet TCK is a cascade of Ant builds which are packaging 210 war files to be deployed in the target Servlet container to be validated using the JavaTest Harness framework. This means a jvm is restarted 210 times to run all the tests and the TCK has 1691 tests.</p>
+<p></p>
+<p></p>
+<p>On the Jetty CI, the daily build testing against the legacy TCK takes around 1h10min (Jenkins Job) and it&#8217;s not easy to set up such a run locally.</p>
+<p></p>
+<p></p>
+<p>After the refactoring to use Arquillian and embedded Jetty instance, the similar <a href="https://jenkins.webtide.net/job/tck/job/tck-servlet-arquillian-experiment/job/jetty-12-ee10/">Jenkins Job</a> takes around 17 minutes (including a full rebuild of <a href="https://github.com/arquillian/arquillian-container-jetty">Arquillian Container Jetty</a>, TCK servlet and Jetty 12).</p>
+<p></p>
+<p></p>
+<h3 class="wp-block-heading">Maven Build</h3>
+<p></p>
+<p></p>
+<p>As we were starting a big refactor with Jetty 12, having those 1691 tests was convenient to test all the changes but definitely too slow to run locally. So thus began the journey of rewriting the Servlet TCK.</p>
+<p></p>
+<p></p>
+<p>The first job was to have a Maven build for the whole TCK, the branch called tckrefactor has been started to refactor the single source directory to multiple Maven modules with separation of concern. But as you can imagine this took some time to move Java files to the correct Maven modules without breaking some (circular?) dependencies that a single source directory was allowing.</p>
+<p></p>
+<p></p>
+<h3 class="wp-block-heading">Junit</h3>
+<p></p>
+<p></p>
+<p>Then we had to find the pattern (e.g. what do we have to do exactly?). As explained the TCK is/was a collection of wars and classes running using JavaTest Harness.</p>
+<p></p>
+<p></p>
+<p>The tests were using the Javadoc taglet to discover the tests to be executed. The most complicated example is a mix using the Javadoc taglet such as:</p>
+<p></p>
+<p></p>
+<pre class="wp-block-code"><code>public class Client extends secformClient {
+......
+  /*
+   * @testName: test1
+   *
+   * @assertion_ids: Servlet:SPEC:142; JavaEE:SPEC:21
+   *
+   * @test_Strategy: .....
+   *
+   */
+
+  /*
+   * @testName: test1_anno
+   *
+   * @assertion_ids: Servlet:SPEC:142; JavaEE:SPEC:21; Servlet:SPEC:290;
+   * Servlet:SPEC:291; Servlet:SPEC:293; Servlet:SPEC:296; Servlet:SPEC:297;
+   * Servlet:SPEC:298;
+   *
+   * @test_Strategy: ......
+   *
+   */
+  public void test1_anno() throws Fault {
+    // save off pageSec so that we can reuse it
+    String tempPageSec = pageSec;
+    pageSec = "/servlet_sec_secform_web/ServletSecAnnoTest";
+
+    try {
+      super.test1();
+    } catch (Fault e) {
+      throw e;
+    } finally {
+      // reset pageSec to orig value
+      pageSec = tempPageSec;
+    }
+  }</code></pre>
+<p></p>
+<p></p>
+<p>This test class when executed by the Java TestHarness framework will run <code>super.test1</code> and <code>test1_anno</code> methods. With moving to junit5 we need to add the annotation <code>@Test</code> to all methods which need to run.</p>
+<p></p>
+<p></p>
+<p>This means in this case we need to execute the <code>test1</code> method in the superclass and the method test1_anno in the current class. The solution could be to mark test1_anno and the method test1 in the parent class with the annotation @Test but we cannot touch the parent class otherwise every class inheriting from this will this test method which is not expected and was not the behavior of the TestHarness framework.</p>
+<p></p>
+<p></p>
+<p>The solution is to mark it with @Test annotation the method test1_anno and modify the current source code to add the simple annotated method such as:</p>
+<p></p>
+<p></p>
+<pre class="wp-block-code"><code>@Test
+public void test1() {
+    super.test1();
+}</code></pre>
+<p></p>
+<p></p>
+<p>With more than 800 classes to touch this was not possible so we developed an Apache Maven plugin to achieve this: <a href="https://github.com/jetty-project/tck-extract-tests-maven-plugin">https://github.com/jetty-project/tck-extract-tests-maven-plugin</a></p>
+<p></p>
+<p></p>
+<h3 class="wp-block-heading">Arquillian</h3>
+<p></p>
+<p></p>
+<p>As mentioned above, the original TCK was based on Apache Ant building 212 war files to deploy. This means 212 Java files have to be modified to include the generation of the Arquillian WebArchive. Sadly nothing magical here as every build.xml was different and no way to find a pattern to automate this.</p>
+<p></p>
+<p></p>
+<p>The solution was: Roll Up your sleeves<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2122.png" alt="™" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p></p>
+<p></p>
+<p>Given a build.xml such as:</p>
+<p></p>
+<p></p>
+<pre class="wp-block-code"><code>  &lt;property name="app.name"  value="servlet_spec_errorpage" /&gt;
+  &lt;property name="content.file" value="HTMLErrorPage.html"/&gt;
+  &lt;property name="web.war.classes"
+            value="com/sun/ts/tests/servlet/common/servlets/HttpTCKServlet.class,
+                   com/sun/ts/tests/servlet/common/util/Data.class"/&gt;
+
+  &lt;target name="compile"&gt;
+    &lt;ts.javac includes="${pkg.dir}/**/*.java,
+                        com/sun/ts/tests/common/webclient/validation/**/*.java,
+                        com/sun/ts/tests/servlet/common/servlets/**/*.java,
+                        com/sun/ts/tests/servlet/common/util/**/*.java"/&gt;
+  &lt;/target&gt;</code></pre>
+<p></p>
+<p></p>
+<p>was rewritten using Arquillian WebArchive generation in Java code (some manual checks had to be done as some <code>**/**/**</code> were too &#8220;generous&#8221;) to:</p>
+<p></p>
+<p></p>
+<pre class="wp-block-code"><code>public static WebArchive getTestArchive() throws Exception {
+    return ShrinkWrap.create(WebArchive.class, "servlet_spec_errorpage_web.war")
+            .addAsWebResource("spec/errorpage/HTMLErrorPage.html","HTMLErrorPage.html")
+            .addAsLibraries(CommonServlets.getCommonServletsArchive())
+            .addClasses(SecondServletErrorPage.class, ServletErrorPage.class, TestException.class, TestServlet.class,
+                    WrappedException.class)
+            .setWebXML(URLClient.class.getResource("servlet_spec_errorpage_web.xml"));
+  }
+
+</code></pre>
+<p></p>
+<p></p>
+<p>This work has taken a lot of time and resources, and generated a quite big Pull Request: <a href="https://github.com/jakartaee/platform-tck/pull/912">https://github.com/jakartaee/platform-tck/pull/912</a></p>
+<p></p>
+<p></p>
+<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" width="1024" height="142" src="https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-1024x142.png" alt="" class="wp-image-4725" srcset="https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-1024x142.png 1024w, https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-300x42.png 300w, https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-768x107.png 768w, https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-1536x214.png 1536w, https://webtide.com/wp-content/uploads/2023/05/Screenshot-2023-05-25-at-4.39.07-pm-2048x285.png 2048w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<p></p>
+<p></p>
+<p>With all of these changes, as long as your container has Arquillian support it&#8217;s very easy to run the Servlet TCK using Apache Maven Surefire with a configuration to pick up all the tests (a sample for Jetty is&nbsp;<a href="https://github.com/jetty-project/servlet-tck-run/blob/jetty-12-ee10/pom.xml">https://github.com/jetty-project/servlet-tck-run/blob/jetty-12-ee10/pom.xml</a>).</p><p>Last but not least as the Jetty Arquilian container is embeded, it is now possible to debug everything (TCK code and Jetty code) using an IDE.</p>
+<p></p>
+<p></p>
+<p>You can run even more TCK by adding them to the Apache Maven Surefire configuration:</p>
+<p></p>
+<p></p>
+<pre class="wp-block-code"><code>        &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+          &lt;version&gt;${surefire.version}&lt;/version&gt;
+          &lt;configuration&gt;
+            ....
+            &lt;includes&gt;
+              &lt;include&gt;**/URLClient*&lt;/include&gt;
+              &lt;include&gt;**/Client*&lt;/include&gt;
+            &lt;/includes&gt;
+            &lt;excludes&gt;
+              &lt;exclude&gt;**/BaseUrlClient&lt;/exclude&gt;
+            &lt;/excludes&gt;
+            &lt;dependenciesToScan&gt;
+              &lt;dependenciesToScan&gt;jakartatck:servlet&lt;/dependenciesToScan&gt;
+            &lt;/dependenciesToScan&gt;
+          &lt;/configuration&gt;
+        &lt;/plugin&gt;</code></pre>
+<p></p>
+<p></p>
+<p>The next steps are now to have other TCKs converted to Junit/Arquillian. Both Websocket, JSP and EL are works in progress.</p>
+<p></p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Jetty 12 &#8211; Virtual Threads Support</title>
+		<link>https://webtide.com/jetty-12-virtual-threads-support/</link>
+		
+		<dc:creator><![CDATA[Simone Bordet]]></dc:creator>
+		<pubDate>Wed, 14 Jun 2023 21:26:06 +0000</pubDate>
+				<category><![CDATA[Asynchronous]]></category>
+		<category><![CDATA[Java]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Loom]]></category>
+		<category><![CDATA[Virtual Threads]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jetty]]></category>
+		<category><![CDATA[loom]]></category>
+		<category><![CDATA[virtualthreads]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4750</guid>
+
+					<description><![CDATA[Executive Summary Virtual Threads, introduced in Java 19, are supported in Jetty 12, as they have been in Jetty 10 and Jetty 11 since 10.0.12 and 11.0.12, respectively. When virtual threads are supported by the JVM and enabled in Jetty ...]]></description>
+										<content:encoded><![CDATA[
+<h2 class="wp-block-heading">Executive Summary</h2>
+
+
+
+<p>Virtual Threads, introduced in Java 19, are supported in Jetty 12, as they have been in Jetty 10 and Jetty 11 since 10.0.12 and 11.0.12, respectively.</p>
+
+
+
+<p>When virtual threads are supported by the JVM and enabled in Jetty (see <a rel="noreferrer noopener" href="https://www.eclipse.org/jetty/documentation/jetty-12/programming-guide/index.html#pg-arch-threads-thread-pool-virtual-threads" target="_blank">embedded usage</a>  and <a rel="noreferrer noopener" href="https://www.eclipse.org/jetty/documentation/jetty-12/operations-guide/index.html#og-server-threadpool-virtual" target="_blank">standalone usage</a>), applications are invoked using a virtual thread, which allows them to use simple blocking APIs, but with the scalability benefits of virtual threads.</p>
+
+
+
+<h2 class="wp-block-heading">Introduction</h2>
+
+
+
+<p>Virtual threads were introduced as a preview feature in Java 19 via <a rel="noreferrer noopener" href="https://openjdk.org/jeps/425" target="_blank">JEP 425</a> and in Java 20 via <a rel="noreferrer noopener" href="https://openjdk.org/jeps/436" target="_blank">JEP 436</a>, and finally integrated as an official feature in Java 21 via <a rel="noreferrer noopener" href="https://openjdk.org/jeps/444" target="_blank">JEP 444</a>.</p>
+
+
+
+<p>Historically, the APIs provided to application developers, especially web application developers, were blocking APIs based on <code>InputStream</code> and <code>OutputStream</code>, or based on JDBC.<br>These APIs are very simple to use, so applications are simple to develop, understand and troubleshoot.</p>
+
+
+
+<p>However, these APIs come with a cost: when a thread blocks, typically waiting for I/O or a contended lock, all the resources associated with that thread are retained, waiting for the thread to unblock and continue processing: the native thread and its native memory are retained, as well as network buffers, lock structures, etc.</p>
+
+
+
+<p>This means that blocking APIs are less scalable because they retain the resources they use.<br>For example, if you have configured your server thread pool with 256 threads, and all are blocked, your server cannot process other requests until one of the blocked threads unblocks, limiting the server&#8217;s scalability.</p>
+
+
+
+<p>Furthermore, if you increase the server thread pool capacity, you will use more memory and likely require bigger hardware.</p>
+
+
+
+<h2 class="wp-block-heading">Asynchronous/Reactive</h2>
+
+
+
+<p>For these reasons, non-blocking asynchronous and reactive APIs have been introduced. The primary examples are the asynchronous I/O APIs introduced in Servlet 3.1 and reactive APIs provided by libraries such as <a rel="noreferrer noopener" href="https://github.com/ReactiveX/RxJava" target="_blank">RxJava</a> and Spring&#8217;s <a rel="noreferrer noopener" href="https://projectreactor.io/" target="_blank">Project Reactor</a>, based on <a rel="noreferrer noopener" href="http://www.reactive-streams.org/" target="_blank">Reactive Streams</a>.<br>Unfortunately, REST APIs such as JAX-RS or <a rel="noreferrer noopener" href="https://jakarta.ee/specifications/restful-ws/3.1/" target="_blank">Jakarta RESTful Web Services</a> have not been (fully) updated with non-blocking APIs, so web applications that use REST are stuck with blocking APIs and scalability problems.</p>
+
+
+
+<p>Essential to note is that asynchronous and reactive APIs are more difficult to use, understand, and troubleshoot than blocking APIs, but are more scalable and typically achieve similar performances at a fraction of the resources. We have seen web applications that, when switched from blocking APIs to non-blocking APIs, reduced the threads usage from 1000+ to 10+.</p>
+
+
+
+<p>Virtual threads aim to be the best of both worlds: simple-to-use blocking APIs for developers, with the scalability of non-blocking APIs provided by the JVM.</p>
+
+
+
+<h2 class="wp-block-heading">Jetty 12 Architecture</h2>
+
+
+
+<p>The Jetty 12 architecture, at its core, is completely non-blocking and uses an <code>AdaptiveExecutionStrategy</code> (formerly known as &#8220;eat what you kill&#8221; which was covered in previous blogs <a rel="noreferrer noopener" href="https://webtide.com/eat-what-you-kill/" target="_blank">here</a> and <a rel="noreferrer noopener" href="https://webtide.com/eat-what-you-kill-without-starvation/" target="_blank">here</a>) to determine how to consume tasks.</p>
+
+
+
+<p>The key feature of <code>AdaptiveExecutionStrategy</code> is that it has a strong preference for consuming tasks in the same thread that produces them, so they are executed with a hot CPU cache, without <a href="https://webtide.com/avoiding-parallel-slowdown-in-jetty-9/">parallel slowdown</a> and no context-switch latency, yet avoids the risk of the server exhausting its thread pool.</p>
+
+
+
+<p>Simplifying a bit, each task is marked either as blocking or non-blocking; <code>AdaptiveExecutionStrategy</code> looks at the task and at how many threads are available to decide how to consume the task.</p>
+
+
+
+<p>If the task is non-blocking, the current thread runs it immediately.<br>Otherwise, if no other threads are available to continue producing tasks, the current thread takes over the production of tasks and gives the tasks to an Executor, where they are likely queued and executed later by different threads.</p>
+
+
+
+<h2 class="wp-block-heading">Virtual Threads Integration</h2>
+
+
+
+<p>This architecture made it easy to integrate virtual threads in Jetty: when virtual threads are supported by the JVM and Jetty&#8217;s virtual threads support is enabled (see <a rel="noreferrer noopener" href="https://www.eclipse.org/jetty/documentation/jetty-12/programming-guide/index.html#pg-arch-threads-thread-pool-virtual-threads" target="_blank">embedded usage</a>  and <a rel="noreferrer noopener" href="https://www.eclipse.org/jetty/documentation/jetty-12/operations-guide/index.html#og-server-threadpool-virtual" target="_blank">standalone usage</a>), <code>AdaptiveExecutionStrategy</code> consumes a blocking task by offering the task to the virtual thread <code>Executor</code> rather than the native thread <code>Executor</code>, so that a newly spawned virtual thread runs the blocking task.</p>
+
+
+
+<p>That&#8217;s it.</p>
+
+
+
+<p>As a Servlet Container implementation, Jetty calls Servlets assuming they will use blocking APIs, so the task that invokes the Servlet is a blocking task.<br>When virtual threads are supported and enabled, the thread that calls Servlet Filters and eventually the <code>HttpServlet.service(...)</code> method is a virtual thread.</p>
+
+
+
+<p>For non-blocking tasks, it is more efficient to have them run by the same native thread that created them; it is only for blocking tasks that you may want to use virtual threads.</p>
+
+
+
+<h2 class="wp-block-heading">Conclusions</h2>
+
+
+
+<p>Jetty’s <code>AdaptiveExecutionStrategy</code> allows the best of all worlds. <br>Jetty provides a fast scalable asynchronous implementation, which avoids any <a href="https://webtide.com/do-looms-claims-stack-up-part-1/">possible limitations of virtual threads</a>, whilst giving applications the full benefits of virtual threads.&nbsp;</p>
+
+
+
+<p>Jetty deals with complex asynchronous concerns, so you don’t have to!</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Introducing Jetty-12</title>
+		<link>https://webtide.com/introducing-jetty-12/</link>
+					<comments>https://webtide.com/introducing-jetty-12/#comments</comments>
+		
+		<dc:creator><![CDATA[gregw]]></dc:creator>
+		<pubDate>Thu, 18 May 2023 07:18:06 +0000</pubDate>
+				<category><![CDATA[General]]></category>
+		<category><![CDATA[Jetty]]></category>
+		<category><![CDATA[Servlets]]></category>
+		<category><![CDATA[Status]]></category>
+		<category><![CDATA[Webtide]]></category>
+		<guid isPermaLink="false">https://webtide.com/?p=4655</guid>
+
+					<description><![CDATA[For the last 18 months, Webtide engineers have been working on the most extensive overhaul of the Eclipse Jetty HTTP server and Servlet container since its inception in 1995. The headline for the release of Jetty 12.0.0 could be &#8220;Support ...]]></description>
+										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="4655" class="elementor elementor-4655">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-43e63334 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="43e63334" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-245c93fb" data-id="245c93fb" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-729fec79 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="729fec79" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p></p>
+<p>For the last 18 months, <a href="https://webtide.com">Webtide</a> engineers have been working on the most extensive overhaul of the <a href="https://www.eclipse.org/jetty/">Eclipse Jetty</a> HTTP server and Servlet container since its inception in 1995. The headline for the release of Jetty 12.0.0 could be &#8220;Support for the <a href="https://jakarta.ee/specifications/servlet/6.0/">Servlet 6.0 API</a> from <a href="https://jakarta.ee/release/10/">Jakarta EE 10</a>&#8220;, but the full story is of a root and branch overhaul and modernization of the project to set it up for yet more decades of service.</p>
+<p></p>
+<p></p>
+<p>This blog is an introduction to the features of Jetty 12, many of which will be the subject of further deep-dive blogs.</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="wp-block-heading">Servlet API independent</h2>
+<p></p>
+<p></p>
+<p>In order to support the Servlet 6.0 API, we took the somewhat counter intuitive approach of making Jetty Servlet API independent.  Specifically we have removed any dependency on the Servlet API from the core Jetty HTTP server and handler architecture.    This is taking Jetty back to it&#8217;s roots as it was Servlet API independent for the first decade of the project.</p>
+<p>The Servlet API independent approach has the following benefits:</p>
+<ul>
+<li>There is now a set of <a href="https://github.com/eclipse/jetty.project/tree/jetty-12.0.x/jetty-core"><code>jetty-core</code></a> modules that provide a high performance and scalable HTTP server.  The <code>jetty-core</code> modules are usable directly when there is no need for the Servlet API and the overhead introduced by it&#8217;s features and legacy.</li>
+<li>For projects like Jetty, support must be maintained for multiple versions of the Servlet APIs.  We are currently supporting branches for Servlet 3.1 in Jetty 9.4.x;  Servlet 4.0 in Jetty 10.0.x; and Servlet 5.0 in Jetty 11.0.x. Adding a fourth branch to maintain would have been intolerable.  With Jetty 12, our ongoing support for Servlet 4.0, 5.0 and 6.0 will be based on the same core HTTP server in the one branch. </li>
+<li>The Servlet APIs have many deprecated features that are no longer best practise. With Servlet 6.0, some of these were finally removed from the specification (e.g. <a href="https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Top-5-things-to-know-about-the-Jakarta-Servlet-60-API-release">Object Wrapper Identity</a>). Removing these features from the Jetty core modules allows for better performance and cleaner implementations of the current APIs.</li>
+</ul>
+<h2>Multiple EE Environments</h2>
+<div>
+<p>To support the Servlet APIs (and related Jakarta EE APIs) on top of the <code>jetty-core</code>, Jetty 12 uses an <a href="https://github.com/eclipse/jetty.project/blob/jetty-12.0.x/jetty-core/jetty-util/src/main/java/org/eclipse/jetty/util/component/Environment.java"><code>Environment</code></a> abstraction that introduces another tier of class loading and configuration. Each <code>Environment</code> holds the applicable Jakarta EE APIs needed to provide Servlet support (but not the full suite of EE APIs).</p>
+<p>Multiple environments can be run simultaneously on the same server and Jetty-12 supports:</p>
+</div>
+<ul>
+<li>EE8 (Servlet 4.0) in the java.* namespace,</li>
+<li>EE9 (Servlet 5.0) in the jakarta.* namespace with deprecated features</li>
+<li>EE10 (Servlet 6.0) in the jakarta.* namespace without deprecated features.</li>
+<li>Core environments with no Servlet support or overhead.</li>
+</ul>
+<div>The implementation of EE8 &amp; EE9 environments are substantially from the current Jetty-10 and Jetty-11 releases, so that applications that are dependent on those can be deployed on Jetty-12 with minimal risk of changes in behaviour (i.e. they are somewhat &#8220;bug for bug compatible&#8221;).</div>
+<div></div>
+<div>Even if there is no need to simultaneously run different environments, the upgrading of applications to current and future releases of the Jakarta EE specifications, will be simpler as it is decoupled from a major release of the server itself. For example, it is planned that EE 11 support (probably with Servlet 6.1) will be made available in a Jetty 12.1.0 release rather than in a major upgrade to a 13.0.0 release.</div>
+<h2>Core Environment</h2>
+<div>As mentioned above, the <code>jetty-core</code> modules are now available for direct support of HTTP without the need for the overhead and legacy of the Servlet API. As part of this effort many API&#8217;s have been updated and refined:</div>
+<ul>
+<li>The core Sessions are now directly usable</li>
+<li>A core Security model has been developed, that is used to implement the Servlet security model, but avoids some of the bizarre behaviours (I&#8217;m talking about you exposed methods!).</li>
+<li>The Jetty Websocket API has been updated and can be used over the top of the core Websocket APIs</li>
+<li>The Jetty HttpClient APIs have been updated.</li>
+</ul>
+<h2>Performance</h2>
+<p></p>
+<p></p>
+<p>Jetty 12 has achieved significant performance improvements. Our <a href="https://webtide.com/the-jetty-performance-effort/">continuous performance tracking</a> indicates that we have equal or better CPU utilisation for given load with lower latency and no long tail of quality of service. </p>
+<p>Our tests currently offer 240,000 requests per second and then measure quality of service by latency (99th percentile and maximum). Below is the plot of latency for Jetty 11: </p>
+<p><a href="https://webtide.com/wp-content/uploads/2023/06/jetty-11-1.png"><img loading="lazy" decoding="async" src="https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-1024x353.png" alt="" width="750" height="259" class="alignnone size-large wp-image-4870" srcset="https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-1024x353.png 1024w, https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-300x103.png 300w, https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-768x265.png 768w, https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-1536x530.png 1536w, https://webtide.com/wp-content/uploads/2023/06/jetty-11-1-2048x706.png 2048w" sizes="(max-width: 750px) 100vw, 750px" /></a></p>
+<p>This shows that the orange 99th percentile latency is almost too small in the plot to see (at <span>24.1 µs average), and all you do see is the yellow plot of the maximal latency (max 1400 µs). Whilst these peaks look large, the scale is in micro seconds, so the longest maximal delay is just over 1.4 milliseconds and 99% of requests are handled in 0.024ms!</span></p>
+<p>Below is the same plot of latency for Jetty 12 handling 240,000 requests per second:</p>
+<p><a href="https://webtide.com/wp-content/uploads/2023/06/jetty-12-1.png"><img loading="lazy" decoding="async" src="https://webtide.com/wp-content/uploads/2023/06/jetty-12-1-1024x387.png" alt="" width="750" height="283" class="alignnone size-large wp-image-4871" srcset="https://webtide.com/wp-content/uploads/2023/06/jetty-12-1-1024x387.png 1024w, https://webtide.com/wp-content/uploads/2023/06/jetty-12-1-300x113.png 300w, https://webtide.com/wp-content/uploads/2023/06/jetty-12-1-768x290.png 768w, https://webtide.com/wp-content/uploads/2023/06/jetty-12-1-1536x581.png 1536w, https://webtide.com/wp-content/uploads/2023/06/jetty-12-1.png 2010w" sizes="(max-width: 750px) 100vw, 750px" /></a></p>
+<p>The 99th percentile latency is now only 20.2 µs and the peaks are less frequent and rarely over 1 ms, with the maximum of 1100µs.   </p>
+<p>You can see the latest continuous performance testing of jetty-12 <a href="https://jenkins.webtide.net/job/load_testing/job/jetty-perf/job/main-12.0.x/lastSuccessfulBuild/artifact/handlers/target/reports/AsyncHandlerPerfTest_testAlone/http/server/load-master/">here</a>.</p>
+<h2>New Asynchronous IO abstraction</h2>
+<div>In the <code>jetty-core</code> is a new asynchronous abstraction that is a significant evolution of the asynchronous approaches developed in Jetty over many previous releases.</div>
+<p></p>
+<p></p>
+<p>But &#8220;Loom&#8221; I hear some say. Why be asynchronous if &#8220;Loom&#8221; will solve all your problems. Firstly, Loom is <a href="https://webtide.com/index.php/2020/12/29/do-looms-claims-stack-up-part-1/">not a silver bullet</a>, and we have seen no performance benefits of adopting Loom in the core of Jetty. If we were to adopt loom in the core we&#8217;d lose the significant benefits of our <a href="https://webtide.com/index.php/2019/03/28/eat-what-you-kill-without-starvation/">advanced execution strategy</a> (which ensures that tasks have a good chance of being executed on a CPU core with a hot cache filled with the relevant data).</p>
+<p>However, there are definitely applications that will benefit from the simple scaling offered by Loom&#8217;s virtual Threads, thus Jetty has taken the approach to stay asynchronous in the core, but to have optional support of Loom in our Execution strategy. Virtual threads may be used by the execution strategy, rather than submitting blocking jobs to a thread pool.  This is a best of both worlds approach as it let&#8217;s us deal with the highly complex but efficient/scaleable asynchronous core, whilst letting applications be written in blocking style but can still scale.</p>
+<p></p>
+<p></p>
+<ul class="wp-block-list">
+<li style="list-style-type: none;">
+<ul></ul>
+</li>
+</ul>
+<p></p>
+<p></p>
+<p>But I hear other say: &#8220;why yet another async abstraction when there are already so many: reactive, Flow, NIO, servlet, etc&#8221;? Adopting a simple but powerful core async abstraction allows us to simply adapt to support many other abstractions: specifically Servlet asynchronous IO, Flow and blocking InputStream/OutputStream are trivial to implement. Other features of the abstraction are:</p>
+<p></p>
+<p></p>
+<ul>
+<li>Input side can be used iteratively, avoiding deep stacks and needless dispatches. Borrowed from Servlet API.</li>
+<li>Demand API simplified from Flow/Reactive</li>
+<li>Retainable ByteBuffers for zero copy handling</li>
+<li>Content abstraction to simply handle errors and trailers inline.</li>
+</ul>
+<p>The asynchronous APIs are available to be used directly in <code>jetty-core</code>, or applications may simply wrap them in alternative asynchronous or blocking APIs, or simply use Servlets and never see them (but benefit from them). </p>
+<p>Below is an example of using the new APIs to asynchronously read content from a <code>Content.Source</code> into a string:</p>
+<pre><span><strong>public</strong> <strong>static</strong> <strong>class </strong></span><span style="color: #0000ff;">FutureString</span> <strong>extends </strong><span style="color: #0000ff;">CompletableFuture</span>&lt;<span style="color: #0000ff;">String</span>&gt; {<br /><span><strong>  private</strong> <strong>final </strong></span><span style="color: #0000ff;">CharsetStringBuilder</span> <strong><span style="color: #008000;">text</span></strong>;<br /><span><strong>  private</strong> <strong>final </strong></span><span style="color: #0000ff;">Content</span>.<span style="color: #0000ff;">Source</span> <strong><span style="color: #008000;">source</span></strong>;<br /><br /><strong>  public </strong><span style="color: #0000ff;">FutureString</span>(<span style="color: #0000ff;">Content</span>.<span style="color: #0000ff;">Source</span> <span style="color: #008000;">source</span>, <span style="color: #0000ff;">Charset</span> <span style="color: #008000;">charset</span>) {<br /><strong><span style="color: #008000;">    this</span></strong>.<strong><span style="color: #008000;">source </span></strong>= <span style="color: #008000;">source</span>;<br /><strong><span style="color: #008000;">    this</span></strong>.<strong><span style="color: #008000;">text </span></strong>= <span style="color: #0000ff;">CharsetStringBuilder</span>.<span>forCharset</span>(<span style="color: #008000;">charset</span>);<br />    <span style="color: #008000;">source</span>.demand(<span style="color: #008000;">this</span>::onContentAvailable);<br />  }<br /><br /><span><strong>  private</strong> <strong>void </strong></span><span>onContentAvailable</span>() {<br /><strong>    while </strong>(<strong>true</strong>) {<br />      <span style="color: #0000ff;">Content</span>.<span style="color: #0000ff;">Chunk</span> <span style="color: #008000;">chunk</span> = <strong><span style="color: #008000;">source</span></strong>.read();<br /><span>      if </span>(<span style="color: #008000;">chunk</span> == <span>null</span>) {<br /><span style="color: #008000;"><strong>        source</strong></span>.demand(<strong><span style="color: #008000;">this</span></strong>::onContentAvailable);<br /><strong>        return</strong>;<br />      }<br /><br /><strong>      try </strong>{<br /><strong>        if </strong>(<span style="color: #0000ff;">Content</span>.<span style="color: #0000ff;">Chunk</span>.<span>isFailure</span>(<span style="color: #008000;">chunk</span>))<br /><strong>          throw </strong><span style="color: #008000;">chunk</span>.getFailure();<br /><br /><strong>        if </strong>(<span style="color: #008000;">chunk</span>.hasRemaining())<br /><span>          text</span>.append(<span style="color: #008000;">chunk</span>.getByteBuffer());<br /><br /><strong>        if </strong>(<span style="color: #008000;">chunk</span>.isLast() &amp;&amp; complete(<strong><span style="color: #008000;">text</span></strong>.build()))<br /><strong>          return</strong>;<br />      } <strong>catch </strong>(<span style="color: #0000ff;">Throwable</span> <span style="color: #008000;">e</span>) {<br />        completeExceptionally(<span style="color: #008000;">e</span>);<br />      } <strong>finally </strong>{<br />        <span style="color: #008000;">chunk</span>.release();<br />      }<br />    }<br />  }<br />}</pre>
+<p>The asynchronous abstraction will be explained in detail in a later blog, but we will note about the code above here:</p>
+<ul>
+<li>there are no data copies into buffers (as if often needed with <code>read(byte[]buffer)</code>style APIs.  The chunk may be a slice of a buffer that was read directly from the network and there are <code>retain()</code> and <code>release()</code>to allow references to be kept if need be.</li>
+<li>All data and meta flows via pull style calls to the <code>Content.Source.read()</code> method, including bytes of content, failures and EOF indication. Even HTTP trailers are sent as <code>Chunk</code>s.  This avoids the mutual exclusion that can be needed if there are onData and onError style callbacks. </li>
+<li>The read style is iterative, so there is no less need to break down code into multiple callback methods. </li>
+<li>The only callback is to the  <code>onContentAvailable</code> method that is passed to <code>Content.Source#demand(Runnable)</code> and is called back when demand is met (i.e. read can be called with a non null return).</li>
+</ul>
+<h2>Handler,  Request &amp; Response design</h2>
+<p></p>
+<p></p>
+<p>The core building block of a Jetty Server are the <a href="https://github.com/eclipse/jetty.project/blob/jetty-12.0.x/jetty-core/jetty-server/src/main/java/org/eclipse/jetty/server/Handler.java">Handler</a>, <a href="https://github.com/eclipse/jetty.project/blob/jetty-12.0.x/jetty-core/jetty-server/src/main/java/org/eclipse/jetty/server/Request.java">Request</a> and <a href="https://github.com/eclipse/jetty.project/blob/jetty-12.0.x/jetty-core/jetty-server/src/main/java/org/eclipse/jetty/server/Response.java">Response</a> interfaces. These have been significantly revised in Jetty 12 to:</p>
+<ul>
+<li>Fully embrace and support the asynchronous abstraction. The previous Handler design predated asynchronous request handling and thus was not entirely suitable for purpose.</li>
+<li>The Request is now immutable, which solves many issues (see &#8220;Mutable Request&#8221; in <a href="https://webtide.com/index.php/2021/04/13/less-is-more-servlet-api/">Less is More Servlet API</a>) and allows for efficiencies and simpler asynchronous implementations.</li>
+<li>Duplication has been removed from the API&#8217;s so that wrapping requests and responses is now simpler and less error prone. (e.g. There is no longer the need to wrap both a <code>sendError</code> and <code>setStatus</code> method to capture the response status).</li>
+</ul>
+<p>Here is an example Handler that asynchronously echos all a request content back to the response, including any Trailers:</p>
+<pre><span><strong>public</strong> boolean </span><span>handle</span>(<span style="color: #0000ff;">Request</span> <span style="color: #008000;">request</span>, <span style="color: #0000ff;">Response</span> <span style="color: #008000;">response</span>, <span style="color: #0000ff;">Callback</span> <span style="color: #008000;">callback</span>) {<br />  <span style="color: #008000;">  response</span>.setStatus(<span>200</span>);<br /><span>  long </span><span style="color: #008000;">contentLength</span> = -<span>1</span>;<br /><strong>  for </strong>(<span style="color: #0000ff;">HttpField</span> <span style="color: #008000;">field</span> : <span style="color: #008000;">request</span>.getHeaders()) {<br /><strong>    if </strong>(<span style="color: #008000;">field</span>.getHeader() != <span>null</span>) {<br /><strong>      switch </strong>(<span style="color: #008000;">field</span>.getHeader()) {<br /><strong>        case </strong><span style="color: #800000;">CONTENT_LENGTH </span>-&gt; {<br />        <span style="color: #008000;">  response</span>.getHeaders().add(<span style="color: #008000;">field</span>);<br />        <span style="color: #008000;">  contentLength</span> = <span style="color: #008000;">field</span>.getLongValue();<br />        }<br /><strong>        case </strong><span style="color: #800000;">CONTENT_TYPE </span>-&gt; <span style="color: #008000;">response</span>.getHeaders().add(<span style="color: #008000;">field</span>);<br /><strong>        case </strong><span style="color: #800000;">TRAILER </span>-&gt; <span style="color: #008000;">response</span>.setTrailersSupplier(<span style="color: #0000ff;">HttpFields</span>.<span>build</span>());<br /><strong>        case </strong><span style="color: #800000;">TRANSFER_ENCODING </span>-&gt; <span style="color: #008000;">contentLength</span> = <span style="color: #0000ff;">Long</span>.<span style="color: #800000;">MAX_VALUE</span>;<br />      } <br />    } <br />  }<strong> <br />  if </strong>(<span style="color: #008000;">contentLength</span> &gt; 0)<br />    Content<span style="font-family: Roboto, Helvetica, Arial, sans-serif;">.</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">copy</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">(</span><span style="color: #008000;">request</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">, </span><span style="color: #008000;">response</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">, </span><span style="color: #0000ff;">Response</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">.</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">newTrailersChunkProcessor</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">(</span><span style="color: #008000;">response</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">), </span><span style="color: #008000;">callback</span><span style="font-family: Roboto, Helvetica, Arial, sans-serif;">);<br /></span><span><strong>  else</strong><br /></span><span style="color: #008000;">    callback</span>.succeeded();<br /><span><strong>  return</strong> true</span>;<br />}</pre>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>Security</h2>
+<p>With sponsorship from the <a href="https://www.eclipse.org/">Eclipse Foundation</a> and the <a href="https://ostif.org/">Open Source Technology Improvement Fund</a>, <a href="https://webtide.com/">Webtide</a> was able to engage <a href="https://www.trailofbits.com/">Trail of Bits</a> for a significant security collaboration. There have been 25 issues of various severity discovered, including several which have resulted in CVEs against the previous Jetty releases.  The Jetty project has a good security record and this collaboration is proving a valuable way to continue that.  </p>
+<h2>Big update &amp; cleanup</h2>
+<p style="font-size: 18px;">Jetty is a 28 year old project. A bit of cruft and legacy has accumulated over that time, not to mention that many RFCs have been obsoleted (several times over) in that period. </p>
+<p>The new architecture of Jetty 12, together with the name space break of <code>jakarta.*</code> and the removal of deprecated features in Servlet 6.0, has allowed for a big clean out of legacy implementations and updates to the latest RFCs.</p>
+<p>Legacy support is still provided where possible, either by compliance modes selecting older implementations or just by using the EE8/EE9 Environments.</p>
+<h2>Conclusion</h2>
+<p>The Webtide team is really excited to bring Jetty 12 to the market. It is so much more than just a Servlet 6.0 container, offering a fabulous basis for web development for decades more to come.  </p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		]]></content:encoded>
+					
+					<wfw:commentRss>https://webtide.com/introducing-jetty-12/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
+䫨�mT      i��Si��TIZ��i��C   O    O^partitionKey=%28https%2Cjetty.org%29,a,~FETCH,:https://webtide.com/blog/feed/ necko:classified 1 strongly-framed 1 security-info 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 request-method GET request-Origin https://jetty.org response-head HTTP/2 200 
+server: Jetty(12.1.8)
+date: Mon, 06 Apr 2026 17:11:47 GMT
+vary: Origin
+access-control-allow-origin: https://jetty.org
+last-modified: Mon, 06 Apr 2026 15:48:55 GMT
+etag: "cfe29896ceff65915d8317db54cef9d7"
+link: <https://webtide.com/wp-json/>; rel="https://api.w.org/"
+content-type: application/rss+xml; charset=UTF-8
+X-Firefox-Spdy: h2
+ original-response-headers server: Jetty(12.1.8)
+date: Mon, 06 Apr 2026 17:11:47 GMT
+vary: Origin
+access-control-allow-origin: https://jetty.org
+set-cookie: wordpress_google_apps_login=6b01feded52904f7717377b96ea0b262; path=/; secure; HttpOnly
+last-modified: Mon, 06 Apr 2026 15:48:55 GMT
+etag: "cfe29896ceff65915d8317db54cef9d7"
+link: <https://webtide.com/wp-json/>; rel="https://api.w.org/"
+content-type: application/rss+xml; charset=UTF-8
+X-Firefox-Spdy: h2
+ ctid 1 net-response-time-onstart 589 net-response-time-onstop 890  ��
