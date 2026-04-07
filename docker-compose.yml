@@ -28,6 +28,7 @@ services:
   cadvisor:
     image: google/cadvisor:latest
     container_name: monitoring_cadvisor
+    platform: linux/arm64/v8
     restart: unless-stopped
     volumes:
       - /:/rootfs:ro
