@@ -1,2 +1,3 @@
 {"timestamp":8270934,"category":"bounce.tracking.protection","name":"purge_action","extra":{"glean_timestamp":"1775508341123","bounce_time":"1775495656","is_dry_run":"true","site_host":"docker.com","success":"true"}}
 {"timestamp":22969,"category":"glean","name":"restarted","extra":{"glean.startup.date":"2026-04-06T19:53+00:00","glean_timestamp":"1775505228760"},"execution_counter":1}
+{"timestamp":24288,"category":"glean","name":"restarted","extra":{"glean.startup.date":"2026-04-07T13:54+00:00","glean_timestamp":"1775570041100"},"execution_counter":2}
