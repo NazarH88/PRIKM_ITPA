@@ -26,7 +26,7 @@ services:
       - 9100:9100
 
   cadvisor:
-    image: ghcr.io/google/cadvisor:latest-arm64
+    image: gcr.io/cadvisor/cadvisor:latest  # офіційний multi-arch
     container_name: monitoring_cadvisor
     restart: unless-stopped
     volumes:
@@ -35,7 +35,7 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     ports:
-      - "8082:8080"
+      - "8082:8080"  # щоб уникнути конфлікту порту
 
   grafana:
     image: grafana/grafana:latest
