@@ -1,6 +1,5 @@
 - name: Deploy Containerized App
   hosts: servers
-  become: yes
   tasks:
     - name: Stop and remove existing containers (to avoid name conflicts)
       shell: "docker rm -f my-app my-custom-app || true"
