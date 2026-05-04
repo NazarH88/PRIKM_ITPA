@@ -1,0 +1,29 @@
+- name: Deploy Monitoring
+  hosts: all
+  tasks:
+    - name: Config from template
+      template:
+        src: templates/prometheus.yml.j2
+        dest: /tmp/prometheus.yml
+
+    - name: Run Prometheus
+      community.docker.docker_container:
+        name: lab8-prometheus
+        image: prom/prometheus:latest
+        networks:
+          - name: lab8-network
+        ports:
+          - "9092:9090"
+        volumes:
+          - /tmp/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+    - name: Run Grafana
+      community.docker.docker_container:
+        name: lab8-grafana
+        image: grafana/grafana:latest
+        networks:
+          - name: lab8-network
+        ports:
+          - "3001:3000"
+        env:
+          GF_SECURITY_ADMIN_PASSWORD: "admin"
