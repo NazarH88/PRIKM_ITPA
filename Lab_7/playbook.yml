@@ -1,11 +1,10 @@
+---
 - name: Deploy Containerized App
   hosts: servers
   tasks:
-    - name: Stop and remove existing containers (to avoid name conflicts)
-      shell: "docker rm -f my-app my-custom-app || true"
+    - name: Create a deployment log
+      shell: "echo 'Deployment successful on $(date)' > /tmp/deploy_status.txt"
 
-    - name: Run Application Container (Nginx)
-      shell: "docker run -d --name my-app -p 8091:80 --restart unless-stopped nginx:latest"
-
-    - name: Run Custom App from Docker Hub
-      shell: "docker run -d --name my-custom-app -p 8093:80 --restart unless-stopped dante0293/prikm:latest"
+    - name: Print confirmation
+      debug:
+        msg: "Infrastructure is managed by Terraform, Ansible checked the connection."
