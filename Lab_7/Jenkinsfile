@@ -2,20 +2,21 @@ pipeline {
     agent any
 
     environment {
-        // Шлях до Terraform, який ми ставили вручну
-        TF_PATH = "/usr/local/bin/terraform"
+        // Оскільки ми встановили його в /usr/local/bin всередині контейнера
+        TF_PATH = "terraform" 
     }
 
     stages {
         stage('Infrastructure Provisioning') {
             steps {
                 script {
-                    // Ініціалізація та запуск Terraform
-                    sh "${TF_PATH} init"
-                    sh "${TF_PATH} apply -auto-approve"
-                    
-                    // Генеруємо інвентар для Ansible
-                    sh "${TF_PATH} output -raw ansible_inventory > inventory_auto.ini"
+                    // Заходимо в папку, де лежить main.tf
+                    dir('Lab_7') {
+                        sh "terraform init"
+                        sh "terraform apply -auto-approve"
+                        // Генеруємо інвентар
+                        sh "terraform output -raw ansible_inventory > inventory_auto.ini"
+                    }
                 }
             }
         }
@@ -23,9 +24,11 @@ pipeline {
         stage('Configuration & Deploy') {
             steps {
                 script {
-                    // Запуск Ansible (використовуємо той самий playbook, що в 6 лабі)
-                    // Додаємо ігнорування ключів SSH на всякий випадок
-                    sh "ansible-playbook -i inventory_auto.ini playbook.yml"
+                    // Заходимо в папку, де лежить playbook.yml та новий inventory_auto.ini
+                    dir('Lab_7') {
+                        // Запускаємо Ansible
+                        sh "ansible-playbook -i inventory_auto.ini playbook.yml"
+                    }
                 }
             }
         }
@@ -33,11 +36,13 @@ pipeline {
 
     post {
         failure {
-            echo "Щось пішло не так... Видаляємо ресурси, щоб не смітити."
-            sh "${TF_PATH} destroy -auto-approve"
+            echo "Щось пішло не так... Видаляємо ресурси."
+            dir('Lab_7') {
+                sh "terraform destroy -auto-approve"
+            }
         }
         success {
-            echo "Успіх! Пайплайн завершено."
+            echo "Вітаю! Пайплайн відпрацював успішно."
         }
     }
 }
