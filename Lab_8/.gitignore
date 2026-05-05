@@ -1,0 +1,10 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+.cache/
+.mozilla/
+*.log
+
+ansible/*.retry
