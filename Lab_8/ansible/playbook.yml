@@ -1,29 +1,45 @@
-- name: Deploy Monitoring
+- name: Lab 8 Monitoring Stack
   hosts: all
+  gather_facts: false
+
   tasks:
-    - name: Config from template
-      template:
-        src: templates/prometheus.yml.j2
+
+    - name: Remove old containers
+      shell: |
+        docker rm -f lab8-prometheus lab8-grafana || true
+
+    - name: Create Prometheus config file
+      copy:
         dest: /tmp/prometheus.yml
+        content: |
+          global:
+            scrape_interval: 15s
+            evaluation_interval: 15s
 
-    - name: Run Prometheus
-      community.docker.docker_container:
-        name: lab8-prometheus
-        image: prom/prometheus:latest
-        networks:
-          - name: lab8-network
-        ports:
-          - "9092:9090"
-        volumes:
-          - /tmp/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+          scrape_configs:
+            - job_name: 'prometheus'
+              static_configs:
+                - targets: ['localhost:9090']
 
-    - name: Run Grafana
-      community.docker.docker_container:
-        name: lab8-grafana
-        image: grafana/grafana:latest
-        networks:
-          - name: lab8-network
-        ports:
-          - "3001:3000"
-        env:
-          GF_SECURITY_ADMIN_PASSWORD: "admin"
+            - job_name: 'node-exporter'
+              static_configs:
+                - targets: ['{{ node_exporter_target }}']
+
+    - name: Run Prometheus container
+      shell: |
+        docker run -d \
+        --name lab8-prometheus \
+        --network lab8-network \
+        -p 9092:9090 \
+        -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml:ro \
+        prom/prometheus:latest
+
+    - name: Run Grafana container
+      shell: |
+        docker run -d \
+        --name lab8-grafana \
+        --network lab8-network \
+        -p 3001:3000 \
+        -e GF_SECURITY_ADMIN_USER=admin \
+        -e GF_SECURITY_ADMIN_PASSWORD=admin \
+        grafana/grafana:latest

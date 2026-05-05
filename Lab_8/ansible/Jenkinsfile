@@ -1,0 +1,90 @@
+pipeline {
+    agent any
+
+    environment {
+        NODE_EXPORTER_TARGET = "lab8-node-exporter:9100"
+        APP_URL = "http://localhost:8097"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Cleanup old infra') {
+            steps {
+                sh '''
+                    docker rm -f lab8-app lab8-node-exporter lab8-prometheus lab8-grafana || true
+                    docker network rm lab8-network || true
+                '''
+            }
+        }
+
+        stage('Terraform Init & Apply') {
+            steps {
+                dir('terraform') {
+                    sh '''
+                        terraform init -input=false
+                        terraform apply -auto-approve -input=false
+                    '''
+                }
+            }
+        }
+
+        stage('Generate Inventory') {
+            steps {
+                dir('terraform') {
+                    sh 'terraform output -raw inventory > ../ansible/inventory.ini'
+                }
+            }
+        }
+
+        stage('Ansible Deploy') {
+            steps {
+                dir('ansible') {
+                    sh '''
+                        ansible-playbook playbook.yml \
+                        -i inventory.ini \
+                        -e node_exporter_target=${NODE_EXPORTER_TARGET}
+                    '''
+                }
+            }
+        }
+
+        stage('Smoke Tests') {
+            steps {
+                sh '''
+                    echo "Checking App..."
+                    curl -f http://localhost:8097 || exit 1
+
+                    echo "Checking Prometheus..."
+                    curl -f http://localhost:9092/-/ready || exit 1
+
+                    echo "Checking Grafana..."
+                    curl -f http://localhost:3001/api/health || exit 1
+
+                    echo "Checking Node Exporter..."
+                    curl -s http://localhost:9101/metrics | head -n 5
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline SUCCESS - Lab 8 completed"
+        }
+
+        failure {
+            echo "Pipeline FAILED - cleaning up"
+
+            sh '''
+                docker rm -f lab8-app lab8-node-exporter lab8-prometheus lab8-grafana || true
+                docker network rm lab8-network || true
+            '''
+        }
+    }
+}
