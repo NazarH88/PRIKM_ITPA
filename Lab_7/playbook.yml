@@ -1,0 +1,12 @@
+- name: Deploy Containerized App
+  hosts: servers
+  become: yes
+  tasks:
+    - name: Stop and remove existing containers (to avoid name conflicts)
+      shell: "docker rm -f my-app my-custom-app || true"
+
+    - name: Run Application Container (Nginx)
+      shell: "docker run -d --name my-app -p 8091:80 --restart unless-stopped nginx:latest"
+
+    - name: Run Custom App from Docker Hub
+      shell: "docker run -d --name my-custom-app -p 8093:80 --restart unless-stopped dante0293/prikm:latest"
