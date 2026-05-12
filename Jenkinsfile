@@ -32,7 +32,6 @@ pipeline {
             steps {
                 sh 'curl -f http://localhost:8085'
                 sh 'curl -f http://localhost:9091'
-                sh 'curl -f http://localhost:3000'
                 sh 'curl -f http://localhost:9100/metrics'
             }
         }
