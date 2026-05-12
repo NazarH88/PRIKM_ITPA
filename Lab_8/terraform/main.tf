@@ -9,17 +9,17 @@ terraform {
 
 provider "docker" {}
 
-resource "docker_image" "ubuntu" {
+resource "docker_image" "ubuntu_base" {
   name         = "ubuntu:20.04"
   keep_locally = true
 }
 
 resource "docker_container" "app_node" {
   name  = "app_node"
-  image = docker_image.ubuntu.image_id
-  # Це критично важливо:
-  tty   = true
-  stdin_open = true
+  image = docker_image.ubuntu_base.image_id
+  # Змушуємо контейнер працювати постійно
+  command = ["tail", "-f", "/dev/null"]
+  must_run = true
   
   ports {
     internal = 80
@@ -29,9 +29,9 @@ resource "docker_container" "app_node" {
 
 resource "docker_container" "monitor_node" {
   name  = "monitor_node"
-  image = docker_image.ubuntu.image_id
-  tty   = true
-  stdin_open = true
+  image = docker_image.ubuntu_base.image_id
+  command = ["tail", "-f", "/dev/null"]
+  must_run = true
 
   ports {
     internal = 9090
