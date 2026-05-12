@@ -9,38 +9,32 @@ terraform {
 
 provider "docker" {}
 
-resource "docker_image" "ubuntu_ssh" {
-  # Цей образ базується на Ubuntu і має встановлений SSH
-  name         = "rastasheep/ubuntu-sshd:latest"
-  keep_locally = true
-}
+# Створюємо контейнери з ПРЯМИМ посиланням на образ
+resource "docker_container" "app_node_v2" {
+  name  = "app_node_new"
+  image = "ubuntu:20.04"
+  
+  # Обов'язково, щоб контейнер не "засинав"
+  command = ["tail", "-f", "/dev/null"]
+  tty = true
+  stdin_open = true
 
-resource "docker_container" "app_node" {
-  name  = "app_node"
-  image = docker_image.ubuntu_ssh.image_id
   ports {
     internal = 80
-    external = 8081
-  }
-  ports {
-    internal = 22
-    external = 2221
+    external = 8085 # Змінив порт про всяк випадок
   }
 }
 
-resource "docker_container" "monitor_node" {
-  name  = "monitor_node"
-  image = docker_image.ubuntu_ssh.image_id
+resource "docker_container" "monitor_node_v2" {
+  name  = "monitor_node_new"
+  image = "ubuntu:20.04"
+  
+  command = ["tail", "-f", "/dev/null"]
+  tty = true
+  stdin_open = true
+
   ports {
     internal = 9090
-    external = 9090
-  }
-  ports {
-    internal = 3000
-    external = 3000
-  }
-  ports {
-    internal = 22
-    external = 2222
+    external = 9091 # Змінив порт
   }
 }
