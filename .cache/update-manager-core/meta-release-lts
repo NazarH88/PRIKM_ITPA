@@ -105,7 +105,7 @@ UpgradeToolSignature: http://archive.ubuntu.com/ubuntu/dists/jammy-updates/main/
 Dist: noble
 Name: Noble Numbat
 Version: 24.04.4 LTS
-Date: Thu, 25 April 2024 23:59:59 UTC
+Date: Thu, 25 April 2024 00:24:04 UTC
 Supported: 1
 Description: This is the 24.04.4 LTS release
 Release-File: http://archive.ubuntu.com/ubuntu/dists/noble-updates/Release
@@ -113,3 +113,15 @@ ReleaseNotes: http://archive.ubuntu.com/ubuntu/dists/noble-updates/main/dist-upg
 ReleaseNotesHtml: http://archive.ubuntu.com/ubuntu/dists/noble-updates/main/dist-upgrader-all/current/ReleaseAnnouncement.html
 UpgradeTool: http://archive.ubuntu.com/ubuntu/dists/noble-updates/main/dist-upgrader-all/current/noble.tar.gz
 UpgradeToolSignature: http://archive.ubuntu.com/ubuntu/dists/noble-updates/main/dist-upgrader-all/current/noble.tar.gz.gpg
+
+Dist: resolute
+Name: Resolute Raccoon
+Version: 26.04 LTS
+Date: Thu, 23 April 2026 00:26:04 UTC
+Supported: 0
+Description: This is the 26.04 LTS release
+Release-File: http://archive.ubuntu.com/ubuntu/dists/resolute/Release
+ReleaseNotes: http://archive.ubuntu.com/ubuntu/dists/resolute/main/dist-upgrader-all/current/ReleaseAnnouncement
+ReleaseNotesHtml: http://archive.ubuntu.com/ubuntu/dists/resolute/main/dist-upgrader-all/current/ReleaseAnnouncement.html
+UpgradeTool: http://archive.ubuntu.com/ubuntu/dists/resolute/main/dist-upgrader-all/current/resolute.tar.gz
+UpgradeToolSignature: http://archive.ubuntu.com/ubuntu/dists/resolute/main/dist-upgrader-all/current/resolute.tar.gz.gpg

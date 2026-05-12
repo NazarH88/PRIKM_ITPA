@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="firefox.desktop" score="2671" last-seen="1775510305"/>
-    <application id="gnome-control-center.desktop" score="1555" last-seen="1775506812"/>
-    <application id="org.gnome.Terminal.desktop" score="1363" last-seen="1775510336"/>
+    <application id="firefox.desktop" score="7265" last-seen="1778569597"/>
+    <application id="gnome-control-center.desktop" score="4" last-seen="1778408023"/>
+    <application id="org.gnome.Terminal.desktop" score="14284" last-seen="1778569591"/>
+    <application id="update-manager.desktop" score="0" last-seen="1778097156"/>
+    <application id="yelp.desktop" score="0" last-seen="1778529748"/>
   </context>
 </application-state>

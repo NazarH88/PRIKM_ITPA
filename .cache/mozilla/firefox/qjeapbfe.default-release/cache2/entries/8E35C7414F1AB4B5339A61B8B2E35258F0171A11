@@ -1,0 +1,494 @@
+"use strict";(self.webpackChunkgrafana=self.webpackChunkgrafana||[]).push([[7651],{71586(I,D,s){s.d(D,{S:()=>f});var o=s(74848),a=s(96540),d=s(49785),l=s(85629),c=s(92745),n=s(43173),M=s(45967),p=s(34999),h=s(45861),m=s(41654),_=s(37386),i=s(63142),r=s(61238),t=s(10180),e=s(10501);const f=({onSubmit:P,onSkip:u,showDefaultPasswordWarning:O})=>{const L=(0,i.of)(r.$),[x,A]=(0,a.useState)(!1),[v,g]=(0,a.useState)(!0),{handleSubmit:y,register:U,getValues:W,formState:{errors:B},watch:R}=(0,d.mN)({defaultValues:{newPassword:"",confirmNew:""}}),j=R("newPassword"),K=T=>{P(T.newPassword)};return(0,o.jsxs)("form",{onSubmit:y(K),children:[O&&(0,o.jsx)(p.F,{severity:"info",title:(0,c.t)("forgot-password.change-password.default-password-alert","Continuing to use the default password exposes you to security risks.")}),(0,o.jsx)(_.D,{label:(0,c.t)("forgot-password.change-password.new-password-label","New password"),invalid:!!B.newPassword,error:B?.newPassword?.message,children:(0,o.jsx)(t.s,{onFocus:()=>A(!0),...U("newPassword",{required:"New Password is required",onBlur:()=>g(!1),validate:{strongPasswordValidationRegister:e.DP}}),id:"new-password",autoFocus:!0,autoComplete:"new-password"})}),x&&(0,o.jsx)(e.zJ,{pristine:v,password:j,strongPasswordValidations:e.NQ}),(0,o.jsx)(_.D,{label:(0,c.t)("forgot-password.change-password.confirm-label","Confirm new password"),invalid:!!B.confirmNew,error:B?.confirmNew?.message,children:(0,o.jsx)(t.s,{...U("confirmNew",{required:"Confirmed Password is required",validate:T=>T===W().newPassword||"Passwords must match!"}),id:"confirm-new-password",autoComplete:"new-password"})}),(0,o.jsxs)(m.B,{direction:"column",children:[(0,o.jsx)(h.$n,{type:"submit",className:L.submitButton,children:(0,o.jsx)(c.x6,{i18nKey:"forgot-password.change-password.submit-button",children:"Submit"})}),!n.$.auth.basicAuthStrongPasswordPolicy&&u&&(0,o.jsx)(M.m,{content:(0,c.t)("forgot-password.change-password.tooltip-skip-button","If you skip you will be prompted to change password next time you log in."),placement:"bottom",children:(0,o.jsx)(h.$n,{className:L.skipButton,fill:"text",onClick:u,type:"button","data-testid":l.Tp.pages.Login.skip,children:(0,o.jsx)(c.x6,{i18nKey:"forgot-password.change-password.skip-button",children:"Skip"})})})]})]})}},53539(I,D,s){s.d(D,{A:()=>m});var o=s(74848),a=s(96540),d=s(92745),l=s(68143),c=s(36490),n=s(65642);const M=()=>!!n.Ay.oauth&&Object.keys(n.Ay.oauth).length>0,p=()=>!!c.Ny.getSearch().get("code"),h=(0,a.memo)(({resetCode:r,children:t})=>{const[e,f]=(0,a.useState)(),[P,u]=(0,a.useState)(!1),[O,L]=(0,a.useState)(!1),[x,A]=(0,a.useState)(!1),[v,g]=(0,a.useState)(i(n.Ay.loginError)),y=(0,a.useCallback)(()=>{if(n.Ay.featureToggles.useSessionStorageForRedirection){window.location.assign(n.Ay.appSubUrl+"/");return}e?.redirectUrl?n.Ay.appSubUrl!==""&&!e.redirectUrl.startsWith(n.Ay.appSubUrl)?window.location.assign(n.Ay.appSubUrl+e.redirectUrl):window.location.assign(e.redirectUrl):window.location.assign(n.Ay.appSubUrl+"/")},[e]),U=(0,a.useCallback)(w=>{const E={newPassword:w,confirmNew:w,oldPassword:"admin"};if(r){const C={code:r,newPassword:w,confirmPassword:w};(0,l.AI)().post("/api/user/password/reset",C).then(()=>{y()})}else(0,l.AI)().put("/api/user/password",E).then(()=>{y()}).catch(C=>console.error(C))},[r,y]),W=(0,a.useCallback)(w=>{L(!0),A(w)},[]),B=(0,a.useCallback)(async w=>(g(void 0),u(!0),(0,l.AI)().post("/login",w,{showErrorAlert:!1}).then(E=>{if(f(E),w.password!=="admin"||n.Ay.ldapEnabled||n.Ay.authProxyEnabled){y();return}else W(w.password==="admin")}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})),[y,W]),R=(0,a.useCallback)(w=>{g(void 0),u(!0),(0,l.AI)().post("/api/login/passwordless/start",w,{showErrorAlert:!1}).then(E=>{window.location.assign(E.URL)}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})},[]),j=(0,a.useCallback)(w=>{g(void 0),u(!0),(0,l.AI)().post("/api/login/passwordless/authenticate",w,{showErrorAlert:!1}).then(E=>{f(E),y()}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})},[y]),{loginHint:K,passwordHint:T,disableLoginForm:S,disableUserSignUp:N}=n.Ay;return(0,o.jsx)(o.Fragment,{children:t({isOauthEnabled:M(),loginHint:K,passwordHint:T,disableLoginForm:S,disableUserSignUp:N,login:B,passwordlessStart:R,passwordlessConfirm:j,showPasswordlessConfirmation:p(),isLoggingIn:P,changePassword:U,skipPasswordChange:y,isChangingPassword:O,showDefaultPasswordWarning:x,loginErrorMessage:v})})});h.displayName="LoginCtrl";const m=h;function _(r){switch(r.data?.messageId){case"password-auth.empty":case"password-auth.failed":case"password-auth.invalid":return(0,d.t)("login.error.invalid-user-or-password","Invalid username or password");case"login-attempt.blocked":return(0,d.t)("login.error.blocked","You have exceeded the number of login attempts for this user. Please try again later.");default:return r.data?.message}}function i(r){switch(r){case"oauth.login.error":return(0,d.t)("oauth.login.error","Login provider denied login request");default:return r}}},61238(I,D,s){s.d(D,{$:()=>r,Q:()=>i});var o=s(74848),a=s(22803),d=s(96540),l=s(49785),c=s(85629),n=s(92745),M=s(45861),p=s(37386),h=s(63527),m=s(63142),_=s(10180);const i=({children:t,onSubmit:e,isLoggingIn:f,passwordHint:P,loginHint:u})=>{const O=(0,m.of)(r),L=(0,d.useId)(),x=(0,d.useId)(),{handleSubmit:A,register:v,formState:{errors:g}}=(0,l.mN)({mode:"onChange"});return(0,o.jsx)("div",{className:O.wrapper,children:(0,o.jsxs)("form",{onSubmit:A(e),children:[(0,o.jsx)(p.D,{label:(0,n.t)("login.form.username-label","Email or username"),invalid:!!g.user,error:g.user?.message,children:(0,o.jsx)(h.p,{...v("user",{required:(0,n.t)("login.form.username-required","Email or username is required")}),id:L,autoFocus:!0,autoCapitalize:"none",placeholder:u||(0,n.t)("login.form.username-placeholder","email or username"),"data-testid":c.Tp.pages.Login.username})}),(0,o.jsx)(p.D,{label:(0,n.t)("login.form.password-label","Password"),invalid:!!g.password,error:g.password?.message,children:(0,o.jsx)(_.s,{...v("password",{required:(0,n.t)("login.form.password-required","Password is required")}),id:x,autoComplete:"current-password",placeholder:P||(0,n.t)("login.form.password-placeholder","password")})}),(0,o.jsx)(M.$n,{type:"submit","data-testid":c.Tp.pages.Login.submit,className:O.submitButton,disabled:f,children:f?(0,n.t)("login.form.submit-loading-label","Logging in..."):(0,n.t)("login.form.submit-label","Log in")}),t]})})},r=t=>({wrapper:(0,a.css)({width:"100%",paddingBottom:t.spacing(2)}),submitButton:(0,a.css)({justifyContent:"center",width:"100%"}),skipButton:(0,a.css)({alignSelf:"flex-start"})})},58102(I,D,s){s.d(D,{GU:()=>h,YO:()=>_,qm:()=>p});var o=s(74848),a=s(22803),d=s(96540),l=s(92745),c=s(63142),n=s(92948),M=s(10388);const p=({children:i,enterAnimation:r=!0})=>{const t=(0,c.of)(_);return(0,o.jsx)("div",{className:(0,a.cx)(t.loginInnerBox,r&&t.enterAnimation),children:i})},h=({children:i,branding:r,isChangingPassword:t})=>{const e=(0,c.of)(_),[f,P]=(0,d.useState)(!1),u=r?.loginSubtitle??n.Me.GetLoginSubTitle(),O=r?.loginTitle??n.Me.LoginTitle,L=r?.loginBoxBackground||n.Me.LoginBoxBackground(),x=r?.loginLogo,A=r?.hideEdition??n.Me.HideEdition;return(0,d.useEffect)(()=>P(!0),[]),(0,o.jsxs)(n.Me.LoginBackground,{className:(0,a.cx)(e.container,f&&e.loginAnim,r?.loginBackground),children:[(0,o.jsx)("div",{className:e.loginMain,children:(0,o.jsxs)("div",{className:(0,a.cx)(e.loginContent,L,"login-content-box"),children:[(0,o.jsxs)("div",{className:e.loginLogoWrapper,children:[(0,o.jsx)(n.Me.LoginLogo,{className:e.loginLogo,logo:x}),(0,o.jsx)("div",{className:e.titleWrapper,children:t?(0,o.jsx)("h1",{className:e.mainTitle,children:(0,o.jsx)(l.x6,{i18nKey:"login.layout.update-password",children:"Update your password"})}):(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)("h1",{className:e.mainTitle,children:O}),u&&(0,o.jsx)("h3",{className:e.subTitle,children:u})]})})]}),(0,o.jsx)("div",{className:e.loginOuterBox,children:i})]})}),r?.hideFooter?(0,o.jsx)(o.Fragment,{}):(0,o.jsx)(M.wi,{hideEdition:A,customLinks:r?.footerLinks})]})},m=(0,a.keyframes)`
+from{
+  opacity: 0;
+  transform: translate(-60px, 0px);
+}
+
+to{
+  opacity: 1;
+  transform: translate(0px, 0px);
+}`,_=i=>({loginMain:(0,a.css)({flexGrow:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minWidth:"100%"}),container:(0,a.css)({minHeight:"100%",backgroundPosition:"center",backgroundRepeat:"no-repeat",flex:1,minWidth:"100%",marginLeft:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}),loginAnim:(0,a.css)({"&:before":{opacity:1},".login-content-box":{opacity:1}}),submitButton:(0,a.css)({justifyContent:"center",width:"100%"}),loginLogo:(0,a.css)({width:"100%",maxWidth:60,marginBottom:i.spacing(2),[i.breakpoints.up("sm")]:{maxWidth:100}}),loginLogoWrapper:(0,a.css)({display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",padding:i.spacing(3)}),titleWrapper:(0,a.css)({textAlign:"center"}),mainTitle:(0,a.css)({fontSize:22,[i.breakpoints.up("sm")]:{fontSize:32}}),subTitle:(0,a.css)({fontSize:i.typography.size.md,color:i.colors.text.secondary}),loginContent:(0,a.css)({maxWidth:478,width:"calc(100% - 2rem)",display:"flex",alignItems:"stretch",flexDirection:"column",position:"relative",justifyContent:"flex-start",zIndex:1,minHeight:320,borderRadius:i.shape.radius.lg,padding:i.spacing(2,0),opacity:0,[i.transitions.handleMotion("no-preference")]:{transition:"opacity 0.5s ease-in-out"},[i.transitions.handleMotion("reduce")]:{opacity:1},[i.breakpoints.up("sm")]:{minHeight:i.spacing(40),justifyContent:"center"}}),loginOuterBox:(0,a.css)({display:"flex",overflowY:"hidden",alignItems:"center",justifyContent:"center"}),loginInnerBox:(0,a.css)({padding:i.spacing(0,2,2,2),display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",flexGrow:1,maxWidth:415,width:"100%",transform:"translate(0px, 0px)",[i.transitions.handleMotion("no-preference")]:{transition:"0.25s ease"}}),enterAnimation:(0,a.css)({[i.transitions.handleMotion("no-preference")]:{animation:`${m} ease-out 0.2s`}})})},10180(I,D,s){s.d(D,{s:()=>M});var o=s(74848),a=s(96540),d=s(85629),l=s(92745),c=s(76319),n=s(63527);const M=(0,a.forwardRef)((p,h)=>{const[m,_]=(0,a.useState)(!1);return(0,o.jsx)(n.p,{...p,type:m?"text":"password","data-testid":d.Tp.pages.Login.password,ref:h,suffix:(0,o.jsx)(c.K,{name:m?"eye-slash":"eye","aria-controls":p.id,role:"switch","aria-checked":m,onClick:()=>{_(!m)},tooltip:m?(0,l.t)("grafana-ui.password-field.tooltip-hide","Hide password"):(0,l.t)("grafana-ui.password-field.tooltip-show","Show password")})})});M.displayName="PasswordField"},10501(I,D,s){s.d(D,{DP:()=>m,NQ:()=>h,zJ:()=>_});var o=s(74848),a=s(22803),d=s(92745),l=s(30703),c=s(66404),n=s(31286),M=s(63142),p=s(65642);const h=[{message:"At least 12 characters",validation:t=>t.length>=12},{message:"One uppercase letter",validation:t=>/[A-Z]+/.test(t)},{message:"One lowercase letter",validation:t=>/[a-z]+/.test(t)},{message:"One number",validation:t=>/[0-9]+/.test(t)},{message:"One symbol",validation:t=>/[^A-Za-z0-9]/.test(t)}],m=t=>!p.Ay.auth.basicAuthStrongPasswordPolicy||h.every(e=>e.validation(t))||(0,d.t)("profile.change-password.strong-password-validation-register","Password does not comply with the strong password policy"),_=({strongPasswordValidations:t,password:e,pristine:f})=>(0,o.jsx)(n.a,{marginBottom:2,children:t.map(P=>(0,o.jsx)(i,{strongPasswordValidation:P,password:e,pristine:f},P.message))}),i=({strongPasswordValidation:t,password:e,pristine:f})=>{const P=(0,M.of)(r),{basicAuthStrongPasswordPolicy:u}=p.Ay.auth;if(!u)return null;const{message:O,validation:L}=t,x=e.length>0&&L(e),A=x||f?"check":"exclamation-triangle",v=x?"secondary":f?"primary":"error";let g;return x?g=P.icon.valid:f?g=P.icon.pending:g=P.icon.error,(0,o.jsxs)(n.a,{display:"flex",alignItems:"center",marginTop:1,children:[(0,o.jsx)(l.I,{className:(0,a.cx)(P.icon.style,g),name:A}),(0,o.jsx)(c.E,{color:v,children:O})]},O)},r=t=>({icon:{style:(0,a.css)({marginRight:t.spacing(1)}),valid:(0,a.css)({color:t.colors.success.text}),pending:(0,a.css)({color:t.colors.secondary.text}),error:(0,a.css)({color:t.colors.error.text})}})}}]);
+
+//# sourceMappingURL=7651.7aacb2b8ca9cb965e9b5.js.map        Hﬁ  xHﬁ∑!   20250227124745-8l+ﬁ  
+¶gÌ?   http://localhost:3000/public/build/7651.7aacb2b8ca9cb965e9b5.js    7 6 5 1 . 7 a a c b 2 b 8 c a 9 c b 9 6 5 e 9 b 5 . j s . m a p       ¶0  "use strict";(self.webpackChunkgrafana=self.webpackChunkgrafana||[]).push([[7651],{71586(I,D,s){s.d(D,{S:()=>f});var o=s(74848),a=s(96540),d=s(49785),l=s(85629),c=s(92745),n=s(43173),M=s(45967),p=s(34999),h=s(45861),m=s(41654),_=s(37386),i=s(63142),r=s(61238),t=s(10180),e=s(10501);const f=({onSubmit:P,onSkip:u,showDefaultPasswordWarning:O})=>{const L=(0,i.of)(r.$),[x,A]=(0,a.useState)(!1),[v,g]=(0,a.useState)(!0),{handleSubmit:y,register:U,getValues:W,formState:{errors:B},watch:R}=(0,d.mN)({defaultValues:{newPassword:"",confirmNew:""}}),j=R("newPassword"),K=T=>{P(T.newPassword)};return(0,o.jsxs)("form",{onSubmit:y(K),children:[O&&(0,o.jsx)(p.F,{severity:"info",title:(0,c.t)("forgot-password.change-password.default-password-alert","Continuing to use the default password exposes you to security risks.")}),(0,o.jsx)(_.D,{label:(0,c.t)("forgot-password.change-password.new-password-label","New password"),invalid:!!B.newPassword,error:B?.newPassword?.message,children:(0,o.jsx)(t.s,{onFocus:()=>A(!0),...U("newPassword",{required:"New Password is required",onBlur:()=>g(!1),validate:{strongPasswordValidationRegister:e.DP}}),id:"new-password",autoFocus:!0,autoComplete:"new-password"})}),x&&(0,o.jsx)(e.zJ,{pristine:v,password:j,strongPasswordValidations:e.NQ}),(0,o.jsx)(_.D,{label:(0,c.t)("forgot-password.change-password.confirm-label","Confirm new password"),invalid:!!B.confirmNew,error:B?.confirmNew?.message,children:(0,o.jsx)(t.s,{...U("confirmNew",{required:"Confirmed Password is required",validate:T=>T===W().newPassword||"Passwords must match!"}),id:"confirm-new-password",autoComplete:"new-password"})}),(0,o.jsxs)(m.B,{direction:"column",children:[(0,o.jsx)(h.$n,{type:"submit",className:L.submitButton,children:(0,o.jsx)(c.x6,{i18nKey:"forgot-password.change-password.submit-button",children:"Submit"})}),!n.$.auth.basicAuthStrongPasswordPolicy&&u&&(0,o.jsx)(M.m,{content:(0,c.t)("forgot-password.change-password.tooltip-skip-button","If you skip you will be prompted to change password next time you log in."),placement:"bottom",children:(0,o.jsx)(h.$n,{className:L.skipButton,fill:"text",onClick:u,type:"button","data-testid":l.Tp.pages.Login.skip,children:(0,o.jsx)(c.x6,{i18nKey:"forgot-password.change-password.skip-button",children:"Skip"})})})]})]})}},53539(I,D,s){s.d(D,{A:()=>m});var o=s(74848),a=s(96540),d=s(92745),l=s(68143),c=s(36490),n=s(65642);const M=()=>!!n.Ay.oauth&&Object.keys(n.Ay.oauth).length>0,p=()=>!!c.Ny.getSearch().get("code"),h=(0,a.memo)(({resetCode:r,children:t})=>{const[e,f]=(0,a.useState)(),[P,u]=(0,a.useState)(!1),[O,L]=(0,a.useState)(!1),[x,A]=(0,a.useState)(!1),[v,g]=(0,a.useState)(i(n.Ay.loginError)),y=(0,a.useCallback)(()=>{if(n.Ay.featureToggles.useSessionStorageForRedirection){window.location.assign(n.Ay.appSubUrl+"/");return}e?.redirectUrl?n.Ay.appSubUrl!==""&&!e.redirectUrl.startsWith(n.Ay.appSubUrl)?window.location.assign(n.Ay.appSubUrl+e.redirectUrl):window.location.assign(e.redirectUrl):window.location.assign(n.Ay.appSubUrl+"/")},[e]),U=(0,a.useCallback)(w=>{const E={newPassword:w,confirmNew:w,oldPassword:"admin"};if(r){const C={code:r,newPassword:w,confirmPassword:w};(0,l.AI)().post("/api/user/password/reset",C).then(()=>{y()})}else(0,l.AI)().put("/api/user/password",E).then(()=>{y()}).catch(C=>console.error(C))},[r,y]),W=(0,a.useCallback)(w=>{L(!0),A(w)},[]),B=(0,a.useCallback)(async w=>(g(void 0),u(!0),(0,l.AI)().post("/login",w,{showErrorAlert:!1}).then(E=>{if(f(E),w.password!=="admin"||n.Ay.ldapEnabled||n.Ay.authProxyEnabled){y();return}else W(w.password==="admin")}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})),[y,W]),R=(0,a.useCallback)(w=>{g(void 0),u(!0),(0,l.AI)().post("/api/login/passwordless/start",w,{showErrorAlert:!1}).then(E=>{window.location.assign(E.URL)}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})},[]),j=(0,a.useCallback)(w=>{g(void 0),u(!0),(0,l.AI)().post("/api/login/passwordless/authenticate",w,{showErrorAlert:!1}).then(E=>{f(E),y()}).catch(E=>{const C=(0,l.NF)(E)?_(E):void 0;u(!1),g(C||(0,d.t)("login.error.unknown","Unknown error occurred"))})},[y]),{loginHint:K,passwordHint:T,disableLoginForm:S,disableUserSignUp:N}=n.Ay;return(0,o.jsx)(o.Fragment,{children:t({isOauthEnabled:M(),loginHint:K,passwordHint:T,disableLoginForm:S,disableUserSignUp:N,login:B,passwordlessStart:R,passwordlessConfirm:j,showPasswordlessConfirmation:p(),isLoggingIn:P,changePassword:U,skipPasswordChange:y,isChangingPassword:O,showDefaultPasswordWarning:x,loginErrorMessage:v})})});h.displayName="LoginCtrl";const m=h;function _(r){switch(r.data?.messageId){case"password-auth.empty":case"password-auth.failed":case"password-auth.invalid":return(0,d.t)("login.error.invalid-user-or-password","Invalid username or password");case"login-attempt.blocked":return(0,d.t)("login.error.blocked","You have exceeded the number of login attempts for this user. Please try again later.");default:return r.data?.message}}function i(r){switch(r){case"oauth.login.error":return(0,d.t)("oauth.login.error","Login provider denied login request");default:return r}}},61238(I,D,s){s.d(D,{$:()=>r,Q:()=>i});var o=s(74848),a=s(22803),d=s(96540),l=s(49785),c=s(85629),n=s(92745),M=s(45861),p=s(37386),h=s(63527),m=s(63142),_=s(10180);const i=({children:t,onSubmit:e,isLoggingIn:f,passwordHint:P,loginHint:u})=>{const O=(0,m.of)(r),L=(0,d.useId)(),x=(0,d.useId)(),{handleSubmit:A,register:v,formState:{errors:g}}=(0,l.mN)({mode:"onChange"});return(0,o.jsx)("div",{className:O.wrapper,children:(0,o.jsxs)("form",{onSubmit:A(e),children:[(0,o.jsx)(p.D,{label:(0,n.t)("login.form.username-label","Email or username"),invalid:!!g.user,error:g.user?.message,children:(0,o.jsx)(h.p,{...v("user",{required:(0,n.t)("login.form.username-required","Email or username is required")}),id:L,autoFocus:!0,autoCapitalize:"none",placeholder:u||(0,n.t)("login.form.username-placeholder","email or username"),"data-testid":c.Tp.pages.Login.username})}),(0,o.jsx)(p.D,{label:(0,n.t)("login.form.password-label","Password"),invalid:!!g.password,error:g.password?.message,children:(0,o.jsx)(_.s,{...v("password",{required:(0,n.t)("login.form.password-required","Password is required")}),id:x,autoComplete:"current-password",placeholder:P||(0,n.t)("login.form.password-placeholder","password")})}),(0,o.jsx)(M.$n,{type:"submit","data-testid":c.Tp.pages.Login.submit,className:O.submitButton,disabled:f,children:f?(0,n.t)("login.form.submit-loading-label","Logging in..."):(0,n.t)("login.form.submit-label","Log in")}),t]})})},r=t=>({wrapper:(0,a.css)({width:"100%",paddingBottom:t.spacing(2)}),submitButton:(0,a.css)({justifyContent:"center",width:"100%"}),skipButton:(0,a.css)({alignSelf:"flex-start"})})},58102(I,D,s){s.d(D,{GU:()=>h,YO:()=>_,qm:()=>p});var o=s(74848),a=s(22803),d=s(96540),l=s(92745),c=s(63142),n=s(92948),M=s(10388);const p=({children:i,enterAnimation:r=!0})=>{const t=(0,c.of)(_);return(0,o.jsx)("div",{className:(0,a.cx)(t.loginInnerBox,r&&t.enterAnimation),children:i})},h=({children:i,branding:r,isChangingPassword:t})=>{const e=(0,c.of)(_),[f,P]=(0,d.useState)(!1),u=r?.loginSubtitle??n.Me.GetLoginSubTitle(),O=r?.loginTitle??n.Me.LoginTitle,L=r?.loginBoxBackground||n.Me.LoginBoxBackground(),x=r?.loginLogo,A=r?.hideEdition??n.Me.HideEdition;return(0,d.useEffect)(()=>P(!0),[]),(0,o.jsxs)(n.Me.LoginBackground,{className:(0,a.cx)(e.container,f&&e.loginAnim,r?.loginBackground),children:[(0,o.jsx)("div",{className:e.loginMain,children:(0,o.jsxs)("div",{className:(0,a.cx)(e.loginContent,L,"login-content-box"),children:[(0,o.jsxs)("div",{className:e.loginLogoWrapper,children:[(0,o.jsx)(n.Me.LoginLogo,{className:e.loginLogo,logo:x}),(0,o.jsx)("div",{className:e.titleWrapper,children:t?(0,o.jsx)("h1",{className:e.mainTitle,children:(0,o.jsx)(l.x6,{i18nKey:"login.layout.update-password",children:"Update your password"})}):(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)("h1",{className:e.mainTitle,children:O}),u&&(0,o.jsx)("h3",{className:e.subTitle,children:u})]})})]}),(0,o.jsx)("div",{className:e.loginOuterBox,children:i})]})}),r?.hideFooter?(0,o.jsx)(o.Fragment,{}):(0,o.jsx)(M.wi,{hideEdition:A,customLinks:r?.footerLinks})]})},m=(0,a.keyframes)`
+from{
+  opacity: 0;
+  transform: translate(-60px, 0px);
+}
+
+to{
+  opacity: 1;
+  transform: translate(0px, 0px);
+}`,_=i=>({loginMain:(0,a.css)({flexGrow:1,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minWidth:"100%"}),container:(0,a.css)({minHeight:"100%",backgroundPosition:"center",backgroundRepeat:"no-repeat",flex:1,minWidth:"100%",marginLeft:0,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}),loginAnim:(0,a.css)({"&:before":{opacity:1},".login-content-box":{opacity:1}}),submitButton:(0,a.css)({justifyContent:"center",width:"100%"}),loginLogo:(0,a.css)({width:"100%",maxWidth:60,marginBottom:i.spacing(2),[i.breakpoints.up("sm")]:{maxWidth:100}}),loginLogoWrapper:(0,a.css)({display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",padding:i.spacing(3)}),titleWrapper:(0,a.css)({textAlign:"center"}),mainTitle:(0,a.css)({fontSize:22,[i.breakpoints.up("sm")]:{fontSize:32}}),subTitle:(0,a.css)({fontSize:i.typography.size.md,color:i.colors.text.secondary}),loginContent:(0,a.css)({maxWidth:478,width:"calc(100% - 2rem)",display:"flex",alignItems:"stretch",flexDirection:"column",position:"relative",justifyContent:"flex-start",zIndex:1,minHeight:320,borderRadius:i.shape.radius.lg,padding:i.spacing(2,0),opacity:0,[i.transitions.handleMotion("no-preference")]:{transition:"opacity 0.5s ease-in-out"},[i.transitions.handleMotion("reduce")]:{opacity:1},[i.breakpoints.up("sm")]:{minHeight:i.spacing(40),justifyContent:"center"}}),loginOuterBox:(0,a.css)({display:"flex",overflowY:"hidden",alignItems:"center",justifyContent:"center"}),loginInnerBox:(0,a.css)({padding:i.spacing(0,2,2,2),display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",flexGrow:1,maxWidth:415,width:"100%",transform:"translate(0px, 0px)",[i.transitions.handleMotion("no-preference")]:{transition:"0.25s ease"}}),enterAnimation:(0,a.css)({[i.transitions.handleMotion("no-preference")]:{animation:`${m} ease-out 0.2s`}})})},10180(I,D,s){s.d(D,{s:()=>M});var o=s(74848),a=s(96540),d=s(85629),l=s(92745),c=s(76319),n=s(63527);const M=(0,a.forwardRef)((p,h)=>{const[m,_]=(0,a.useState)(!1);return(0,o.jsx)(n.p,{...p,type:m?"text":"password","data-testid":d.Tp.pages.Login.password,ref:h,suffix:(0,o.jsx)(c.K,{name:m?"eye-slash":"eye","aria-controls":p.id,role:"switch","aria-checked":m,onClick:()=>{_(!m)},tooltip:m?(0,l.t)("grafana-ui.password-field.tooltip-hide","Hide password"):(0,l.t)("grafana-ui.password-field.tooltip-show","Show password")})})});M.displayName="PasswordField"},10501(I,D,s){s.d(D,{DP:()=>m,NQ:()=>h,zJ:()=>_});var o=s(74848),a=s(22803),d=s(92745),l=s(30703),c=s(66404),n=s(31286),M=s(63142),p=s(65642);const h=[{message:"At least 12 characters",validation:t=>t.length>=12},{message:"One uppercase letter",validation:t=>/[A-Z]+/.test(t)},{message:"One lowercase letter",validation:t=>/[a-z]+/.test(t)},{message:"One number",validation:t=>/[0-9]+/.test(t)},{message:"One symbol",validation:t=>/[^A-Za-z0-9]/.test(t)}],m=t=>!p.Ay.auth.basicAuthStrongPasswordPolicy||h.every(e=>e.validation(t))||(0,d.t)("profile.change-password.strong-password-validation-register","Password does not comply with the strong password policy"),_=({strongPasswordValidations:t,password:e,pristine:f})=>(0,o.jsx)(n.a,{marginBottom:2,children:t.map(P=>(0,o.jsx)(i,{strongPasswordValidation:P,password:e,pristine:f},P.message))}),i=({strongPasswordValidation:t,password:e,pristine:f})=>{const P=(0,M.of)(r),{basicAuthStrongPasswordPolicy:u}=p.Ay.auth;if(!u)return null;const{message:O,validation:L}=t,x=e.length>0&&L(e),A=x||f?"check":"exclamation-triangle",v=x?"secondary":f?"primary":"error";let g;return x?g=P.icon.valid:f?g=P.icon.pending:g=P.icon.error,(0,o.jsxs)(n.a,{display:"flex",alignItems:"center",marginTop:1,children:[(0,o.jsx)(l.I,{className:(0,a.cx)(P.icon.style,g),name:A}),(0,o.jsx)(c.E,{color:v,children:O})]},O)},r=t=>({icon:{style:(0,a.css)({marginRight:t.spacing(1)}),valid:(0,a.css)({color:t.colors.success.text}),pending:(0,a.css)({color:t.colors.secondary.text}),error:(0,a.css)({color:t.colors.error.text})}})}}]);
+
+//# sourceMappingURL=7651.7aacb2b8ca9cb965e9b5.js.map”ò¿ŸH  )      ¡§\l      self   #s„      webpackChunkgrafana    Ñu2      push   ÊH5      71586      Èp~      onSubmit   ¸Ïy      onSkip     %Gµ~      showDefaultPasswordWarning      ,ók      useState   eV©      handleSubmit	   L``+	      getValues
+      1Åûè	      formState      ‚≥ûπ      defaultValues      %ãS      newPassword    Y±"
+      confirmNew     a…      jsxs   *g“€      form   
+}N      children   	ùg      jsx    hµ…      severity   ¸ı‰      info   “E      title      lÎ}66      forgot-password.change-password.default-password-alert     ´ÅTÈE      Continuing to use the default password exposes you to security risks.      g‡j™2      forgot-password.change-password.new-password-label     ~é      New password   õ…      invalid    ˛tuW      error      ﬂï{1      onFocus    \»?k      New Password is required   ƒÕè≈      onBlur     ˝ËS      validate   @ªTN       strongPasswordValidationRegister    ∫ël⁄      new-password!   Ñ<S/	      autoFocus"      ≥"      autoComplete#   »GŸ      pristine$   ¯©òﬂ      password%   DBXÀ      strongPasswordValidations&      ‚}¿-      forgot-password.change-password.confirm-label'      nÄ◊      Confirm new password(   Ú%¬+      Confirmed Password is required)     ˝K2j      Passwords must match!*      ƒÁ      confirm-new-password+   dÙ∂      submit,     6CY>	      className-      1r◊|      submitButton.   óD¶Î      i18nKey/    QO<Õ-      forgot-password.change-password.submit-button0      †D%Â      Submit1     •.Y.      auth2   e+J[      basicAuthStrongPasswordPolicy3      4W»      content4    ﬁ‡ë
+3      forgot-password.change-password.tooltip-skip-button5    €6‡≤I      If you skip you will be prompted to change password next time you log in.6      sÇc	      placement7      @»ˇ~      bottom8     &Ag
+      skipButton9     à3¿µ      text:   ;ã¢Ô      onClick;    ˙U~      button<     ≈%ô∑      data-testid=    Â‹b7      pages>      πïπÑ      Login?      õ!>Ç      skip@   6¥F™+      forgot-password.change-password.skip-buttonA    îÃ      SkipB   G—Km      53539C      Â(Ò      oauthD      9@=÷	      getSearchE      ähc)      codeF   ™      memoG   ∑Ω2	      resetCodeH      ˚—Ó¡
+      loginErrorI     É#≈†      useCallbackJ    ¡|#      featureTogglesK     ‹e,m      useSessionStorageForRedirectionL    ¯2áâ      windowM     0+QA      locationN   ïn.      assignO     0r©	      appSubUrlP      …D_      redirectUrlQ    ›JX?
+      startsWithR     gŒ¯{      oldPasswordS    œŒ1      adminT      öz      confirmPasswordU    ﬂb+      postV   ∆G©Ò      /api/user/password/resetW   /w≤      putX    3wLQ      /api/user/passwordY     ˛Q1      consoleZ    ‚…ck      /login[     Jæ›
+      showErrorAlert\     Õó      ldapEnabled]    ⁄ºZ8      authProxyEnabled^   Êtu}      login.error.unknown_    fR*¸      Unknown error occurred`     àCå_      /api/login/passwordless/starta      Z1≤H      URLb    ¨ìZ$      /api/login/passwordless/authenticatec   ›¢–"	      loginHintd      «µö      passwordHinte   …ç⁄      disableLoginFormf   Ü¬ìÁ      disableUserSignUpg      Mkc      Fragmenth   CÆ–Ô      isOauthEnabledi     ‹üUf      loginj      ﬂ§Ï∆      passwordlessStartk      ∂<’      passwordlessConfirml    ƒÙ;      showPasswordlessConfirmationm   Ÿ·†Î      isLoggingInn    ”p◊      changePasswordo     ;gó	      skipPasswordChangep     ÿ≠ƒ      isChangingPasswordq     "‡˜˝      loginErrorMessager      J4      displayNames    Ê˛•m	      LoginCtrlt      6ó(Å      datau   óQk›	      messageIdv      j·       password-auth.emptyw    mñû      password-auth.failedx   aóù      password-auth.invalidy      *[¸À$      login.error.invalid-user-or-passwordz   ßFCã      Invalid username or password{   yÛXr      login-attempt.blocked|      åâ1o      login.error.blocked}    â®µU      You have exceeded the number of login attempts for this user. Please try again later.~      ¬¢a      oauth.login.error      †æËÔ#      Login provider denied login requestÄ    PvJ7      61238Å      ∞—bã      useIdÇ      t®$ä      onChangeÉ   ú≥ÊŸ      divÑ    YC˘∏      wrapperÖ    ”CÑF      login.form.username-labelÜ      %«*|      Email or usernameá      ÈÜƒª      userà   R‹†g      login.form.username-requiredâ   ˆ<“      Email or username is requiredä      Èu      autoCapitalizeã     ,Ω      noneå   ﬁ∞π:      placeholderç    L◊5ê      login.form.username-placeholderé    _)Õ˙      email or usernameè      /©¬%      usernameê   |Ÿ#‡      login.form.password-labelë      aÏ∏      Passwordí   u∫Æ      login.form.password-requiredì   «&†˙      Password is requiredî   :béü      current-passwordï   P(      login.form.password-placeholderñ    ûzÉw      disabledó   æ9õ      login.form.submit-loading-labelò    ¸IÕ|      Logging in...ô      ñ#µ(      login.form.submit-labelö    ∞îa⁄      Log inõ     >ü      cssú    ÎƒJ˚      widthù      ª?y      100%û   ˙ûÍC      paddingBottomü      #‡¶      spacing†    Ç©ûô      justifyContent°     rLtö      center¢     Î±ﬁ	      alignSelf£      …h6
+      flex-start§     õ[eÈ      58102•      í'      enterAnimation¶     †¿Ç      loginInnerBoxß      ¡‚ß      branding®   ≥!      loginSubtitle©      ¥Yò^      GetLoginSubTitle™    é§„
+      loginTitle´     ÀhÂ
+      LoginTitle¨     Äbí'      loginBoxBackground≠     ’ˇÂÑ      LoginBoxBackgroundÆ     ‹ŒTá	      loginLogoØ      ˚f¿A      hideEdition∞    ÚJM      HideEdition±    ˚}{c	      useEffect≤      äé∞      LoginBackground≥    -‚
+Ë	      container¥      ÙB	      loginAnimµ      ˝e˝¨      loginBackground∂    ÿµæ	      loginMain∑      ö1#˝      loginContent∏   ”iÕJ      login-content-boxπ      ≤	      loginLogoWrapper∫   Î‹<'	      LoginLogoª      êf›      logoº   ÃáÆ      titleWrapperΩ   ‡‰	      mainTitleæ      Û°^      login.layout.update-passwordø   -F’      Update your password¿   æ	„)      subTitle¡   +UBÌ      loginOuterBox¬      HHoc
+      hideFooter√     nbI      customLinksƒ    √z∆      footerLinks≈    ´ù≤´	      keyframes∆      ⁄u”q      
+from{
+  opacity: 0;
+  transform: translate(-60px, 0px);
+}
+
+to{
+  opacity: 1;
+  transform: translate(0px, 0px);
+}«      A'Hπ      flexGrow»   e}ü      display…     ’qÓ      flex    ªÙõ∏      flexDirectionÀ      Å
+      alignItemsÃ     ¥Ò;
+      minWidthÕ   *|ã§	      minHeightŒ      Zç≈L      backgroundPositionœ     V®Û      backgroundRepeat–   EwYÜ	      no-repeat—      GÁ$W
+      marginLeft“     oW˚ô      &:before”   ﬂue…      opacity‘    p∫,Z      .login-content-box’     ã; x      maxWidth÷   FŸEÈ      marginBottom◊   ì#ï      breakpointsÿ    /·´B      paddingŸ    ì˙@	      textAlign⁄      ˜ûe      fontSize€   <
+	%
+      typography‹     Ï
+ó      color›      ôPúô      colorsﬁ     ∂B≤	      secondaryﬂ      °	◊x      calc(100% - 2rem)‡      ôKˆ      stretch·    »Åí      position‚   Ï-k      relative„   f˜      zIndex‰     ∏=ÌL      borderRadiusÂ   R†t9      radiusÊ     õ[è-      transitionsÁ    õ/∫      handleMotionË   ‘O≈.      no-preferenceÈ      Ã∏
+      transitionÍ     {Õ´      opacity 0.5s ease-in-outÎ   ?ª
+      reduceÏ     6e\	      overflowYÌ      Ñ€ËW      hiddenÓ     RË|	      transformÔ      ‹CáŒ      translate(0px, 0px)    ûøÓ
+      0.25s easeÒ     kÔÂ^	      animationÚ      ù∑Á$       ease-out 0.2sÛ     ≈ào¯      10180Ù      ∑/
+      forwardRefı     VF'      refˆ    ¢%[°      suffix˜     ›æÒ	      eye-slash¯      pÛ¢5      eye˘    â0 y      aria-controls˙      Ù·î¨      role˚   Â°      aria-checked¸   /}ø8      tooltip˝    ˜ûáî&      grafana-ui.password-field.tooltip-hide˛     ¶ˆ†      Hide passwordˇ      ˘¯¯&      grafana-ui.password-field.tooltip-show     ¥«£      Show password     ¸⁄Å¡      PasswordField     (•°Ô      10501     ƒÀÒ      At least 12 characters    z–w
+      validation    Pê/g      One uppercase letter  µØ'Œ      [A-Z]+    ˝O==      One lowercase letter  í§&      [a-z]+	    ˙û}
+      One number
+    ‚Ω9Ò      [0-9]+    5‹ÕÄ
+      One symbol    ÛV.\      [^A-Za-z0-9]  Ä˘c      every     –ÄÅ¿;      profile.change-password.strong-password-validation-register   Ÿy>í8      Password does not comply with the strong password policy  9Ã      map   0´¯º      strongPasswordValidation  è¢ü1      check     Ã¿rD      exclamation-triangle  uòhS      primary   VXﬂJ      icon  >îÉ,      valid     ∑·∏œ	      marginTop     ;[¢      marginRight   …©\9      success#   ‡íoÂ      53539/h<$  ¡      53539/h</y<%   Ü©ßì      53539/h</U<&   .JÊ«      53539/h</U</<'     ˛«Öy      53539/h</W<(   SG      53539/h</B<)   ﬁ¥Lz      53539/h</B</<*     3
+öÕ      53539/h</R<+   ˛M?é      53539/h</R</<,     $Æ      53539/h</j<-   !\DJ      53539/h</j</<9     'ΩK:	      58102/h/<<     °˜≥Ÿ      10180/M<C  º÷	      10501/m/<E     µ¢¥π      10501/_/<.children<     >     P   >          ^   Ô%,â                                                                                                                                                                                   
+         
+                                                             	                 
+                                             
+                                                                                                                                                                                                                                                                      !                                  #                 #                 %                                  '                (                 (                  (           !      +                (           "              	   #      .                /           $      /           %      /           &      /           '      3                /           (      5               6           )      /           *                 +      9                :           ,      :           -      <                =           .              
+   /      ?                @           0      @           1      @           2      @           3      @           4      @           5      @           6      @           7      @          8      I           9      @          :      K           ;      @           <      M                @           =      ≥Oåc                         I  D  s  o `a `d `l `c `n `M `p `h `m `_ `i `r `t `e `           f `                                P `u  O            L  x  A `v  g `y  U  W `B  R  j  K               T                                               T               I  D  s  o `a `d `l `c `n `_ `i `          M `p `h  m `             r               r                                                                  r `t            e `f `P  u `O  L `x  A `v  g `y `U  W `B  R  j  K  T  S  N                               w            E            C                                               C               w               w `Ö  `             E               E            C               w               E               E            C               w               E               E            C               I  D  s  o `a `d `l `c `n `M `p `h `m `_ `           i `r `                                                t  e  f  P  u            O  L  x  A  v  g               t  
+             I  D  s  o `a `d `l `c `n `M `           p `h `m `_ `                                                               i  r            t                  i  r  t     
+       e  f  P `u  O  L  x  A                               i  	             I  D  s  o `a `d `l `c `n `           M `                             p  h             m `_ `                             I  D  s  o `a `d `l `c `n `M `p `           h `m `_ `i `r `                                                             t               t               t               t               t               t `             e                  t  e `f `             P                  t  e  f           g  P  u  O  L  x  A  v               t  Ø¬0∞          
+          IÙ$KEÆ˙ö              „   Ä¯ˇ               S               
+            
+           
+               C                 ‘                      #  $  %        C           
+      ‘       
+    w            .  ,       
+   .           3  6          ,  Æ   :  .  <       
+    .           A              R        E    T        [          [          [               K     h  c  d  e  f  i  j  k  l  m  n  o  p    q     
+   $  Q         n     
+     ,       
+               C                 ‘          C                 ‘          .  <  ,  ñ            Ñ  -  8     
+   ú  û     
+    †  ú         ¢          ∏
+ 2 ñ    
+   ,       
+    ,       
+    ,       
+    ,       
+    ,       
+    ,  ª     
+    ,       
+    ,       
+    .                
+     ,       
+    ,       
+    ,               
+   Ø  √             ∆      ∆     A    ∂  ≥  ¥  -  Æ  π  º  Ω  ¿  ∑  ¡  ¶  •          «  »     À  †  Ã  
+   2    Õ  Œ  œ  …  Ã  —  »     À  †     
+    “  ‘         ”          ”     
+     †  ú         ’          »  À  †     ÿ          Ÿ          ⁄     
+     ⁄  ‹         È          ”     
+     Õ  †         »  Ï  À  †           È          Ò          s          z  ˘  ˙  ˚  :  ¸         Û	 t Ì    
+   \      
+    \      
+    \      
+    \      
+    \      
+    ÷            $  #        »  À        
+      ,  z     
+    ‹                       ≤                      ‹          ‹          ‹  á&’™ç!´!>   ‘      x˛zK‘   Ö                          ª   ª   J   ù   ó   ﬂh    ó   M   ·J   ‰h   :   i    9   	¢m   ?#—m   ?6Ôm   ?ˆ‚m	   ?ƒ'm
+   ?)m   ?i   w ﬂ• `∞ <
+
+Ä ó	Ä U	Ä MI	Ä w	Ä .N FPD6P–  3ìÙû¿  &                       –   º ·J   ‰º 9   m   <   w ﬂº  	`$s Œ  ﬂº  	ys Œ  ﬂº  y¬s Œ  ﬂº  	}Ns Œ  ﬂº  	Ijs Œ  ﬂº  •®s Œ  ﬂº  è≥s Œ  ﬂº  ∑às Œ	  ﬂº  %≥s Œ
+  ﬂº  ∂¢s Œ  ﬂº  
+ís Œ  ﬂº  ¶ˆs Œ  ﬂº  6Ôs Œ  ﬂº  ƒ's Œ  ﬂº  )s Œ  ﬂm   ≥   ﬂ—• `
+
+ˇˇˇ˚P`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	`Ä ∆PÄ–           ˇˇˇˇ0   Ã•‡’0                              ¡   µ   ¢ `Ä∏
+  a@ÂX
+  c         "       ‹      $º  e·J   Œ   ﬂ·J   Õ   ﬂ·J   Õ  ﬂﬂ–   ∞±  ±  ±  ±  ±  ±  ±  ±	  ±
+  ﬂﬂ¡  J    ¡  J   s ±  ﬂﬂ¡  J    s ··cöl   ó
+   J   ‰··„  ö   ó   Kô   ó   ﬂﬂ ó   ±  ﬂ··„  ö   ó   Kô   ó   ﬂﬂ ó   ≥   ﬂ‰ﬂôæ   ó   ·K‰u  d·J	   ‰¨ﬂ‚s  d ·J
+   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨±  ﬂ¨ö   ó    È‰ô5   ó   ‚s  d ·J
+   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨≥   ﬂö   ó   ﬂﬂô   ó   ‰ﬂb ó   ﬂﬂ¡  J    s ··cöl   ó#   J   ‰··„  ö   ó&   Kô   ó'   ﬂﬂ ó'   ±  ﬂ··„  ö   ó)   Kô   ó*   ﬂﬂ ó*   ≥   ﬂ‰ﬂôæ   ó*   ·K‰u  d·J	   ‰¨ﬂ‚s  d ·J
+   ·Êö   ó0   ﬂ Èô   ó0   J   ó1   ¨±  ﬂ¨ö   ó2    È‰ô5   ó2   ‚s  d ·J
+   ·Êö   ó5   ﬂ Èô   ó5   J   ó6   ¨≥   ﬂö   ó7   ﬂﬂô   ó7   ‰ﬂb ó8   ﬂﬂ¡  J    9   9      <      <   <   s e·J   ±  ﬂ·J   ±  ﬂ·J   ≥   ﬂ·J   e·J   ±  ﬂﬂ·J   ±  ﬂﬂæ      s ±	  ﬂm   ±
+  ﬂﬂ¡  J       9   æ   æ
+  s <   h   æ  úS   óM   ﬂﬂ¡  J    ¡	  J   9       <!   ﬂ¡  J"    #   $   s <%   s óU   i    ﬂ¡  J    ¡  J&   9'   ﬂ¡  J"    (   )   s <*   æ  J   <+   æ  2õ$   ó`   J   2õ   ób   J,   ô   óc   ﬂ óc   <-   ﬂ¡  J    ¡  J.   8m/   <0   ·æ      91   2   <3   m4   <5   96   ¡  J7   <8   <9   s ≈:    ÂÂw ﬂ;   <<   <=   ;   <>   s <?   s i   æ  ¥  úO   ó{   ﬂﬂ¡  J    ¡  J@   9A   æ  ¥  <B   æ	  <C   ¡  JD   <E   s óÉ   i   ﬂ¡  J    ¡  J&   9F   ﬂ¡  J"    G   H   s <*   æ  J   <+   æ  2õ$   óé   J   2õ   óê   J,   ô   óë   ﬂ óë   <-   ﬂ¡  J    ¡  J.   8·æ      9I   J   <3   mK   <9   s ≈:    ÂÂw ﬂL   <<   ;   <>   s <?   s i   ﬂ¡  J    ¡  JM   9N   O   <P   h   ﬂ¡  J    ¡
+  JQ   9R   S   <T   æ  JU   <V   ﬂ¡  J    ¡  JW   9X   Y   <Z   [   <?   s <?   s i    ¡  J   J\   J]   ú  óπ   ﬂæ   ú¯   ó∫   ﬂﬂ¡  J    ¡  J^   9_   ﬂ¡  J"    `   a   s <b   c   <d   ﬂ¡  J    ¡
+  JQ   9e   æ  Jf   <V   g   <h   æ   <i   j   <T   ¡  Jk   Jl   Jm   Jn   <o   ﬂ¡  J    ¡  JW   9p   q   <Z   r   <?   s <?   s <?   s óÿ   i   <?   s i   <?   s §—•—•ß 6´ 
+`
+ˇˇˇˇP`PˇˇˇˇÏˇ¶  `PˇˇˇˇÏˇ¶ _`
+ˇˇˇ‡P≈ 3`
+P`
+` ê ˇˇˇ˛P
+
+
+ ï Pˇˇˇ›PÄ  ©
+ ï PF  ê ∫  
+
+
+
+$
+
+î ˇˇˇ∞Pë y
+
+ˇˇˇMPˇˇˇ_PÄ tì 
+	ˇˇˇ„P?
+ ï PI  ê ∫  
+
+
+*
+ˇˇˇ∆Pë u
+
+ˇˇˇhPˇˇˇ^PÄ [
+
+
+
+ 
+
+
+8
+ˇˇˇ¡Pˇˇˇ¿PÄ  ïØ -
+ 	ï PÄ  Ñ
+ 
+
+
+	
+
+û $ 
+
+
+6
+ˇˇˇ√PˇˇˇàPˇˇˇBPí ˇˇˇ
+Pˇˇ˚˜PÄ çTÄÄ∏
+  x
+     ,   6  ˇˇˇˇ    `               ;           ä           z           …     D   €ü◊D                            ¡   º  J   w ﬂ• `ˇˇˇˇPPÄÄ<   ˚˝‘t<                             ¡   µ    s ¢ `PÄÄÄ<   Ñõ5Ê<                             ¡   µ    s ¢ `PÄÄÄX   dúÊ¯X   -                         º  ¡   µ    s  J   ù   ó   ﬂ   ó   ¢ `[û ÄÄ  Õ¢'(p  Ò                       –   ∞±   ﬂm   Œ  ﬂm   Œ	  ﬂº ·J   ‰º 9   m   <   w ﬂº  	`$s Œ  ﬂº  	ys Œ  ﬂº  	Ijs Œ  ﬂº  	/
+s Œ  ﬂº  äés Œ  ﬂº  	j s Œ  ﬂm   ≥   ﬂm	   ≥   ﬂﬂ¡  J
+    m   s ±   ﬂæ      M   ﬂæ   ≥   ﬂ—• ° `
+
+ˇˇˇ˚P`P	
+`P	
+`P	
+`P	
+`P	
+`P	`5`&`ˇˇˇˇPÄ M`"`Ä PÄÄÄ        Î   ˇˇˇˇ0   √≈2“0                              ¡   µ   ¢ `Äx   Ú.Óˆx   G                          ¡  J   J   ú0   ó   ﬂª   ·J   ‰¡  J   J   s J   ó   ¢ ` ® ˇˇˇ˚PX   [Kk]X   &                          ¡  J   ·J   ‰s  ·J   ‰   s ¢ ` ë PP
+ÄÄÄ‘
+  ëÌ∞•
+  Ω                ∑      $º  e·J   Œ   ﬂ·J   Õ   ﬂﬂ–   ∞±  ±  ±  ±  ±  ±  ±  ±  ±	  ±
+  ±  ±  ﬂﬂ¡  J    s  ··cöm   ó   J   ‰··„  ö   ó	   Kô   ó
+   ﬂﬂ ó
+   ≥   ﬂ··„  ö   ó   Kô   ó   ﬂﬂ ó   ≥   ﬂ‰ﬂôø   ó   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨≥   ﬂ¨ö   ó    È‰ô5   ó   ‚s  d ·J   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨≥   ﬂö   ó   ﬂﬂô   ó   ‰ﬂb ó   ﬂﬂ¡  J    s ··cöl   ó   J   ‰··„  ö   ó"   Kô   ó#   ﬂﬂ ó#   ±  ﬂ··„  ö   ó%   Kô   ó&   ﬂﬂ ó&   ≥   ﬂ‰ﬂôæ   ó&   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   ó,   ﬂ Èô   ó,   J   ó-   ¨±  ﬂ¨ö   ó.    È‰ô5   ó.   ‚s  d ·J   ·Êö   ó1   ﬂ Èô   ó1   J   ó2   ¨≥   ﬂö   ó3   ﬂﬂô   ó3   ‰ﬂb ó4   ﬂﬂ¡  J    s ··cöl   ó8   J   ‰··„  ö   ó;   Kô   ó<   ﬂﬂ ó<   ±  ﬂ··„  ö   ó>   Kô   ó?   ﬂﬂ ó?   ≥   ﬂ‰ﬂôæ   ó?   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   óE   ﬂ Èô   óE   J   óF   ¨±  ﬂ¨ö   óG    È‰ô5   óG   ‚s  d ·J   ·Êö   óJ   ﬂ Èô   óJ   J   óK   ¨≥   ﬂö   óL   ﬂﬂô   óL   ‰ﬂb óM   ﬂﬂ¡  J    s ··cöl   óQ   J   ‰··„  ö   óT   Kô   óU   ﬂﬂ óU   ±  ﬂ··„  ö   óW   Kô   óX   ﬂﬂ óX   ≥   ﬂ‰ﬂôæ   óX   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   ó^   ﬂ Èô   ó^   J   ó_   ¨±  ﬂ¨ö   ó`    È‰ô5   ó`   ‚s  d ·J   ·Êö   óc   ﬂ Èô   óc   J   ód   ¨≥   ﬂö   óe   ﬂﬂô   óe   ‰ﬂb óf   ﬂﬂ¡  J    ¡	   ¡  J	   J
+   s s ··cöl   óm   J   ‰··„  ö   óp   Kô   óq   ﬂﬂ óq   ±  ﬂ··„  ö   ós   Kô   ót   ﬂﬂ ót   ≥   ﬂ‰ﬂôæ   ót   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   óz   ﬂ Èô   óz   J   ó{   ¨±  ﬂ¨ö   ó|    È‰ô5   ó|   ‚s  d ·J   ·Êö   ó   ﬂ Èô   ó   J   óÄ   ¨≥   ﬂö   óÅ   ﬂﬂô   óÅ   ‰ﬂb óÇ   ﬂﬂ¡  J    m   h   ¡   µ   i    s ≥   ﬂﬂ¡  J    m   h   ¡  i    ¡   i   s ±  ﬂﬂ¡  J    m   h    s ≥ 	  ﬂﬂ¡  J    m   h   ¡   i    ¡ 	  i   s ±  ﬂﬂ¡  J    m   h    s ±  ﬂﬂ¡  J    m   h   ¡   i    s ±  ﬂ¡  J	   e·J   ±	  ﬂ·J   ±
+  ﬂ·J   ±  ﬂ·J   ±  ﬂﬂﬂ¡  J    ¡  J   9   æ    9   ¡  µ   s  <   æ	  <   æ
+  <   æ  <   æ  <   æ  <   æ  <   æ  <   ¡  µ   s  <   æ  ¥  <   æ  <    ¡   <!   æ  ¥  <"   æ  ¥  <#   æ  ¥  <$   s <   s §—•—•ú ∑ `PˇˇˇˇÏˇß `PˇˇˇˇÏˇ¶  `PˇˇˇˇÏˇ¶  `PˇˇˇˇÏˇ¶  `ˇˇˇ˛PˇˇˇˇPˇˇˇˇÏˇ¶ ,`Ä Dˇˇ˛∫P	Ä M`Ä 	
+
+ˇˇ˛ÛPÄ `ˇˇˇÔP	`Ä 5
+
+ˇˇ˛«PÄ @`Ä  ıˇˇˇ
+PÄ  ˝`Ä  Á
+ˇˇˇPÄ 1`∏ ` 
+P							P	
+ˇˇ˛ÔPˇˇˇÍPÄ >T‘
+  4
+     !   õ  ˇˇˇˇ    ∫                          m           ]           ¨           ú           Î           €           *           1           Ä     Ï  ≈Ï  {                 -        ¡  J   J   J   ö6   ó   ª   J   ·J   ‰¡  J   J      &w ﬂ ¢ó   ¡   µ   2õ   ó   J	   ô   ó   ﬂ ó   öÃ   ó   ¡  J   J   
+   ú4   ó   ﬂ¡   µ   J	   ·J   ‰¡  J   J   s ó   öB   ó   ª   J   ·J   ‰¡  J   J   ¡   µ   J	   &w ô-   ó!   ª   J   ·J   ‰¡   µ   J	   w ó&   ô3   ó&   ª   J   ·J   ‰¡  J   J      &w ó-   ﬂ• `û 5`ë ï ˇˇˇ˘P`Ä  ⁄ˇˇˇ-`’ $ñ ˇˇˇıP§ 2ê ˇˇˇÍPû <ˇˇˇ˘P£ -ï ˇˇˇ˘P	PÄÄÄÑ  i¢CDd  Í                       ∞±   ﬂ9   º  <   º  <      <   ±   ﬂ¡  öm   ó   ∞±  ﬂ9   ¡  <	   º  <   º  <
+   ±  ﬂﬂ¡  J    s  ·J   ‰   æ  s ·J   ‰m   w ﬂ“ôL   ó   ﬂ¡  J    s  ·J   ‰   æ   s ·J   ‰m   s ·J   ‰m   w ﬂó   “• 	``	`
+`P#ˇˇˇ‡P
+(ˇˇˇ˚P`PˇˇˇÁP
+!ˇˇˇ˚P
+ˇˇˇ˙P
+PÄÑ         È   ˇˇˇˇ   9   ^       8   ®ú
+8                             ¡   µ    w  ﬂ• `PÄ8   ®ú
+8                             ¡   µ    w  ﬂ• `PÄD   ◊QÙD                            ª   ·J   ‰º  s ¢ `ˇˇˇ˙PÄÄÄX   ^C˛fX   #                         ¡   µ    w ﬂ¡   µ    º  w ﬂ• `Pˇˇˇ˛PPÄ$  {¶Ñ%  ∏                       Ω  Œ   ﬂàŒ   ﬂ´¡  µ   w ﬂ¡  µ   w ﬂﬂ¡  J    s  ·J   ‰   ¡   9   <   s ·J   ‰m   s ·J   ‰m	   s §ô    §ó   £¡   è§¡   ãô   ó   Æ¡   ê§¡   ãó   •ë `ˇˇˇˇP	\PˇˇˇÔP
+*ˇˇˇ˚P
+Ä  Äˇˇˇ˙Po$             é      ô#   •                         ¡  µ   º  w ﬂ¡   J      ù4   ó   ﬂ¡  J   J   ù   ó   ﬂ¡  J   J   ó	   ö    ó
+   ¡  µ   w  ﬂ ¢ô)   ó   ¡	  µ	   ¡   J      w ﬂó   • `ˇˇˇˇP” ?``#ˇˇˇÈ`ê ˇˇˇˇP	PÄÄ   “∂*‰   î                 	      ∞±   ﬂﬂ¡  J    º  s ö   ó   ¡   º  s ô   ó   ó   ±   ﬂ¡  µ   w ﬂ¡  µ   æ   ù%   ó   ﬂﬂ¡  J          s ó   w ﬂ“• 
+`ˇˇˇˇPì ˇˇˇ˛P`Pï PˇˇˇÙP=PÄÄ          ì   ˇˇˇˇƒ   ‹:.¶ƒ   n                         ¡   µ    w ﬂ¡   µ    w ﬂﬂ¡  J    s  ·J   ‰   º  9   <   s ·J   ‰m   s ·J   ‰m	   w ﬂ• `ˇˇˇˇP	\P(ˇˇˇÿP
+Aˇˇˇ˚P
+/ˇˇˇ˙PoPÄP   e ·P                            ª   J   ·J   ‰º  J   w ﬂ• `ë ˇˇˇ˘PPÄÄ   œeä   î                 	      ∞±   ﬂﬂ¡  J    º  s ö   ó   ¡   º  s ô   ó   ó   ±   ﬂ¡   µ    w ﬂ¡   µ    æ   ù%   ó   ﬂﬂ¡  J          s ó   w ﬂ“• 
+`ˇˇˇˇPì ˇˇˇ˛P`Pï PˇˇˇÙP=PÄÄ          ì   ˇˇˇˇƒ   ~êaƒ   n                         ¡   µ    w ﬂ¡   µ    w ﬂﬂ¡  J    s  ·J   ‰   º  9   <   s ·J   ‰m   s ·J   ‰m	   w ﬂ• `ˇˇˇˇP	\P/ˇˇˇ—P
+Hˇˇˇ˚P
+ˇˇˇ˙PoPÄT   è¸KÖT   "                         ¡   µ    º  w ﬂ¡   µ    w  ﬂ• `ˇˇˇˇP[P   œeä   î                 	      ∞±   ﬂﬂ¡  J    º  s ö   ó   ¡   º  s ô   ó   ó   ±   ﬂ¡   µ    w ﬂ¡   µ    æ   ù%   ó   ﬂﬂ¡  J          s ó   w ﬂ“• 
+`ˇˇˇˇPì ˇˇˇ˛P`Pï PˇˇˇÙP=PÄÄ          ì   ˇˇˇˇ4  :wy4  ‚                         º  J   2õ   ó   J   ô   ó   ﬂ ó   ·   üB   ó   ·   ü1   ó   ·   ü    ó   ·   ü/   ó   †E   ó   ﬂ¡  J       	   s ¢ó	   ﬂ¡  J    
+      s ¢ó   º  J   2õ   ó   J   ô   ó   ﬂ ó   ¢• `˜ d` ï PÄ  ˇˇˇd` ï PÄ  èˇˇˇÈ`© QÄ   ¥Ùs˚Ä   C                         º  ·   ü   ó   †%   ó   ﬂ¡  J          s ¢ó   º  ¢• `û ` ï PMˇˇˇ˜`	QÄÄî  ©ˇJWÑ  ˚                        –   º ·J   ‰º 9   m   <   m   <   w ﬂº  	`$s Œ  ﬂº  Ys Œ  ﬂº  	ys Œ  ﬂº  y¬s Œ  ﬂº  	}Ns Œ  ﬂº  	Ijs Œ  ﬂº  %≥s Œ  ﬂº  
+ís Œ	  ﬂº  '¯s Œ
+  ﬂº  ¶ˆs Œ  ﬂº  ƒ's Œ  ﬂm   ≥   ﬂm	   ≥   ﬂ—• `
+
+
+ˇˇˇÛP`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	`Ä Ô`Ä  ±Pî        ı   ˇˇˇˇ0   ‘Úˆ0                              ¡   µ   ¢ `Ä0   Ã•‡’0                              ¡   µ   ¢ `Ä  ¥ìÙ  Ü         %       {      º  e·J   Õ   ﬂ·J   Õ  ﬂ·J   Õ  ﬂ·J   Õ  ﬂ·J   Õ  ﬂﬂ∞±  ±  ±  ±  ±	  ±
+  ﬂﬂ¡  J    ¡   µ   s ±  ﬂﬂ¡  J    s  ±  ﬂﬂ¡  J    s  ±  ﬂﬂ¡  J	    9
+      <   s e·J   ±  ﬂ·J   ±	  ﬂ·J   e·J   ±
+  ﬂﬂﬂﬂ¡  J       9   æ  J   <   ﬂ¡  J       9   æ   æ  s <   h   ﬂ¡  J    ¡	  J   9   ﬂ¡  J          s <   æ
+  J   <    æ
+  J   2õ   ó(   J!   ô   ó)   ﬂ ó)   <"   ﬂ¡  J    ¡
+  J#   8·æ	      9$   ﬂ¡  J    %   &   s <'   s ≈(    ÂÂw ﬂæ  <)   <*   +   <,   æ  ù%   ó8   ﬂﬂ¡  J    -   .   s ó:   </   ¡  J0   J1   J2   J3   <4   s <   s i    ﬂ¡  J    ¡	  J   95   ﬂ¡  J    6   7   s <   æ
+  J8   <    æ
+  J8   2õ   óO   J!   ô   óP   ﬂ óP   <"   ﬂ¡  J    ¡  J9   8·æ	   8   9:   ﬂ¡  J    ;   <   s <'   s ≈(    ÂÂw ﬂæ  <)   =   <>   æ  ù%   ó^   ﬂﬂ¡  J    ?   8   s ó`   </   s <   s i   ﬂ¡  J    ¡  J@   9A   B   <C   ¡  J0   J1   J2   JB   <4   æ  JD   <   æ  <E   æ  ö)   óq   ﬂ¡  J    F   G   s ô$   ós   ﬂ¡  J    H   I   s óu   <   s i   æ   i   <   s <   s §“•“•º Dö 
+`
+ˇˇˇˇP`P`P5`
+ˇˇˇ˛PÆ ` ê  
+ê ˇˇˇ˛P
+ ï P2  ê Ø  
+
+ 
+ï PˇˇˇÊPë ]	
+ï P8û ˇˇˇ$PˇˇˇÇPÄ á
+ ï P)  ê Ø  
+
+ 
+ï Pˇˇˇ‚Pë X	
+ ï PˇˇˇdPˇˇˇÉPÄ M
+
+û &	ï P5ï PˇˇˇTPÄ  ”ˇˇ¸Pˇˇˇ—PÄ TÄÄ     <   I  ˇˇˇˇ    É            P	XÈ   ê                         9   ﬂ¡  J    9      <   º  ·J   ‰s <   s <   ﬂ¡  J    9	   
+   <      <   s <   ﬂ¡  J    9      <   s <   ¢ ` 	
+Pˇˇˇ·P, 
+
+ˇˇˇÊP) 
+ˇˇˇ˛PÄÄÄÄ  É$∞Kp  Î                        –   º ·J   ‰º 9   m   <   m   <   m   <	   w ﬂº  	`$s Œ  ﬂº  Ys Œ  ﬂº  	ys Œ  ﬂº  	Ijs Œ  ﬂº  ¶ˆs Œ  ﬂº  	ks Œ  ﬂº  î(s Œ  ﬂm
+   ≥   ﬂm   ≥   ﬂﬂ¡  J       s ≥   ﬂm   ≥   ﬂ—• `
+
+	
+	
+ˇˇˇÈP(`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	`Ä  ò`Ä é`UI	`Ä oPÄÄÄÄ        Â   ˇˇˇˇ0   ‘Úˆ0                              ¡   µ   ¢ `Ä0    #ß$0                              ¡   µ   ¢ `Ä0   Ã•‡’0                              ¡   µ   ¢ `Ä<  çM“Ÿ  ¡   
+                   ∞±   ±  ﬂº  e·J   ±   ﬂ·J   · ö   ó   ﬂó   ±  ﬂﬂ∞±  ﬂﬂ¡  J    ¡   µ   s ±  ﬂﬂ¡  J       9   ﬂ¡  J    æ  J	   æ  ú   ó   ﬂæ  J   ó   s <
+   æ   <   s §“•“•π $
+`
+ˇˇˇˇP` ê  	ù ˇˇˇÔP&	ˇˇˇ¿PLT<     9   á   ˇˇˇˇ    æ          ƒ  ‰¯	€Ñ  Á      
+   +       ü      $º  e·J   Õ   ﬂ·J   Õ  ﬂ·J   Õ  ﬂﬂ–   ∞±  ±  ±  ±  ±  ±  ±	  ﬂﬂ¡  J    ¡  µ  s ±  ﬂﬂ¡  J    s ··cöl   ó	   J   ‰··„  ö   ó   Kô   ó   ﬂﬂ ó   ±  ﬂ··„  ö   ó   Kô   ó   ﬂﬂ ó   ≥   ﬂ‰ﬂôæ   ó   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J	   ·Êö   ó   ﬂ Èô   ó   J
+   ó   ¨±  ﬂ¨ö   ó    È‰ô5   ó   ‚s  d ·J	   ·Êö   ó   ﬂ Èô   ó   J
+   ó   ¨≥   ﬂö   ó   ﬂﬂô   ó   ‰ﬂb ó   ﬂæ  2õ   ó   J   ô   ó    ﬂ ó    û   ó    ﬂ¡  J   ·J   ‰s  ó#   ±  ﬂæ  2õ   ó$   J   ô   ó%   ﬂ ó%   û   ó%   ﬂ¡  J   J   ó'   ±  ﬂæ  2õ   ó(   J   ô   ó)   ﬂ ó)   ù   ó*   ﬂ¡  J   ·J   ‰s  ó-   ±  ﬂæ  2õ   ó.   J   ô   ó/   ﬂ ó/   ±  ﬂæ  2õ   ó0   J   ô   ó1   ﬂ ó1   û   ó1   ﬂ¡  J   J   ó3   ±	  ﬂﬂ¡  J    m   h    w ﬂﬂ¡  J    ¡  J   J   9   ﬂ¡  J    æ  J   æ  ¥  ú   ó>   ﬂæ  J   ó?   æ  2õ   ó@   J   ô   óA   ﬂ óA   s <   h   ﬂ¡  J        9!   æ  J"   <   ﬂ¡  J        9#   ﬂ¡  J    æ  J$   æ  %   s <   h   ﬂ¡  J        9&   æ  J'   <   h   ﬂ¡  J    ¡  J   J(   9)   æ  J   <   æ  <*   s i    ﬂ¡  J        9+   æ  J,   <   æ  öo   óa   ﬂ¡  J    -   9.   æ  J/   <   ﬂ¡  J    ¡  J0   91   2   <3   4   <   s <   s ô≥   óm   ﬂ¡  J    ¡  J5   96   h   ﬂ¡  J    -   97   æ  J/   <   æ  <   s i    æ  ú<   óx   ﬂﬂ¡  J    8   99   æ  J:   <   æ  <   s ó~   i   <   s óÄ   <   s i   <   s i    ﬂ¡  J        9;   æ  J<   <   æ   <   s i   <   s <   s i    æ  2õ   óè   J=   ô   óê   ﬂ óê   ö.   óë   ﬂ¡  J    ¡  J5   9>   s ô\   óï   ﬂ¡  J    ¡  J?   9@   æ	  <   æ  2õ   óö   JA   ô   óõ   ﬂ óõ   <B   s óù   i   <   s §—•—•¶ 0£ 
+`
+ˇˇˇˇP`PˇˇˇˇÏˇ¶ `¡ P`… !`¡ P`™ `… !` 
+ˇˇˇıP 	° • ˇˇˇ‰P0ê  
+ê  		ˇˇˇP'ê 	ˇˇˇŸP1ê ê  
+
+
+'
+ˇˇˇ“Pˇˇˇ—PÄ  Ç
+ê 	ˇˇˇ„P*ê 	ˇˇˇ‰Pí ˇˇˇ™Pˇˇˇ@PˇˇˇèPÄ πê 	ˇˇˇﬁPˇˇ˝ÍPˇˇˇœPÄ {Ø 
+ˇˇˇÙP
+	™ ˇˇˇÎPí ˇˇ¸ÈPÄ KTÄÄÄƒ  §     +   ª  ˇˇˇˇ    ‰               2           Å     <   ˚˝‘t<                             ¡   µ    s ¢ `PÄÄÄî  uÆƒÙî  È          
+       ∏       9   ﬂ¡  J    9   <      <      <   	   <
+   	   <      <   s <   ﬂ¡  J    9      <   	   <      <   <      <   <      <      <   	   <
+   	   <   s <   ﬂ¡  J    9   9   <   <   9   <   <   s <   ﬂ¡  J    9   	   <      <   s <   ﬂ¡  J    8   <   <<    º  ·J!   ‰s <"   º  J#   ·J$   ‰%   s /9&   d<    ?s <'   ﬂ¡  J    9(      <   	   <
+   	   <      <   º  ·J!   ‰s <)   s <*   ﬂ¡  J    9+   	   <,   s <-   ﬂ¡  J    8<.   º  J#   ·J$   ‰%   s /9/    <.   ?s <0   ﬂ¡  J    91   º  J2   J3   J4   <.   º  J5   J6   J7   <8   s <9   ﬂ¡  J    8ﬁ<    :   <      <   ;   <
+      <   <   <=   >   <   <?   @<   º  J@   JA   JB   <C   º  ·J!   ‰s <)   <   º  JD   ·JE   ‰F   s /9G   H   <I   ?º  JD   ·JE   ‰J   s /9K   <   ?º  J#   ·J$   ‰%   s /9L   º  ·J!   ‰(s <   	   <   ?s <M   ﬂ¡  J    9N      <   O   <P   	   <
+   	   <   s <Q   ﬂ¡  J    8º  ·J!   ‰s <)      <      <   	   <
+   	   <   <   ü<       <   R   <S   º  JD   ·JE   ‰F   s /9T   U   <I   ?s <V   ﬂ¡  J    8º  JD   ·JE   ‰F   s /9W   ¡   µ   1X   &<Y   ?s <Z   ¢ ` 
+
+
+
+
+ˇˇˇ°Pq 
+
+
+
+
+
+
+
+ˇˇˇVPÄ  ƒ ˇˇˇ—P< 
+
+ˇˇˇÊP) 
+Pî P	ˇˇˇ±P_ 
+
+
+
+
+Pˇˇˇ¢Pk 
+ˇˇˇ˛P î P	ˇˇˇÿP7 
+ó ó ˇˇˇ‡P@ 
+
+
+
+
+
+	ó 
+P
+î P	 'î P	î P	Pˇˇ˛ZPÄ ¡ 
+
+
+
+ˇˇˇ»PR ë 
+P
+
+
+
+
+
+ î P	 ˇˇˇPÄ  ˛ î P	  ó ˇˇˇ¬PS8  7≤(  ∑                        –   º ·J   ‰º 9   m   <   w ﬂº  	`$s Œ  ﬂº  	ys Œ  ﬂº  	}Ns Œ  ﬂº  	Ijs Œ  ﬂº  	*s Œ  ﬂº  '¯s Œ  ﬂﬂ¡  J    m   s ≥   ﬂ¡      M	   ﬂ—• `
+
+ˇˇˇ˚P`P	
+`P	
+`P	
+`P	
+`P	
+`P	`ˇˇˇˇP	Ä ì`ë P8        ±   ˇˇˇˇ0   Ã•‡’0                              ¡   µ   ¢ `Äp  ’“n0  £                 :      $–   ﬂ¡  J    s ··cöm   ó   J   ‰··„  ö   ó   Kô   ó   ﬂﬂ ó   ≥   ﬂ··„  ö   ó
+   Kô   ó   ﬂﬂ ó   ≥   ﬂ‰ﬂôø   ó   ·K‰u  d·J   ‰¨ﬂ‚s  d ·J   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨≥   ﬂ¨ö   ó    È‰ô5   ó   ‚s  d ·J   ·Êö   ó   ﬂ Èô   ó   J   ó   ¨≥   ﬂö   ó   ﬂﬂô   ó   ‰ﬂb ó   ﬂﬂ¡  J    ¡  J   8·º  ≈	    ÂÂw ﬂ¡   µ   ö   ó   
+   ô   ó      ó   <   ¡  J   J   J   J   <   º <   ﬂ¡  J    ¡  J   9   ¡   ö   ó*      ô   ó*      ó*   <   º  J   <      <   ¡   <   m   <   ¡   ö)   ó2   ﬂ¡  J           s ô$   ó4   ﬂ¡  J    !   "   s ó6   <#   s <$   s §—•—• `PˇˇˇˇÏˇß ` 
+í ≤ û ( 
+≠ 
+
+
+ï P<ï PˇˇˇFPˇˇˇûPÄ ZTÄÄÄp  P        ù  ˇˇˇˇ    †               –                  L   HÒ-ΩL                             ¡   µ    ¡   µ   w ﬂ• `ˇˇˇˇPPÄÄD  7åë4  å                 *      –   º ·J   ‰º 9   m   <   m   <   m   <	   w ﬂº  	`$s Œ  ﬂº  Ys Œ  ﬂº  	Ijs Œ  ﬂº  Ôws Œ  ﬂº  	ds Œ  ﬂº  6zs Œ  ﬂº  ¶ˆs Œ  ﬂº  	j s Œ	  ﬂh   9
+      <   m   <   i    9      <   m   <   i   9      <   m   <   i   9      <   m   <   i   9      <   m   <   i   ≥   ﬂm   ≥   ﬂm   ≥   ﬂm   ≥   ﬂm   ≥   ﬂ—• `
+
+	
+	
+ˇˇˇÈP(`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	
+`P	`
+!
+ 
+ 
+ 
+ï )`Ä  Œ`Ä  ∂`Ä ˆ`Ä  »PÄD        Ü  ˇˇˇˇ0   ‘Úˆ0                              ¡   µ   ¢ `Ä0   Ã•‡’0                              ¡   µ   ¢ `Ä0   √≈2“0                              ¡   µ   ¢ `Ä4   ó6R&4                            º  J    ¢ `
+ÄÄD   ™ß¸˘D                            l   ·J   ‰º  s ¢ `ˇˇˇ˚PÄÄÄD   ™ß¸˘D                            l   ·J   ‰º  s ¢ `ˇˇˇ˚PÄÄÄD   ™ß¸˘D                            l   ·J   ‰º  s ¢ `ˇˇˇ˚PÄÄÄD   ‡ílD                            l   ·J   ‰º  s ¢ `ˇˇˇ˚PÄÄÄ§   1' /§   m   	                     Ω  Œ   ﬂ¡	  J   J   J   ùI   ó   ﬂ¡  µ  ·J   ‰m   s ù%   ó	   ﬂﬂ¡  J          s ó   ¢	`± 2ˇˇˇ˙Pï PyD   ∏ÄÌD                            º  ·J   ‰¡   s ¢ `
+ˇˇˇıPÄÄÄ®   ±D≤í®   g                        º  e·J   Õ   ﬂ·J   Œ   ﬂ·J   Œ   ﬂﬂﬂ¡  J    ¡  J   9   <   æ   ·J   ‰m	   s <
+   s ¢® 8`
+ˇˇˇ¸Pˇˇˇ‡PrÄÄÄ   Iä≥ıÄ   D                         ﬂ¡  J    ¡  µ  9   º  <   ¡   <   ¡   <   º  J   s ¢ `
+
+
+ˇˇˇ P?ÄÄú  xjl  ≥                4      º  e·J   Õ   ﬂ·J   Õ  ﬂ·J   Õ  ﬂﬂ∞±  ±  ±  ±  ±  ±  ±	  ±
+  ﬂﬂ¡  J    ¡   µ   s ±  ﬂ¡	  J   J   e·J   ±  ﬂﬂæ  õ   ó	   §“•ó	   æ   e·J	   ±  ﬂ·J
+   ±  ﬂﬂæ  J   ú   ó   ﬂæ   æ  s ó   ±  ﬂæ  ù   ó   ﬂæ  ó   ö   ó      ô   ó      ó   ±	  ﬂæ  ö   ó      ô,   ó   æ  ö   ó      ô   ó      ó   ±
+  ﬂ ±  ﬂæ  ö!   ó   æ  J   J   Õ  ôF   ó   æ  ö!   ó   æ  J   J   Õ  ô   ó   æ  J   J   Õ  ó   ﬂﬂ¡  J    ¡  J   9      <      <   <   h   ﬂ¡  J    ¡  J   9   ﬂ¡  J    æ  J   J    æ  s <!   æ	  <"   s i    ﬂ¡  J    ¡  J#   9$   æ
+  <%   æ  <&   s i   <&   æ  s §“•“•¶ 6¢ 
+`
+ˇˇˇˇP&`ú ``Ä uˇˇ˛µ`ú `õ ˇˇˇ˛P`¿ &`œ (` Ï 4
+
+
+
+ ˇˇˇÚP	ˇˇˇ◊P3
+		ˇˇˇÚPˇˇˇ`PÄ  ¢TÄÄÄú     &   å  ˇˇˇˇ    î              ∞         @  ∆v@  –                  "       9   9   ﬂ¡  J    9   º  ·J   ‰s <   s <   ﬂ¡  J    9   º  J	   J
+   J   <   s <   ﬂ¡  J    9   º  J	   J   J   <   s <   ﬂ¡  J    9   º  J	   J   J   <   s <   <   ¢ ` PˇˇˇP ó ˇˇˇ˛P  	ó ˇˇˇ˛P" ó ˇˇˇ˛PÄÄ3ıÿ  `  `    `  `	  `  )    `        ` $    H  Å  Å   N  ±   @  @ê           Œ  	  
+  ù   X    p      @  F    @    t        D    @    C    \    s    p    @  ‘    p  	  @Û	     U      ç !  "    Ì 
+  @#  $  t %    @&  '    @(    p*  B    @F   w   ó   @+  .  -  ,  F   @/  .  0  1  2  m    @4  5  3  7  6    @8  9  Æ   :  ;  Ÿ =  >  ?  <    @@  A    `  `d    @  pS    p  `t  u  v  w  x  {  t  y  z  |  }  \    `~  t      `  `"	 C  {  B  H    `b D  Œ   E    `"	 J  K  L  M  N  O  /  P  ê   Q    `  `  `Y      `  `  @    S  R    `  @E  T  ,	 U  V      pW  X    p?     p  `  `$  S  "	 \  ]    `  `i t  ^  _    `,	 U  Z    @[      p?     p   `L  M  N  a  !  `"  `i t  ^  _    `,	 U  `    @[      p?     p$  `%  `&  `i t  ^  _  #  `,	 U  b    @[      p?     p  `G      `  H  Å  Å   N  "	 H  I    p  p  p  p  p  pc  d  e  f    g    @  @h  i  j  k  l  m  n  o  p    q  
+  `  `  p  pd    @	  pA  
+  p  pF    ps  r  )  `*  `+  `    m  d  c  ,  ` Å  ±   @Ç  n    Œ  
+  ù     É    @Ñ  ,        @D    @t  Ö  Ü  C  á    \    p     @à  â  ‘  U   ç !  ã  ä  ç  é  å  Ÿ =  >  è  <  !  @ê  ë  $  s  "  @í  ì  î  "  ï  ó #  @+  .  -  ñ  ó  ò  ô  ö  -  `$  @õ  %  @ù  ú  ü  û  Ñ  &  @°  †  -  '  @£  ¢  8  '  `(  `d    @  p$     pQ  !  p"  p0  `1  `2  `3  `  •  4  `   É  )  @! ¶  ,  7  `5  `  ß  p  6  `   H  Å  Å   N  ®   ©  ™  ´  ¨  ≠  Æ  Ø  ∞  ±  )  p  ≤  *  @! ≥  ¥  µ  ,    É  +  @∂  ,  @∑  ∏  -  @π  ∫  .  @ª  /  @º  A 0  @Ω  F 1  @æ  .  ø  g  2  @3  @C 4  @¿  5  @¡  ¬  6  @ 7  @ƒ  √  8  `9  @õ  :  @«  …  »  F      °  À  †  ù  Ã  ∂  ;  @Õ  Œ  –  œ  —  ≥  <  @=  @”  “  >  @‘  ¥  ?  @ú  -  ’  ü  ÷  ◊  ô  @  @Æ  A  @ÿ  π  B  @Ÿ  º  ⁄  C  @Ω  D  @€  ˆ  ç ›  9  ﬁ  ‹  ¿  ﬂ  ‡  ‚  ·  £  „  Ú  Â  P ‰  Ê  Á  Ë  E  @Í  È  Î  F  @G  @∑  H  @Ì  Ï  ¡  Ô  Ó  I  @  ¶  J  @Ú  Ò  •  .  `/  `d  (  @$  p∏
+ %  p2 &  pñ '  p(  p≈  8  @*  p;  `>  `<  `=  `  H  Å  Å   N    p  U   9  $  .  Ÿ =  >  <  ı  K  L  @˜  ¯  z  ç ˘    ˙  ˚  .  p:  t  ˝  ˛  ˇ    ¸  ˆ  9  `:  `d  K  @,  ps  Ù  -  p r  A  `B  `C  `D  `H  E  `   P  F  `  P  G  `  P  H  `  P  J  ` I  `"	 1  2   9  pt    L  `  T  @ $  #  \  K  `%  $  #    a  S  @÷   ;  p  M  ` $  #  N  ` "	 1  2  \   H    ﬁ       ≤    a  U  @…  »  °  À     I  V  @!   ,  z  E  W  @‹    O  `X  @Y  @õ  Z  @ü     [  @›   9  ‹   \  @ﬁ  ≤  ]  @   ?  `@  `d  M  @0  pÛ	 1  pt 2  pÌ N  @ \  3  p O  @ 4  pP  @ 5  pQ  @	 6  pR  @ 7  p8  p:  p<  p=  p   `          @  @  p  p  p#  p+  p/  pˇXÑ                {            "         S      !
+    s   f      !
+       K      !
+             !
+             !
+             !
+ '     B      "  ì      A      !
+ î      M      !
+ ö      p      !
+   %   #     ! ü      $     ! ∞      %     ! ´      &     ! ¨      &     ! ≠      &     ! ≈      '     ! “   
+   (     ! ∆      )     ! Ã      )     ! Á   
+   *     ! ‹      +     ! ·      +     ! ¯   
+   ,     ! Ò      -     ! Ú      -     ! Ç      _        è      i        í  
+   Ä      "  5     $      !
+ 6     Q      !
+ 7  J   i      !
+ Å     r      !
+ I     §      "  ú     ∏
+     !
+ ù     2     !
+ û     ñ     !
+ ü     p      !
+ ´  C   h      !
+ ™     9     ! Ó  [   _      !
+   
+   Û      "  X     s      !
+ Z  %   <     ! Y     :      !
+ Ú          "  â     Û	     !
+ ä     t     !
+ ã     Ì     !
+ å          !
+ é          !
+ ë          !
+ î          !
+ ó          !
+ ú  	   m      !
+ ö     C     ! ¨     _      !
+ •     E     ! ∑  '   i      !
+ ﬁ     r      !
+ ùH©¿      ¶0      ¶0                Ä X   È  S   È     Y            i   n   i   n      j           Ä "  Ë  "  Ë     #           4  I  4  I     5           Á    Á       Ë            0  9  0  9     1            Ì    Ì       Ó         Ä Ô  >  Í  >                 	  	   	  	     	            V	  à	  V	  à	     W	            ã	  ≠	  ã	  ≠	     å	          Ä ª	    ª	       º	           |
+  ø  |
+  ø     }
+            Ÿ  ·  Ÿ  ·     ⁄           Ä  â  Ä  â     Å            ª  ƒ  ª  ƒ     º            Ã  ﬂ  Ã  ﬂ     Õ           ˝    ˝       ˛         EÄ +  Y  %  Y     ,           t  Á  t  Á     u           Ô  W  Ô  W                u  i  u  i     v           ’  ˜  ’  ˜     ÷           ˇ  g  ˇ  g                 Ç  h  Ç  h     É           È  ˆ  È  ˆ     Í           ˛  f  ˛  f     ˇ           5  ≤  +  ≤     6           º  =  ≤  =     Ω         Ä D  ã  ?  ã     E           U  Z  U  Z     V            ]  b  ]  b     ^            Í  ÷  Í  ÷     Î           Ÿ  ä  Ÿ  ä     ⁄         %Ä ë  0(  å  0(     í           £  ®  £  ®     §            ¨  ±  ¨  ±     ≠            µ  ∫  µ  ∫     ∂              ´    ´                Æ  8   Æ  8      Ø           ‘  ›  ‘  ›     ’            ¿   /(  ¿   /(  
+             Ä 6(  ^*  1(  ^*  
+   |           G(  L(  G(  L(  
+   ç            Æ(  >*  Æ(  >*  
+   Ù           †)  ´)  †)  ´)  
+   Ê          Ä d*  k0  _*  k0  
+   ™	           v*  {*  v*  {*  
+   º	            *  Ñ*  *  Ñ*  
+   ≈	            à*  ç*  à*  ç*  
+   Œ	            "+  1+  "+  1+  
+   h
+           ^+  q+  ^+  q+  
+   §
+           û+  ±+  û+  ±+  
+   ‰
+           ‘+  Á+  ‘+  Á+  
+              
+,  #,  
+,  #,  
+   P         Ä (,  Û,  (,  Û,  
+   n           ],  o,  ],  o,  
+   £         Ä ˆ,  ©-  ˆ,  ©-  
+   <           Z-  ¶-  Z-  ¶-  
+   †           ¨-  ü/  ¨-  ü/  
+   Ú           ¢/  j0  ¢/  j0  
+   Ë         5°›/T»Bñ8      iÂA›iÂAﬁIh!ék∂kç   m    O^partitionKey=%28http%2Clocalhost%2C3000%29,:http://localhost:3000/public/build/7651.7aacb2b8ca9cb965e9b5.js necko:classified 1 strongly-framed 1 request-method GET response-head HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Cache-Control: public, max-age=31536000
+Content-Length: 12454
+Content-Type: text/javascript; charset=utf-8
+Last-Modified: Wed, 25 Mar 2026 08:23:55 GMT
+Date: Tue, 07 Apr 2026 16:59:57 GMT
+ original-response-headers Accept-Ranges: bytes
+Cache-Control: public, max-age=31536000
+Content-Length: 12454
+Content-Type: text/javascript; charset=utf-8
+Last-Modified: Wed, 25 Mar 2026 08:23:55 GMT
+Date: Tue, 07 Apr 2026 16:59:57 GMT
+ ctid 2 uncompressed-len 0 net-response-time-onstart 55 net-response-time-onstop 55 alt-data 1;12454,javascript/moz-script-bytecode-20250227124745-8l alt-data-from-child 1  

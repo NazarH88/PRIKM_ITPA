@@ -1,16 +1,14 @@
-{"timestamp":22630,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"glean_timestamp":"1775570039443","loadfail_reason":"File doesn't exist.","can_load":"false","path_key":"clean"}}
-{"timestamp":22656,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"path_key":"recovery","glean_timestamp":"1775570039468","can_load":"true","loadfail_reason":"N/A"}}
-{"timestamp":22656,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"glean_timestamp":"1775570039468","loadfail_reason":"N/A","path_key":"recovery","can_load":"true"}}
-{"timestamp":22657,"category":"session_restore","name":"shutdown_success_session_startup","extra":{"glean_timestamp":"1775570039470","shutdown_ok":"true","shutdown_reason":"final-state-write-incomplete"}}
-{"timestamp":23207,"category":"webcompatreporting","name":"reason_dropdown","extra":{"setting":"required","glean_timestamp":"1775570040020"}}
-{"timestamp":23594,"category":"jsonfile","name":"load_autofillprofiles","extra":{"value":"","glean_timestamp":"1775570040408"}}
-{"timestamp":23597,"category":"network.dns","name":"trr_confirmation_context","extra":{"value":"2","captivePortal":"1","time":"746.371417","results":"+","trigger":"uri-change","glean_timestamp":"1775570040409","attemptCount":"1","contextReason":"","networkID":"lNrSDJgSHMN3xW+7hdPraQUbps8="}}
-{"timestamp":23918,"category":"network.dns","name":"trr_confirmation_context","extra":{"networkID":"lNrSDJgSHMN3xW+7hdPraQUbps8=","results":"+","contextReason":"pref-change","attemptCount":"1","trigger":"pref-change","captivePortal":"1","glean_timestamp":"1775570040731","time":"60.698208","value":"2"}}
-{"timestamp":23944,"category":"doh","name":"state_enabled","extra":{"value":"null","glean_timestamp":"1775570040762"}}
-{"timestamp":23950,"category":"doh","name":"evaluate_v2_heuristics","extra":{"enterprise":"","networkID":"ZTIY4AR4G7OesfPH78C6r0u1nt2pRwLvUpOy4KID2k8=","value":"enable_doh","evaluateReason":"startup","filtering":"","captiveState":"not_captive","steeredProvider":"","platform":"","glean_timestamp":"1775570040762","canaries":""}}
-{"timestamp":24168,"category":"nimbus_events","name":"is_ready","extra":{"glean_timestamp":"1775570040981"}}
-{"timestamp":24252,"category":"upgrade_dialog","name":"trigger_reason","extra":{"value":"not-major","glean_timestamp":"1775570041064"}}
-{"timestamp":24262,"category":"addons_manager","name":"disable_extension","extra":{"source":"system-addon","value":"screenshots@mozilla.org","glean_timestamp":"1775570041075","blocklist_state":"0"}}
-{"timestamp":24262,"category":"addons_manager","name":"manage","extra":{"addon_type":"extension","glean_timestamp":"1775570041075","blocklist_state":"0","method":"disable","addon_id":"screenshots@mozilla.org","source":"system-addon"}}
-{"timestamp":28963,"category":"urlbar","name":"engagement","extra":{"interaction":"typed","selected_position":"1","engagement_type":"click","actions":"none","results":"tip_onboard","search_engine_default_id":"google-canonical","sap":"urlbar_newtab","search_mode":"","selected_result":"tip_onboard","n_results":"1","n_chars":"0","glean_timestamp":"1775570045776","n_words":"0","groups":"heuristic","provider":"UrlbarProviderSearchTips"}}
-{"timestamp":52829,"category":"nimbus_events","name":"is_ready","extra":{"glean_timestamp":"1775570069643"}}
+{"timestamp":32277,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"can_load":"false","glean_timestamp":"1778569593022","loadfail_reason":"File doesn't exist.","path_key":"clean"}}
+{"timestamp":32286,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"glean_timestamp":"1778569593031","path_key":"recovery","can_load":"true","loadfail_reason":"N/A"}}
+{"timestamp":32340,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"loadfail_reason":"N/A","glean_timestamp":"1778569593085","can_load":"true","path_key":"recoveryBackup"}}
+{"timestamp":32340,"category":"session_restore","name":"backup_can_be_loaded_session_file","extra":{"glean_timestamp":"1778569593085","loadfail_reason":"N/A","can_load":"true","path_key":"recoveryBackup"}}
+{"timestamp":32345,"category":"session_restore","name":"shutdown_success_session_startup","extra":{"glean_timestamp":"1778569593093","shutdown_reason":"final-state-write-incomplete","shutdown_ok":"true"}}
+{"timestamp":32839,"category":"webcompatreporting","name":"reason_dropdown","extra":{"glean_timestamp":"1778569593584","setting":"required"}}
+{"timestamp":33229,"category":"jsonfile","name":"load_autofillprofiles","extra":{"glean_timestamp":"1778569593974","value":""}}
+{"timestamp":33294,"category":"network.dns","name":"trr_confirmation_context","extra":{"results":"+","time":"681.889500","value":"2","attemptCount":"1","contextReason":"","networkID":"l0Bl0gSwQ/HZe0cEvXWZO0YmGFM=","glean_timestamp":"1778569594039","trigger":"uri-change","captivePortal":"1"}}
+{"timestamp":33686,"category":"network.dns","name":"trr_confirmation_context","extra":{"trigger":"pref-change","contextReason":"pref-change","attemptCount":"1","time":"71.424500","results":"+","glean_timestamp":"1778569594430","captivePortal":"1","value":"2","networkID":"l0Bl0gSwQ/HZe0cEvXWZO0YmGFM="}}
+{"timestamp":33738,"category":"doh","name":"state_enabled","extra":{"value":"null","glean_timestamp":"1778569594483"}}
+{"timestamp":33738,"category":"doh","name":"evaluate_v2_heuristics","extra":{"networkID":"jqc/xsjXZfLmmk6z8yCWKdnaVwUjwCC6DFf13dcZfeo=","canaries":"","value":"enable_doh","glean_timestamp":"1778569594483","enterprise":"","filtering":"","captiveState":"not_captive","platform":"","steeredProvider":"","evaluateReason":"startup"}}
+{"timestamp":33986,"category":"nimbus_events","name":"is_ready","extra":{"glean_timestamp":"1778569594731"}}
+{"timestamp":34002,"category":"upgrade_dialog","name":"trigger_reason","extra":{"glean_timestamp":"1778569594747","value":"not-major"}}
+{"timestamp":63816,"category":"nimbus_events","name":"is_ready","extra":{"glean_timestamp":"1778569624560"}}

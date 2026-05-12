@@ -1,0 +1,41 @@
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 3.0.1"
+    }
+  }
+}
+
+provider "docker" {}
+
+# Створюємо образ Ubuntu для нашого "сервера"
+resource "docker_image" "ubuntu_ssh" {
+  name         = "rastasheep/ubuntu-sshd:18.04"
+  keep_locally = true
+}
+
+# Запускаємо контейнер, який буде імітувати віддалений сервер
+# Виводимо IP (в нашому випадку localhost)
+output "server_ip" {
+  value = "127.0.0.1"
+}
+
+resource "docker_container" "lab6_server" {
+  image = docker_image.ubuntu_ssh.image_id
+  name  = "lab6_target_host"
+  
+  ports {
+    internal = 22
+    external = 2222
+  }
+  
+  ports {
+    internal = 80
+    external = 8085
+  }
+
+  # Додаємо ці рядки, щоб контейнер не закривався
+  tty = true
+  command = ["/usr/sbin/sshd", "-D"]
+}
