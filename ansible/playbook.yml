@@ -1,51 +1,21 @@
 ---
 - name: Configure All Nodes
   hosts: all
+  gather_facts: no
   tasks:
-    - name: Install packages on Alpine
-      community.general.apk:
-        name: 
+    - name: Install Python 3
+      raw: apt-get update && apt-get install -y python3
+      changed_when: false
+
+    - name: Install Nginx and Tools
+      apt:
+        name:
+          - nginx
           - curl
-          - python3
+          - net-tools
         state: present
         update_cache: yes
 
-- name: Configure App Node
-  hosts: app_servers
-  tasks:
-    - name: Install Nginx and Exporter
-      apt:
-        name: [nginx, prometheus-node-exporter]
-        state: present
-    - name: Start App Services
-      shell: "service nginx start && service prometheus-node-exporter start"
+    - name: Start Nginx
+      shell: service nginx start
       ignore_errors: yes
-
-- name: Configure Monitor Node
-  hosts: monitor_servers
-  tasks:
-    - name: Install Prometheus
-      apt: { name: prometheus, state: present }
-    
-    - name: Create Prometheus Dir
-      file: { path: /var/run/prometheus, state: directory, owner: prometheus }
-
-    - name: Setup Grafana (ARM64)
-      get_url:
-        url: https://dl.grafana.com/oss/release/grafana_10.0.3_arm64.deb
-        dest: /tmp/grafana.deb
-    
-    - name: Install Grafana
-      apt: { deb: /tmp/grafana.deb }
-
-    - name: Configure Prometheus
-      template:
-        src: templates/prometheus.yml.j2
-        dest: /etc/prometheus/prometheus.yml
-
-    - name: Start Monitoring
-      shell: |
-        /usr/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus/metrics2 &
-        service grafana-server start
-      async: 10
-      poll: 0
