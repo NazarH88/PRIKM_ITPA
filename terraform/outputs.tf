@@ -2,7 +2,8 @@ output "ansible_inventory" {
   value = <<EOT
 [all:vars]
 ansible_user=root
-ansible_password=password
+ansible_password=root
+ansible_port=22
 ansible_become=yes
 
 [app_servers]

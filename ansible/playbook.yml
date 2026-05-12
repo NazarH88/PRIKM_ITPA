@@ -1,11 +1,14 @@
 ---
 - name: Configure All Nodes
   hosts: all
-  gather_facts: no
   tasks:
-    - name: Bootstrap package manager
-      raw: apt-get update && apt-get install -y python3 curl wget gnupg2 sudo
-      changed_when: false
+    - name: Install packages on Alpine
+      community.general.apk:
+        name: 
+          - curl
+          - python3
+        state: present
+        update_cache: yes
 
 - name: Configure App Node
   hosts: app_servers
