@@ -20,7 +20,7 @@ resource "docker_container" "app_node" {
   env   = ["PUID=1000", "PGID=1000", "TZ=Europe/Kyiv", "PASSWORD_ACCESS=true", "USER_PASSWORD=password"]
   ports {
     internal = 80
-    external = 8080
+    external = 8081
   }
 }
 

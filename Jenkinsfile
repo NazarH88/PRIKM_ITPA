@@ -30,7 +30,7 @@ pipeline {
         
         stage('Smoke Test') {
             steps {
-                sh 'curl -f http://localhost:8080 || echo "App not ready"'
+                sh 'curl -f http://localhost:8081 || echo "App not ready"'
                 sh 'curl -f http://localhost:9090 || echo "Prometheus not ready"'
             }
         }
