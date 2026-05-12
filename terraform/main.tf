@@ -30,10 +30,10 @@ resource "docker_container" "prometheus" {
     external = 9091
   }
 
-  volumes {
-    host_path      = "${path.module}/prometheus.yml"
-    container_path = "/etc/prometheus/prometheus.yml"
-  }
+volumes {
+  host_path      = "${path.cwd}/prometheus.yml"
+  container_path = "/etc/prometheus/prometheus.yml"
+}
 }
 
 # ---------- NODE EXPORTER ----------
