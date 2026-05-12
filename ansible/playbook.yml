@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: no
   tasks:
-    - name: Bootstrap python
-      raw: apt-get update && apt-get install -y python3 wget curl gnupg2
+    - name: Bootstrap package manager
+      raw: apt-get update && apt-get install -y python3 curl wget gnupg2 sudo
       changed_when: false
 
 - name: Configure App Node
