@@ -1,12 +1,13 @@
 output "ansible_inventory" {
   value = <<EOT
+[all:vars]
+ansible_connection=docker
+ansible_user=root
+
 [app_servers]
-app_node ansible_connection=docker
+app_node
 
 [monitor_servers]
-monitor_node ansible_connection=docker
-
-[all:vars]
-ansible_python_interpreter=/usr/bin/python3
+monitor_node
 EOT
 }
