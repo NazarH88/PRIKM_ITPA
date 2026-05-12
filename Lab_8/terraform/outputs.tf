@@ -3,6 +3,7 @@ output "ansible_inventory" {
 [all:vars]
 ansible_connection=docker
 ansible_user=root
+ansible_python_interpreter=/usr/bin/python3
 
 [app_servers]
 app_node
