@@ -9,7 +9,11 @@ terraform {
 
 provider "docker" {}
 
-# ---------- APP ----------
+resource "docker_network" "monitor_net" {
+  name = "monitor-net"
+}
+
+# APP (nginx)
 resource "docker_container" "app_node" {
   name  = "app_node"
   image = "nginx:latest"
@@ -18,9 +22,28 @@ resource "docker_container" "app_node" {
     internal = 80
     external = 8085
   }
+
+  networks_advanced {
+    name = docker_network.monitor_net.name
+  }
 }
 
-# ---------- PROMETHEUS ----------
+# NODE EXPORTER (CPU metrics)
+resource "docker_container" "node_exporter" {
+  name  = "node_exporter"
+  image = "prom/node-exporter:latest"
+
+  ports {
+    internal = 9100
+    external = 9100
+  }
+
+  networks_advanced {
+    name = docker_network.monitor_net.name
+  }
+}
+
+# PROMETHEUS
 resource "docker_container" "prometheus" {
   name  = "prometheus"
   image = "prom/prometheus:latest"
@@ -30,24 +53,21 @@ resource "docker_container" "prometheus" {
     external = 9091
   }
 
-volumes {
-  host_path      = "${path.cwd}/prometheus.yml"
-  container_path = "/etc/prometheus/prometheus.yml"
-}
-}
+  command = [
+    "--config.file=/etc/prometheus/prometheus.yml"
+  ]
 
-# ---------- NODE EXPORTER ----------
-resource "docker_container" "node_exporter" {
-  name  = "node_exporter"
-  image = "prom/node-exporter:latest"
+  volumes {
+    host_path      = "${path.module}/prometheus.yml"
+    container_path = "/etc/prometheus/prometheus.yml"
+  }
 
-  ports {
-    internal = 9100
-    external = 9100
+  networks_advanced {
+    name = docker_network.monitor_net.name
   }
 }
 
-# ---------- GRAFANA ----------
+# GRAFANA
 resource "docker_container" "grafana" {
   name  = "grafana"
   image = "grafana/grafana:latest"
@@ -56,4 +76,24 @@ resource "docker_container" "grafana" {
     internal = 3000
     external = 3000
   }
+
+  env = [
+    "GF_SECURITY_ADMIN_PASSWORD=admin"
+  ]
+
+  networks_advanced {
+    name = docker_network.monitor_net.name
+  }
+}
+
+output "ansible_inventory" {
+  value = <<EOT
+[app_servers]
+app_node ansible_connection=docker
+
+[monitor_servers]
+prometheus ansible_connection=docker
+grafana ansible_connection=docker
+node_exporter ansible_connection=docker
+EOT
 }
