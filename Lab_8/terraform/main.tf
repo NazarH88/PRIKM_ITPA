@@ -17,8 +17,10 @@ resource "docker_image" "ubuntu" {
 resource "docker_container" "app_node" {
   name  = "app_node"
   image = docker_image.ubuntu.image_id
-  # Ця команда тримає контейнер запущеним
-  command = ["tail", "-f", "/dev/null"]
+  # Це критично важливо:
+  tty   = true
+  stdin_open = true
+  
   ports {
     internal = 80
     external = 8081
@@ -28,7 +30,9 @@ resource "docker_container" "app_node" {
 resource "docker_container" "monitor_node" {
   name  = "monitor_node"
   image = docker_image.ubuntu.image_id
-  command = ["tail", "-f", "/dev/null"]
+  tty   = true
+  stdin_open = true
+
   ports {
     internal = 9090
     external = 9090
