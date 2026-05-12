@@ -1,21 +1,14 @@
 ---
-- name: Configure All Nodes
+- name: Emergency Setup
   hosts: all
   gather_facts: no
   tasks:
-    - name: Install Python 3
+    - name: Bootstrap Python
       raw: apt-get update && apt-get install -y python3
       changed_when: false
 
-    - name: Install Nginx and Tools
+    - name: Install Nginx
       apt:
-        name:
-          - nginx
-          - curl
-          - net-tools
+        name: nginx
         state: present
         update_cache: yes
-
-    - name: Start Nginx
-      shell: service nginx start
-      ignore_errors: yes
