@@ -4,6 +4,23 @@
 
   tasks:
 ---
+- name: Prepare and Configure Nodes
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Install Python 3 (Raw command)
+      raw: apt-get update && apt-get install -y python3
+      changed_when: false
+
+    - name: Install Services
+      apt:
+        name:
+          - curl
+          - net-tools
+          - nginx
+        state: present
+        update_cache: yes
+        
   - name: Configure All Nodes
     hosts: all
     gather_facts: no
