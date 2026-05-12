@@ -29,7 +29,15 @@ resource "docker_container" "app_server_new" {
     external = 8081
   }
 }
+resource "docker_container" "grafana_node" {
+  name  = "grafana_node"
+  image = "grafana/grafana:latest"
 
+  ports {
+    internal = 3000
+    external = 3000
+  }
+}
 resource "docker_container" "monitor_server_new" {
   name  = "monitor_node"
   image = docker_image.ubuntu_fresh.image_id
