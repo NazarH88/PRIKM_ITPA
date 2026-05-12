@@ -12,6 +12,7 @@ pipeline {
             steps {
                 dir('terraform') {
                     sh 'terraform init'
+		    sh 'docker rm -f app_node monitor_node || true'
                     sh 'terraform apply -auto-approve'
                     // Генеруємо інвентар для Ansible з output терраформу
                     sh 'terraform output -raw ansible_inventory > ../ansible/inventory.ini'
