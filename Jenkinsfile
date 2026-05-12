@@ -28,12 +28,13 @@ pipeline {
             }
         }
         
-        stage('Smoke Test') {
-            steps {
-                sh 'curl -f http://localhost:8081 || echo "App not ready"'
-                sh 'curl -f http://localhost:9090 || echo "Prometheus not ready"'
-            }
-        }
+		stage('Smoke Test') {
+		    steps {
+		        sh 'curl -f http://localhost:8085 || echo "App not ready"'
+		        sh 'curl -f http://localhost:9091 || echo "Prometheus not ready"'
+		        sh 'curl -f http://localhost:3000 || echo "Grafana not ready"'
+		    }
+		}
     }
     
     post {
