@@ -3,7 +3,22 @@
   gather_facts: false
 
   tasks:
+---
+  - name: Configure All Nodes
+    hosts: all
+    gather_facts: no
+    tasks:
+      - name: Install Python 3
+        raw: apt-get update && apt-get install -y python3
+        changed_when: false
 
+    - name: Install basic tools
+      apt:
+        name:
+          - curl
+          - net-tools
+        state: present
+        update_cache: yes
     - name: Remove old containers
       shell: |
         docker rm -f lab8-prometheus lab8-grafana || true
