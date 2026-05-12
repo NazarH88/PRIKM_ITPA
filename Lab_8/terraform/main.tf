@@ -2,41 +2,39 @@ terraform {
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
-      version = "~> 3.0"
+      version = "3.0.2"
     }
   }
 }
 
 provider "docker" {}
 
-resource "docker_network" "lab8" {
-  name = "lab8-network"
+resource "docker_image" "ubuntu" {
+  name         = "ubuntu:20.04"
+  keep_locally = true
 }
 
-resource "docker_container" "app" {
-  name  = "lab8-app"
-  image = "nazarh88/prikm:latest"
-
-  networks_advanced {
-    name = docker_network.lab8.name
-  }
-
+resource "docker_container" "app_node" {
+  name  = "app_node"
+  image = docker_image.ubuntu.image_id
+  # Ця команда тримає контейнер запущеним
+  command = ["tail", "-f", "/dev/null"]
   ports {
     internal = 80
-    external = 8097
+    external = 8081
   }
 }
 
-resource "docker_container" "node_exporter" {
-  name  = "lab8-node-exporter"
-  image = "prom/node-exporter:latest"
-
-  networks_advanced {
-    name = docker_network.lab8.name
-  }
-
+resource "docker_container" "monitor_node" {
+  name  = "monitor_node"
+  image = docker_image.ubuntu.image_id
+  command = ["tail", "-f", "/dev/null"]
   ports {
-    internal = 9100
-    external = 9101
+    internal = 9090
+    external = 9090
+  }
+  ports {
+    internal = 3000
+    external = 3000
   }
 }
