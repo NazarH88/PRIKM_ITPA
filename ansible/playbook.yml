@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: no
   tasks:
-    - name: Bootstrap Python
+    - name: Install Python 3
       raw: apt-get update && apt-get install -y python3
       changed_when: false
 
