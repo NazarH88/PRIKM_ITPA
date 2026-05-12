@@ -9,8 +9,9 @@ terraform {
 
 provider "docker" {}
 
+# Використовуємо інший стабільний образ з SSH
 resource "docker_image" "ubuntu_ssh" {
-  name = "rastasheep/ubuntu-sshd:20.04" # Образ із готовим SSH для Ansible
+  name = "rosetta/ubuntu-sshd:latest"
 }
 
 resource "docker_container" "app_node" {
