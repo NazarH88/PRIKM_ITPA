@@ -1,11 +1,12 @@
-output "app_url" {
-  value = "http://localhost:8097"
-}
+output "ansible_inventory" {
+  value = <<EOT
+[app_servers]
+app_node ansible_connection=docker
 
-output "node_exporter_target" {
-  value = "lab8-node-exporter:9100"
-}
+[monitor_servers]
+monitor_node ansible_connection=docker
 
-output "inventory" {
-  value = "[local]\nlocalhost ansible_connection=local\n"
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+EOT
 }
